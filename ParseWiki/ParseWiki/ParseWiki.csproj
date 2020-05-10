@@ -5,4 +5,8 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="CXuesong.MW.MwParserFromScratch" Version="0.3.0-int.4" />
+    </ItemGroup>
+
 </Project>
