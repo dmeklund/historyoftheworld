@@ -2,6 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Reflection;
+using System.Threading.Tasks;
+using System.Threading.Tasks.Dataflow;
 using System.Xml;
 
 using MwParserFromScratch;
@@ -15,16 +19,45 @@ namespace ParseWiki
 
         public WikiParser(string filepath) => this._filepath = filepath;
 
-        public void Parse()
+        private readonly struct WikiBlock
+        {
+            public string Title { get; }
+            public string Text { get; }
+            public WikiBlock(string title, string text)
+            {
+                Title = title;
+                Text = text;
+            }
+        }
+
+        private readonly struct WikiEvent
+        {
+            public DateRange Range { get; }
+            public string Title { get; }
+
+            public WikiEvent(string title, DateRange range)
+            {
+                Title = title;
+                Range = range;
+            }
+        }
+
+        public async Task Parse()
         {
             Console.WriteLine("Parsing {0}", _filepath);
-            using var stream = File.OpenRead(_filepath);
-            using var reader = XmlReader.Create(stream);
+            await using var stream = File.OpenRead(_filepath);
+            var settings = new XmlReaderSettings {Async = true};
+            using var reader = XmlReader.Create(stream, settings);
             string title = "";
             var counter = 0;
             var isTitle = false;
             var isText = false;
-            while (reader.Read())
+            // Task<void> task;
+            var extractor = new TransformBlock<WikiBlock, WikiEvent?>(
+                ExtractEvents,
+                new ExecutionDataflowBlockOptions { MaxDegreeOfParallelism = 32 }
+            );
+            while (await reader.ReadAsync())
             {
                 switch (reader.NodeType)
                 {
@@ -50,7 +83,8 @@ namespace ParseWiki
                             var text = reader.Value;
                             if (text.Contains("\n| coord") && text.Contains("\n| date "))
                             {
-                                ExtractEvents(text, title);
+                                // extractor.Post(new WikiBlock(title, text));
+                                ExtractEvents(new WikiBlock(title, text));
                             }
                         }
                         break;
@@ -93,9 +127,12 @@ namespace ParseWiki
                 // if (counter > 100000)
                     // break;
             }
+
+            extractor.Complete();
+            await extractor.Completion;
         }
 
-        private static void ExtractEvents(string text, string title)
+        private static WikiEvent? ExtractEvents(WikiBlock block)
         {
             // Console.WriteLine("Title {0} matches", title);
             var dateTypes = new Dictionary<string, string>
@@ -113,7 +150,7 @@ namespace ParseWiki
             };
             var skipDateTypes = new HashSet<String> {"date_format"};
             var astParser = new WikitextParser();
-            var ast = astParser.Parse(text);
+            var ast = astParser.Parse(block.Text);
             foreach (var t in ast.EnumDescendants().OfType<Template>()
                 .Where(t => MwParserUtility.NormalizeTemplateArgumentName(t.Name).StartsWith("Infobox")))
             {
@@ -141,7 +178,16 @@ namespace ParseWiki
                 {
                     if (dateTypes.ContainsKey(datetype))
                     {
-                        Console.WriteLine("{0}{1}: {2}", title, dateTypes[datetype], date);
+                        var range = DateRange.Parse(date);
+                        if (range == null)
+                        {
+                            Console.WriteLine("{0}{1}: Couldn't parse date: {2}", block.Title, dateTypes[datetype], date);
+                        }
+                        else
+                        {
+                            Console.WriteLine("{0}{1}: {2} ({3})", block.Title, dateTypes[datetype], range, date);
+                        }
+                        return new WikiEvent();
                     }
                     else
                     {
@@ -153,6 +199,8 @@ namespace ParseWiki
                     // Console.WriteLine("Coord: {0}", coord);
                 }
             }
+
+            return null;
         }
     }
 }

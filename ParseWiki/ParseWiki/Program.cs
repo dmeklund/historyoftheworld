@@ -1,15 +1,16 @@
 ﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ParseWiki
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            string filepath;
-            filepath = "/mnt/data/wiki/enwiki-20200401-pages-articles-multistream.xml";
+            const string filepath = "/mnt/data/wiki/enwiki-20200401-pages-articles-multistream.xml";
             var parser = new WikiParser(filepath);
-            parser.Parse();
+            await parser.Parse();
         }
     }
 }
