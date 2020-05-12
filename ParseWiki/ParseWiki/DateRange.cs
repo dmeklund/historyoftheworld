@@ -167,7 +167,10 @@ namespace ParseWiki
         {
             try
             {
-                return new DateTime(Year, Month, Day, Hour, Minute, Second).ToString(CultureInfo.InvariantCulture);
+                var result = new DateTime(Year, Month, Day, Hour, Minute, Second).ToString(CultureInfo.InvariantCulture);
+                if (Epoch == Epoch.BC)
+                    result = result + " BC";
+                return result;
             }
             catch (ArgumentOutOfRangeException exc)
             {
@@ -183,11 +186,11 @@ namespace ParseWiki
         {
             return granularity switch
             {
-                DateGranularity.Minute => new PWDateTime(time.Year, time.Month, time.Day, time.Hour, time.Minute),
-                DateGranularity.Hour => new PWDateTime(time.Year, time.Month, time.Day, time.Hour),
-                DateGranularity.Day => new PWDateTime(time.Year, time.Month, time.Day),
-                DateGranularity.Month => new PWDateTime(time.Year, time.Month),
-                DateGranularity.Year => new PWDateTime(time.Year),
+                DateGranularity.Minute => new PWDateTime(time.Year, time.Month, time.Day, time.Hour, time.Minute, epoch:time.Epoch),
+                DateGranularity.Hour => new PWDateTime(time.Year, time.Month, time.Day, time.Hour, epoch:time.Epoch),
+                DateGranularity.Day => new PWDateTime(time.Year, time.Month, time.Day, epoch:time.Epoch),
+                DateGranularity.Month => new PWDateTime(time.Year, time.Month, epoch:time.Epoch),
+                DateGranularity.Year => new PWDateTime(time.Year, epoch:time.Epoch),
                 _ => throw new ArgumentOutOfRangeException(nameof(granularity), granularity, null)
             };
         }
@@ -196,11 +199,11 @@ namespace ParseWiki
         {
             return granularity switch
             {
-                DateGranularity.Minute => new PWDateTime(time.Year, time.Month, time.Day, time.Hour, time.Minute, 59),
-                DateGranularity.Hour => new PWDateTime(time.Year, time.Month, time.Day, time.Hour, 59, 59),
-                DateGranularity.Day => new PWDateTime(time.Year, time.Month, time.Day, 23, 59, 59),
-                DateGranularity.Month => new PWDateTime(time.Year, time.Month, DateTime.DaysInMonth(time.Year, time.Month), 23, 59, 59),
-                DateGranularity.Year => new PWDateTime(time.Year, 12, 31, 23, 59, 59),
+                DateGranularity.Minute => new PWDateTime(time.Year, time.Month, time.Day, time.Hour, time.Minute, 59, epoch:time.Epoch),
+                DateGranularity.Hour => new PWDateTime(time.Year, time.Month, time.Day, time.Hour, 59, 59, epoch:time.Epoch),
+                DateGranularity.Day => new PWDateTime(time.Year, time.Month, time.Day, 23, 59, 59, epoch:time.Epoch),
+                DateGranularity.Month => new PWDateTime(time.Year, time.Month, DateTime.DaysInMonth(time.Year, time.Month), 23, 59, 59, epoch:time.Epoch),
+                DateGranularity.Year => new PWDateTime(time.Year, 12, 31, 23, 59, 59, epoch:time.Epoch),
                 _ => throw new ArgumentOutOfRangeException(nameof(granularity), granularity, null)
             };
         }
@@ -225,7 +228,7 @@ namespace ParseWiki
                 }
             }
 
-            var separator = input.IndexOf("-", StringComparison.Ordinal);
+            var separator = input.IndexOfAny(new char[] {'-', '–'});
             AmbiguousDateTime start, end;
             if (separator == -1)
             {
@@ -368,7 +371,7 @@ namespace ParseWiki
                     SetIsCertainly(DateComponent.Month, month);
                 if (contents.Contains(":") && DateTime.TryParse(contents, out var time))
                     SetIsCertainly(DateComponent.Time, time);
-                if (EpochStrToVal.TryGetValue(contents, out var epoch))
+                if (EpochStrToVal.TryGetValue(contents.ToLower(), out var epoch))
                     SetIsCertainly(DateComponent.Epoch, epoch);
 
                 if (_possibleValues.Count == 1 && !IsCertain)
