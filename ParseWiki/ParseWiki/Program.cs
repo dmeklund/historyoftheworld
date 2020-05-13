@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace ParseWiki
 {
@@ -9,7 +10,10 @@ namespace ParseWiki
         static async Task Main(string[] args)
         {
             const string filepath = "/mnt/data/wiki/enwiki-20200401-pages-articles-multistream.xml";
-            var parser = new WikiParser(filepath);
+            var connstr = "server=localhost; database=hotw; uid=hotw; pwd=hotw;";
+            var datasource = new MySqlDataSource(connstr);
+            datasource.Truncate();
+            var parser = new WikiParser(filepath, datasource);
             await parser.Parse();
         }
     }

@@ -7,6 +7,7 @@
 
     <ItemGroup>
       <PackageReference Include="CXuesong.MW.MwParserFromScratch" Version="0.3.0-int.4" />
+      <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.20" />
     </ItemGroup>
 
 </Project>

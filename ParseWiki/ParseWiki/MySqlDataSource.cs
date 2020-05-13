@@ -1,0 +1,46 @@
+using MySql.Data.MySqlClient;
+
+namespace ParseWiki
+{
+    public class MySqlDataSource : IDataSource
+    {
+        private readonly string _connstr;
+        public MySqlDataSource(string connstr)
+        {
+            _connstr = connstr;
+        }
+        
+        public async void SaveEvent(int id, string title, string eventtype, DateRange range)
+        {
+            await using var conn = new MySqlConnection(_connstr);
+            await conn.OpenAsync();
+            var cmd = conn.CreateCommand();
+            cmd.CommandText =
+                "INSERT INTO events (id, title, eventtype, startyear, startmonth, startday, starthour, startminute, endyear, endmonth, endday, endhour, endminute)" +
+                "VALUES (@id, @title, @eventtype, @startyear, @startmonth, @startday, @starthour, @startminute, @endyear, @endmonth, @endday, @endhour, @endminute)";
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@title", title);
+            cmd.Parameters.AddWithValue("@eventtype", eventtype);
+            cmd.Parameters.AddWithValue("@startyear", range.StartTime.YearWithEpoch);
+            cmd.Parameters.AddWithValue("@startmonth", range.StartTime.Month);
+            cmd.Parameters.AddWithValue("@startday", range.StartTime.Day);
+            cmd.Parameters.AddWithValue("@starthour", range.StartTime.Hour);
+            cmd.Parameters.AddWithValue("@startminute", range.StartTime.Minute);
+            cmd.Parameters.AddWithValue("@endyear", range.EndTime.YearWithEpoch);
+            cmd.Parameters.AddWithValue("@endmonth", range.EndTime.Month);
+            cmd.Parameters.AddWithValue("@endday", range.EndTime.Day);
+            cmd.Parameters.AddWithValue("@endhour", range.EndTime.Hour);
+            cmd.Parameters.AddWithValue("@endminute", range.EndTime.Minute);
+            await cmd.ExecuteNonQueryAsync();
+        }
+
+        public async void Truncate()
+        {
+            await using var conn = new MySqlConnection(_connstr);
+            await conn.OpenAsync();
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = "TRUNCATE TABLE events";
+            await cmd.ExecuteNonQueryAsync();
+        }
+    }
+}

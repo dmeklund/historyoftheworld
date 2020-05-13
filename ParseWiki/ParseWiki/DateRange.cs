@@ -154,7 +154,21 @@ namespace ParseWiki
             Epoch = Epoch.AD;
         }
 
-
+        public int YearWithEpoch
+        {
+            get
+            {
+                switch (Epoch)
+                {
+                    case Epoch.AD:
+                        return Year;
+                    case Epoch.BC:
+                        return -Year;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+        }
         public int Year { get; }
         public int Month { get; }
         public int Day { get; }
