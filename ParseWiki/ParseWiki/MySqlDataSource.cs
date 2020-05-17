@@ -10,14 +10,14 @@ namespace ParseWiki
             _connstr = connstr;
         }
         
-        public async void SaveEvent(int id, string title, string eventtype, DateRange range)
+        public async void SaveEvent(int id, string title, string eventtype, DateRange range, Coord coord)
         {
             await using var conn = new MySqlConnection(_connstr);
             await conn.OpenAsync();
             var cmd = conn.CreateCommand();
             cmd.CommandText =
-                "INSERT INTO events (id, title, eventtype, startyear, startmonth, startday, starthour, startminute, endyear, endmonth, endday, endhour, endminute)" +
-                "VALUES (@id, @title, @eventtype, @startyear, @startmonth, @startday, @starthour, @startminute, @endyear, @endmonth, @endday, @endhour, @endminute)";
+                "INSERT INTO events (id, title, eventtype, startyear, startmonth, startday, starthour, startminute, endyear, endmonth, endday, endhour, endminute, lat, lng)" +
+                "VALUES (@id, @title, @eventtype, @startyear, @startmonth, @startday, @starthour, @startminute, @endyear, @endmonth, @endday, @endhour, @endminute, @lat, @lng)";
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Parameters.AddWithValue("@title", title);
             cmd.Parameters.AddWithValue("@eventtype", eventtype);
@@ -31,6 +31,8 @@ namespace ParseWiki
             cmd.Parameters.AddWithValue("@endday", range.EndTime.Day);
             cmd.Parameters.AddWithValue("@endhour", range.EndTime.Hour);
             cmd.Parameters.AddWithValue("@endminute", range.EndTime.Minute);
+            cmd.Parameters.AddWithValue("@lat", coord.Latitude);
+            cmd.Parameters.AddWithValue("@lng", coord.Longitude);
             await cmd.ExecuteNonQueryAsync();
         }
 

@@ -99,8 +99,8 @@ namespace ParseWiki
                             var text = reader.Value;
                             if (text.Contains("| coord"))
                             {
-                                // extractor.Post(new WikiBlock(id, title, text));
-                                ExtractEvents(new WikiBlock(id, title, text));
+                                extractor.Post(new WikiBlock(id, title, text));
+                                // ExtractEvents(new WikiBlock(id, title, text));
                             }
                         }
                         break;
@@ -150,67 +150,76 @@ namespace ParseWiki
 
         private WikiEvent? ExtractEvents(WikiBlock block)
         {
-            // Console.WriteLine("Title {0} matches", title);
-            var dateTypes = new Dictionary<string, string>
+            try
             {
-                {"date", ""},
-                {"date_format", ""},
-                {"established_date", " Established"},
-                {"established_date1", " Established"},
-                {"established_date2", " Established"},
-                {"established_date3", " Established"},
-                {"established_date4", " Established"},
-                {"established_date5", " Established"},
-                {"established_date6", " Established"},
-                {"founded_date", " Founded"},
-            };
-            var skipDateTypes = new HashSet<String> {"date_format"};
-            var astParser = new WikitextParser();
-            var ast = astParser.Parse(block.Text);
-            DateRange daterange = null;
-            foreach (var t in ast.EnumDescendants().OfType<Template>()
-                .Where(t => MwParserUtility.NormalizeTemplateArgumentName(t.Name).StartsWith("Infobox")))
-            {
-                // string date = String.Empty;
-                var datetype = string.Empty;
-                var coord = string.Empty;
-                foreach (var attr in t.Arguments)
+                // Console.WriteLine("Title {0} matches", title);
+                var dateTypes = new Dictionary<string, string>
                 {
-                    var attrName = MwParserUtility.NormalizeTemplateArgumentName(attr.Name);
-                    if (attrName == null)
+                    {"date", ""},
+                    {"date_format", ""},
+                    {"established_date", " Established"},
+                    {"established_date1", " Established"},
+                    {"established_date2", " Established"},
+                    {"established_date3", " Established"},
+                    {"established_date4", " Established"},
+                    {"established_date5", " Established"},
+                    {"established_date6", " Established"},
+                    {"founded_date", " Founded"},
+                };
+                var skipDateTypes = new HashSet<String> {"date_format"};
+                var astParser = new WikitextParser();
+                var ast = astParser.Parse(block.Text);
+                DateRange daterange = null;
+                foreach (var t in ast.EnumDescendants().OfType<Template>()
+                    .Where(t => MwParserUtility.NormalizeTemplateArgumentName(t.Name).StartsWith("Infobox")))
+                {
+                    // string date = String.Empty;
+                    var datetype = string.Empty;
+                    Coord coord = null;
+                    foreach (var attr in t.Arguments)
                     {
+                        var attrName = MwParserUtility.NormalizeTemplateArgumentName(attr.Name);
+                        if (attrName == null)
+                        {
+                        }
+                        else if (attrName.Contains("coord") && attr.Value.ToString().Trim() != "")
+                        {
+                            try
+                            {
+                                coord = Coord.FromWikitext(attr.Value.ToString());
+                            }
+                            catch (ArgumentException e)
+                            {
+                                Console.Write(block.Title + ": ");
+                                Console.WriteLine(e.Message);
+                            }
+                        }
+                        else if (attrName.Contains("date") && !skipDateTypes.Contains(attrName))
+                        {
+                            var date = attr.Value.ToPlainText().Trim();
+                            daterange = DateRange.Parse(date);
+                            // if (daterange == null)
+                            //     Console.WriteLine("{0}{1}: Couldn't parse date: {2}", block.Title, dateTypes[datetype], date);
+                            datetype = attrName;
+                        }
                     }
-                    else if (attrName.Contains("coord"))
-                    {
-                        coord = attr.Value.ToString().Trim();
-                    }
-                    else if (attrName.Contains("date") && !skipDateTypes.Contains(attrName))
-                    {
-                        var date = attr.Value.ToPlainText().Trim();
-                        daterange = DateRange.Parse(date);
-                        // if (daterange == null)
-                        //     Console.WriteLine("{0}{1}: Couldn't parse date: {2}", block.Title, dateTypes[datetype], date);
-                        datetype = attrName;
-                    }
-                }
 
-                if (daterange != null && coord != string.Empty)
-                {
-                    if (dateTypes.ContainsKey(datetype))
+                    if (daterange != null && coord != null)
                     {
-                        Console.WriteLine("{0}{1}: {2}", block.Title, dateTypes[datetype], daterange);
-                        _datasource.SaveEvent(block.Id, block.Title, dateTypes[datetype], daterange);
+                        var eventType = dateTypes.GetValueOrDefault(datetype, "");
+                        Console.WriteLine("{0}{1}: {2}", block.Title, eventType, daterange);
+                        _datasource.SaveEvent(block.Id, block.Title, eventType, daterange, coord);
                         return new WikiEvent(block.Title, daterange);
+                        // Console.WriteLine("Title: {0}", title);
+                        // Console.WriteLine(MwParserUtility.NormalizeTemplateArgumentName(t.Name));
+                        // Console.WriteLine("Date ({0}): {1}", datetype, date);
+                        // Console.WriteLine("Coord: {0}", coord);
                     }
-                    else
-                    {
-                        Console.WriteLine("Unknown datetype: {0}", datetype);
-                    }
-                    // Console.WriteLine("Title: {0}", title);
-                    // Console.WriteLine(MwParserUtility.NormalizeTemplateArgumentName(t.Name));
-                    // Console.WriteLine("Date ({0}): {1}", datetype, date);
-                    // Console.WriteLine("Coord: {0}", coord);
                 }
+            }
+            catch (Exception e)
+            {
+                Console.Out.WriteLine("Caught exception during processing: " + e);
             }
 
             return null;

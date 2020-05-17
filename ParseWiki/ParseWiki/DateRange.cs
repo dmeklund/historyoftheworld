@@ -258,7 +258,7 @@ namespace ParseWiki
 
             if (start.FullyAmbiguous)
             {
-                Console.WriteLine($"{input} is fully ambiguous");
+                // Console.WriteLine($"{input} is fully ambiguous");
                 return null;
             }
             granularity = start.Granularity;
