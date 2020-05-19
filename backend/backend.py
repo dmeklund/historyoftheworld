@@ -29,6 +29,10 @@ def index():
 def send_static(path):
     return flask.send_from_directory("static", path)
 
+@app.route("/js/<path:path>")
+def send_js(path):
+    return flask.send_from_directory("js", path)
+
 class Events(Resource):
     def post(self):
         # args = parser.parse_args()
