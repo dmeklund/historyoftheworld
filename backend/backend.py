@@ -1,6 +1,7 @@
 import json
 
 import mysql.connector
+import flask
 from flask import Flask, request
 from flask_restful import Resource, Api, reqparse
 
@@ -22,8 +23,11 @@ def project(val, minval, maxval):
 
 @app.route("/")
 def index():
-    with open("/home/david/workspace/historyoftheworld/mapapp/mapapp.html", "r") as f:
-        return "\n".join(f.readlines())
+    return flask.send_from_directory("static", "mapapp.html")
+
+@app.route("/static/<path:path>")
+def send_static(path):
+    return flask.send_from_directory("static", path)
 
 class Events(Resource):
     def post(self):
