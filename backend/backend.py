@@ -70,6 +70,7 @@ class Events(Resource):
         allevents = []
         for result in cursor.fetchall():
             allevents.append({'title': result[0] + result[1], 'lat': result[2], 'lng': result[3]})
+        print("Returning: {}".format(json.dumps(allevents)))
         return allevents
 
 api.add_resource(Events, '/events')
