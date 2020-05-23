@@ -20,9 +20,10 @@ class Map {
     // var popup = L.popup();
     map.on('click', this.onChange);
     this.map = map
+    this.markers = {}
   }
-  
 }
+
 async function onChange(map, e) {
     console.log("Change: " + JSON.stringify(map.getBounds()));
     let response = await fetch("http://localhost:5000/events", {

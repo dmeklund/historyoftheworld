@@ -59,7 +59,7 @@ class Events(Resource):
             "maxlng": maxlng
         }
         query = """
-            SELECT title, eventtype, lat, lng 
+            SELECT id, title, eventtype, lat, lng 
             FROM events 
             WHERE lat BETWEEN %(minlat)f AND %(maxlat)f
             AND lng BETWEEN %(minlng)f AND %(maxlng)f
@@ -69,7 +69,11 @@ class Events(Resource):
         cursor.execute(query)
         allevents = []
         for result in cursor.fetchall():
-            allevents.append({'title': result[0] + result[1], 'lat': result[2], 'lng': result[3]})
+            allevents.append({
+                'title': result[0] + result[1], 
+                'lat': result[2], 
+                'lng': result[3]}
+            )
         print("Returning: {}".format(json.dumps(allevents)))
         return allevents
 
