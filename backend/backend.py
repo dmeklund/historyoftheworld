@@ -40,6 +40,13 @@ class Events(Resource):
         # northeast = json.loads(args['_northEast'])
         southwest = request.json['_southWest']
         northeast = request.json['_northEast']
+        minlng = southwest['lng']
+        maxlng = northeast['lng']
+        if maxlng - minlng > 360:
+            minlng = 0
+            maxlng = 360
+        else:
+            pass
         minlat = project(southwest['lat'], -180, 180)
         minlng = project(southwest['lng'], -180, 180)
         maxlat = project(northeast['lat'], -180, 180)
