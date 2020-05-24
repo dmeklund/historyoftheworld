@@ -77,9 +77,10 @@ class Events(Resource):
         allevents = []
         for result in cursor.fetchall():
             allevents.append({
-                'title': result[0] + result[1], 
-                'lat': result[2], 
-                'lng': result[3]}
+                'id': result[0],
+                'title': result[1] + result[2], 
+                'lat': result[3], 
+                'lng': result[4]}
             )
         print("Returning: {}".format(json.dumps(allevents)))
         return allevents
