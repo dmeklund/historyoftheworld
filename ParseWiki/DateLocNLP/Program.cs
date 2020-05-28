@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace ProtoNLP
+namespace DateLocNLP
 {
     static class Program
     {
@@ -27,47 +27,11 @@ namespace ProtoNLP
                 "In August 1907, MacArthur was sent to the engineer district office in Milwaukee, where his parents were living. In April 1908, he was posted to Fort Leavenworth, where he was given his first command, Company K, 3rd Engineer Battalion.[28] He became battalion adjutant in 1909 and then engineer officer at Fort Leavenworth in 1910. MacArthur was promoted to captain in February 1911 and was appointed as head of the Military Engineering Department and the Field Engineer School. He participated in exercises at San Antonio, Texas, with the Maneuver Division in 1911 and served in Panama on detached duty in January and February 1912. The sudden death of their father on 5 September 1912 brought Douglas and his brother Arthur back to Milwaukee to care for their mother, whose health had deteriorated. MacArthur requested a transfer to Washington, D.C. so his mother could be near Johns Hopkins Hospital. Army Chief of Staff, Major General Leonard Wood, took up the matter with Secretary of War Henry L. Stimson, who arranged for MacArthur to be posted to the Office of the Chief of Staff in 1912.[29] ";
             sampleText =
                 "The political group that proved most troublesome for Kerensky, and would eventually overthrow him, was the Bolshevik Party, led by Vladimir Lenin. Lenin had been living in exile in neutral Switzerland and, due to democratization of politics after the February Revolution, which legalized formerly banned political parties, he perceived the opportunity for his Marxist revolution. Although return to Russia had become a possibility, the war made it logistically difficult. Eventually, German officials arranged for Lenin to pass through their territory, hoping that his activities would weaken Russia or even – if the Bolsheviks came to power – lead to Russia's withdrawal from the war. Lenin and his associates, however, had to agree to travel to Russia in a sealed train: Germany would not take the chance that he would foment revolution in Germany. After passing through the front, he arrived in Petrograd in April 1917. ";
-            var nlpBaseAddress = "http://localhost:9000";
-            var options = new NlpProperties();
-            // options.annotators = "tokenize, ssplit, pos, lemma, ner, parse, coref";
-            // options.annotators = "tokenize, ssplit, pos, ner, coref";
-            options.annotators = "openie, coref";
-            options.outputformat = "text";
-            var jsonOptions = JsonSerializer.Serialize(options);
-            var qstringProperties = new Dictionary<string,string>();
-            qstringProperties.Add("properties", jsonOptions);
-            var qString = ToQueryString(qstringProperties);
-            var urlPlusQuery = nlpBaseAddress + qString;
-            var content = new StringContent(sampleText);
-            content.Headers.Clear();
-            content.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
-            var client = new HttpClient();
-            var response = await client.PostAsync(urlPlusQuery, content);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
-            {
-                throw new ApplicationException("Subject-Object tuple extraction returned an unexpected response from the subject-object service");
-            }
-            var jsonResult = await response.Content.ReadAsStringAsync();
-            var result = JsonSerializer.Deserialize<NlpResult>(jsonResult);
+            var result = await new NlpProcessor().ProcessText(sampleText);
 
-            await System.IO.File.WriteAllTextAsync("/home/david/output.json", jsonResult);
+            // await System.IO.File.WriteAllTextAsync("/home/david/output.json", jsonResult);
             // Console.Out.WriteLine(jsonResult);
         }
         
-        private static string ToQueryString(Dictionary<string,string> args)
-        {
-            var sb = new StringBuilder("?");
-            bool first = true;
-            foreach (var item in args)
-            {
-                if (!first)
-                {
-                    sb.Append("&");
-                }
-                sb.AppendFormat("{0}={1}", Uri.EscapeDataString(item.Key), Uri.EscapeDataString(item.Value));
-                first = false;
-            }
-            return sb.ToString();
-        }
     }
 }

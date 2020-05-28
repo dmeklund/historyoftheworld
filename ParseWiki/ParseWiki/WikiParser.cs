@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 using System.Xml;
-
+using DateLocNLP;
 using MwParserFromScratch;
 using MwParserFromScratch.Nodes;
 
@@ -148,7 +148,8 @@ namespace ParseWiki
             // await extractor.Completion;
         }
 
-        private WikiEvent? ExtractEvents(WikiBlock block)
+        
+        private async Task<WikiEvent?> ExtractEvents(WikiBlock block)
         {
             try
             {
@@ -170,52 +171,100 @@ namespace ParseWiki
                 var astParser = new WikitextParser();
                 var ast = astParser.Parse(block.Text);
                 DateRange daterange = null;
-                foreach (var t in ast.EnumDescendants().OfType<Template>()
-                    .Where(t => MwParserUtility.NormalizeTemplateArgumentName(t.Name).StartsWith("Infobox")))
+                var proc = new NlpProcessor();
+                foreach (var (line, index) in ast.Lines.WithIndex())
                 {
-                    // string date = String.Empty;
-                    var datetype = string.Empty;
-                    Coord coord = null;
-                    foreach (var attr in t.Arguments)
+                    var sentenceNum = index + 1;
+                    var plainText = line.ToPlainText();
+                    var result = await proc.ProcessText(plainText);
+                    foreach (var sentence in result.sentences)
                     {
-                        var attrName = MwParserUtility.NormalizeTemplateArgumentName(attr.Name);
-                        if (attrName == null)
+                        string location = null;
+                        string date = null;
+                        if (sentence.entitymentions == null) continue;
+                        foreach (var entity in sentence.entitymentions)
                         {
-                        }
-                        else if (attrName.Contains("coord") && attr.Value.ToString().Trim() != "")
-                        {
-                            try
+                            if (entity.ner == "LOCATION" || entity.ner == "CITY")
                             {
-                                coord = Coord.FromWikitext(attr.Value.ToString());
+                                location = entity.text;
                             }
-                            catch (ArgumentException e)
+                            else if (entity.ner == "DATE")
                             {
-                                Console.Write(block.Title + ": ");
-                                Console.WriteLine(e.Message);
+                                date = entity.text;
                             }
                         }
-                        else if (attrName.Contains("date") && !skipDateTypes.Contains(attrName))
-                        {
-                            var date = attr.Value.ToPlainText().Trim();
-                            daterange = DateRange.Parse(date);
-                            // if (daterange == null)
-                            //     Console.WriteLine("{0}{1}: Couldn't parse date: {2}", block.Title, dateTypes[datetype], date);
-                            datetype = attrName;
-                        }
-                    }
 
-                    if (daterange != null && coord != null)
-                    {
-                        var eventType = dateTypes.GetValueOrDefault(datetype, "");
-                        Console.WriteLine("{0}{1}: {2}", block.Title, eventType, daterange);
-                        _datasource.SaveEvent(block.Id, block.Title, eventType, daterange, coord);
-                        return new WikiEvent(block.Title, daterange);
-                        // Console.WriteLine("Title: {0}", title);
-                        // Console.WriteLine(MwParserUtility.NormalizeTemplateArgumentName(t.Name));
-                        // Console.WriteLine("Date ({0}): {1}", datetype, date);
-                        // Console.WriteLine("Coord: {0}", coord);
+                        if (location != null && date != null)
+                        {
+                            var eventInfo = sentence.openie.FirstOrDefault(
+                                // info => info.subject.Contains(location) || info.object_.Contains(location)
+                            info => (
+                                (info.subject.Contains(date) || info.object_.Contains(date)) &&
+                                (info.subject.Contains(location) || info.object_.Contains(location)))
+                            );
+
+                            if (eventInfo != null)
+                            {
+                                // TODO: update coreferences
+                                Console.WriteLine(
+                                    "Found in {0}: {1} {2} {3} ({4})",
+                                    block.Title, 
+                                    eventInfo.subject,
+                                    eventInfo.relation,
+                                    eventInfo.object_,
+                                    date
+                                );
+                                Console.WriteLine("Original sentence: {0}", sentence);
+                            }
+                        }
                     }
                 }
+                // foreach (var t in ast.EnumDescendants().OfType<Template>()
+                //     .Where(t => MwParserUtility.NormalizeTemplateArgumentName(t.Name).StartsWith("Infobox")))
+                // {
+                //     // string date = String.Empty;
+                //     var datetype = string.Empty;
+                //     Coord coord = null;
+                //     foreach (var attr in t.Arguments)
+                //     {
+                //         var attrName = MwParserUtility.NormalizeTemplateArgumentName(attr.Name);
+                //         if (attrName == null)
+                //         {
+                //         }
+                //         else if (attrName.Contains("coord") && attr.Value.ToString().Trim() != "")
+                //         {
+                //             try
+                //             {
+                //                 coord = Coord.FromWikitext(attr.Value.ToString());
+                //             }
+                //             catch (ArgumentException e)
+                //             {
+                //                 Console.Write(block.Title + ": ");
+                //                 Console.WriteLine(e.Message);
+                //             }
+                //         }
+                //         else if (attrName.Contains("date") && !skipDateTypes.Contains(attrName))
+                //         {
+                //             var date = attr.Value.ToPlainText().Trim();
+                //             daterange = DateRange.Parse(date);
+                //             // if (daterange == null)
+                //             //     Console.WriteLine("{0}{1}: Couldn't parse date: {2}", block.Title, dateTypes[datetype], date);
+                //             datetype = attrName;
+                //         }
+                //     }
+                //
+                //     if (daterange != null && coord != null)
+                //     {
+                //         var eventType = dateTypes.GetValueOrDefault(datetype, "");
+                //         Console.WriteLine("{0}{1}: {2}", block.Title, eventType, daterange);
+                //         _datasource.SaveEvent(block.Id, block.Title, eventType, daterange, coord);
+                //         return new WikiEvent(block.Title, daterange);
+                //         // Console.WriteLine("Title: {0}", title);
+                //         // Console.WriteLine(MwParserUtility.NormalizeTemplateArgumentName(t.Name));
+                //         // Console.WriteLine("Date ({0}): {1}", datetype, date);
+                //         // Console.WriteLine("Coord: {0}", coord);
+                //     }
+                // }
             }
             catch (Exception e)
             {
