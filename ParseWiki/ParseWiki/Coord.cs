@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Google.Protobuf.WellKnownTypes;
 using MwParserFromScratch.Nodes;
 
@@ -107,5 +108,28 @@ namespace ParseWiki
         
         public double Latitude { get; }
         public double Longitude { get; }
+        public override string ToString()
+        {
+            var builder = new StringBuilder();
+            if (Latitude >= 0)
+            {
+                builder.AppendFormat("{0} N, ", Latitude);
+            }
+            else
+            {
+                builder.AppendFormat("{0} S, ", -Latitude);
+            }
+
+            if (Longitude >= 0)
+            {
+                builder.AppendFormat("{0} E", Longitude);
+            }
+            else
+            {
+                builder.AppendFormat("{0} W", -Longitude);
+            }
+
+            return builder.ToString();
+        }
     }
 }

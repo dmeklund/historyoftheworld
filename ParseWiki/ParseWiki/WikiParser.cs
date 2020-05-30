@@ -22,16 +22,30 @@ namespace ParseWiki
             this._datasource = datasource;
         } 
 
-        private readonly struct WikiBlock
+        private struct WikiBlock
         {
             public int Id { get; }
             public string Title { get; }
             public string Text { get; }
+            private Wikitext _wtext;
+
+            public Wikitext Wtext
+            {
+                get
+                {
+                    if (_wtext == null)
+                    {
+                        _wtext = new WikitextParser().Parse(Text);
+                    }
+                    return _wtext;
+                }
+            }
             public WikiBlock(int id, string title, string text)
             {
                 Id = id;
                 Title = title;
                 Text = text;
+                _wtext = null;
             }
         }
 
@@ -60,8 +74,9 @@ namespace ParseWiki
             var isId = false;
             var isText = false;
             // Task<void> task;
-            var extractor = new TransformBlock<WikiBlock, WikiEvent?>(
-                ExtractEvents,
+            var extractor = new TransformBlock<WikiBlock, WikiLocation>(
+                // ExtractEvents,
+                ExtractLocations,
                 new ExecutionDataflowBlockOptions { MaxDegreeOfParallelism = 32 }
             );
             while (await reader.ReadAsync())
@@ -97,11 +112,11 @@ namespace ParseWiki
                         {
                             isText = false;
                             var text = reader.Value;
-                            if (text.Contains("| coord"))
-                            {
+                            // if (text.Contains("| coord"))
+                            // {
                                 extractor.Post(new WikiBlock(id, title, text));
                                 // ExtractEvents(new WikiBlock(id, title, text));
-                            }
+                            // }
                         }
                         break;
                     case XmlNodeType.None:
@@ -148,6 +163,27 @@ namespace ParseWiki
             // await extractor.Completion;
         }
 
+        private static WikiLocation ExtractLocations(WikiBlock block)
+        {
+            var coords = block.Wtext.EnumDescendants()
+                .OfType<Template>()
+                .Where(t => MwParserUtility.NormalizeTemplateArgumentName(t.Name).StartsWith("Coord"))
+                .Select(t => Coord.FromWikitext(t.ToString()))
+                .ToList();
+            if (coords.Count > 0)
+            {
+                foreach (var coord in coords)
+                {
+                    Console.WriteLine("Found coord for {0}: {1}", block.Title, coord);
+                }
+                return new WikiLocation(block.Id, block.Title, coords[0]);
+            }
+            else
+            {
+                return null;
+            }
+
+        }
         
         private async Task<WikiEvent?> ExtractEvents(WikiBlock block)
         {
@@ -167,7 +203,7 @@ namespace ParseWiki
                     {"established_date6", " Established"},
                     {"founded_date", " Founded"},
                 };
-                var skipDateTypes = new HashSet<String> {"date_format"};
+                var skipDateTypes = new HashSet<string> {"date_format"};
                 var astParser = new WikitextParser();
                 var ast = astParser.Parse(block.Text);
                 DateRange daterange = null;
