@@ -1,0 +1,789 @@
+{{distinguish|All India Anna Dravida Munnetra Kazhagam}}
+{{short description|Political party in India}}
+{{EngvarB|date=March 2020}}
+{{Infobox Indian Political Party
+|name = Dravida Munnetra Kazhagam
+|logo = [[File:DMK Flag and official symbol.png|250px]]
+|colorcode          = {{Dravida Munnetra Kazhagam/meta/color}}
+|abbreviation = DMK
+| founder= [[C. N. Annadurai]]
+| foundation = {{Start date and years ago|df=yes|p=y|1949|09|17}}
+| secretary   = [[Durai Murugan]]
+| president   =   [[M. K. Stalin]]
+| Political position = 
+| loksabha_leader   = [[T. R. Baalu]]
+| rajyasabha_leader = [[Tiruchi Siva]]
+| loksabha_seats = {{Composition bar|24|543|hex=#DD1100}}(Currently '''543''' members)
+| rajyasabha_seats= {{Composition bar|7|245|hex=#DD1100}}
+(Currently '''240''' members)
+| state_seats_name = [[Tamil Nadu Legislative Assembly]]
+| state_seats = {{Composition bar|98|234|hex=#DD1100}}
+(currently '''234''' members)
+| state2_seats_name = [[Puducherry Legislative Assembly]]
+| state2_seats = {{Composition bar|3|30|hex=#DD1100}} (currently '''30''' members)
+|colours           = {{colour box|{{Dravida Munnetra Kazhagam/meta/color}}}} Red  br/ 
+| eci         = [[List of political parties in India#State Party|State Party]] ref {{cite web|title=List of Political Parties and Election Symbols main Notification Dated 18.01.2013|url=http://eci.nic.in/eci_main/ElectoralLaws/OrdersNotifications/ElecSym19012013_eng.pdf|publisher=Election Commission of India|accessdate=9 May 2013|location=India|year=2013}} /ref 
+| alliance = [[National Democratic Alliance (India)|NDA]] (1999–2004) br / [[Democratic Progressive Alliance|DPA]] (2014–2016) br / [[United Progressive Alliance|UPA]] (2006–2013) (2016–present)  br / 
+| ideology = {{nowrap|[[Democratic socialism]] ref name="LS2014" {{cite web|work=[[Daily News and Analysis]]|title=Lok Sabha Elections 2014: Know your party symbols!|url=https://www.dnaindia.com/india/report-lok-sabha-elections-2014-know-your-party-symbols-1974606|date=10 April 2014}} /ref  br [[Social democracy]] ref name="LS2014" /  br [[Dravidian parties|Dravidianism]] ref name="LS2014" /  br [[Populism]] ref name="LS2014" /  br/ [[Regionalism (politics)|Secularism]] ref name="LS2014" /  br [[Regionalism (politics)|Regionalism]] ref name="LS2014" /  br [[Social justice]]}}
+|predecessor        = [[Justice Party (India)|Justice Party]](1917–1944) br [[Dravidar Kazhagam]] (1944–1949)
+|split = [[Dravidar Kazhagam]]
+| publication = [[Murasoli]] 
+| labour = [[Labour Progressive Federation]] (LPF)
+| headquarters = Anna Arivalayam,[[Anna Salai]], [[Chennai]]– 600018
+| website = [http://www.dmk.in/ www.dmk.in]
+| symbol = [[File:Risingsun surya.png|200px]]
+|flag  = Flag DMK.svg
+| no_states         = {{Composition bar|1|31|hex=#dd1100}}
+}}
+{{Dravidian politics-col}}
+
+'''Dravida Munnetra Kazhagam''' ({{trans|Dravidian Progressive Federation}}) is a [[Political parties in India|political party in India]], particularly in the state of [[Tamil Nadu]] and Union Territory of [[Puducherry]]. ref {{Cite news|url=https://www.business-standard.com/topic/dmk|title=Dravida Munnetra Kazgham (DMK)|work=Business Standard India|access-date=10 August 2019}} /ref  The head office of the party is called Anna Arivalayam, which is located at [[Anna Salai]], [[Teynampet]], [[Chennai]], Tamil Nadu.
+
+Dravida Munnetra Kazhagam is a [[Dravidian parties|Dravidian party]], adhering to the [[Social democracy|social democratic]] and [[social justice]] principles of [[C. N. Annadurai]] and [[Periyar E. V. Ramasamy]]. ref {{Cite news|url=https://www.thehindu.com/news/national/tamil-nadu/m-karunanidhi-from-health-care-to-community-living-his-schemes-were-aimed-at-social-equality/article24548812.ece|title=M. Karunanidhi: From health care to community living, his schemes were aimed at social equality|last=Kannan|first=Ramya|date=8 August 2018|work=The Hindu|access-date=10 August 2019|issn=0971-751X}} /ref  ref {{Cite web|url=https://www.news18.com/news/india/karunanidhi-the-social-reformer-who-changed-the-landcape-of-tamil-nadu-politics-1837827.html|title=Social Equality was Karunanidhi's Focus During Five Terms as Tamil Nadu CM|website=News18|access-date=10 August 2019}} /ref  It was founded in 1949 by C. N. Annadurai as a breakaway faction from the [[Dravidar Kazhagam]] (known as [[Justice Party (India)|Justice Party]] until 1944) headed by Periyar E. V. Ramasamy. ref {{Cite web|url=https://www.thenewsminute.com/article/september-which-split-dravidians-periyar-weds-maniyammai-dmk-born-49850|website=thenewsminute.com|access-date=10 August 2019}} /ref  ref {{Cite web|url=https://www.thenewsminute.com/article/periyar-and-anna-conflict-over-electoral-politics-88609|website=thenewsminute.com|access-date=10 August 2019}} /ref  ref {{Cite web|url=https://www.downtoearth.org.in/news/governance/karunanidhi-administrator-par-excellence-61343|title=Karunanidhi: Administrator par excellence|website=downtoearth.org.in|access-date=10 August 2019}} /ref 
+
+DMK was founded and headed by C. N. Annadurai (as Secretary general) from 1949 to 1969 until his death on 3 February 1969, ref {{Cite web|url=https://www.mapsofindia.com/on-this-day/3-february-1969-c.-n.-annadurai-chief-minister-of-tamil-nadu-died|title=3 February 1969: C. N. Annadurai, chief minister of Tamil Nadu, died|website=mapsofindia.com|access-date=10 August 2019}} /ref  who served as [[Chief Minister of Tamil Nadu]] from 1967 to 1969. Under C. N. Annadurai, DMK became the first party other than the [[Indian National Congress]] to win state-level elections with a clear majority on its own in any state in India, in 1967. [[M. Karunanidhi]] followed C. N. Annadurai as the first President of DMK from 1969 until his death on 7 August 2018. ref name=":0" {{Cite web|url=https://www.thehindubusinessline.com/news/national/m-karunanidhi-former-tamil-nadu-chief-minister-passes-away/article24624474.ece|title=M Karunanidhi passes away|website=@businessline|access-date=10 August 2019}} /ref  He also served as Chief Minister for five non-consecutive terms, in two of which he was dismissed by the Central government. ref {{Cite news|url=https://www.thehindu.com/news/national/tamil-nadu/m-karunanidhi-the-five-term-chief-minister/article24548707.ece/photo/1/|title=In pictures: M. Karunanidhi, the five-term Chief Minister|date=7 August 2018|work=The Hindu|access-date=10 August 2019|issn=0971-751X}} /ref  At present, the DMK is led by M. Karunanidhi's son [[M. K. Stalin]], who served as [[List of Deputy Chief Ministers of Tamil Nadu|Deputy Chief Ministers of Tamil Nadu]] from 2009 to 2011.Stalin was elected party's Executive Leader in 2017 and then was unanimously elected as Party president by the General body of DMK in 2018, after Karunanidi's death. ref {{Cite web|url=https://www.livemint.com/Politics/64bKrVFUe0Xoz5qSVbq1tO/Karunanidhi-appoints-Stalin-as-Tamil-Nadu-deputy-CM.html|title=Karunanidhi appoints Stalin as Tamil Nadu deputy CM|last=PTI|date=29 May 2009|website=Mint|access-date=10 August 2019}} /ref 
+
+Following the [[2019 Indian general election|2019]] [[2019 Indian general election|general]] election, DMK emerged as the third largest party in the [[Lok Sabha]] with 24 seats. ref {{Cite journal|last=Fiddian-Green|first=R. G.|last2=Silen|first2=W.|date=December 1975|title=Mechanisms of disposal of acid and alkali in rabbit duodenum|journal=The American Journal of Physiology|volume=229|issue=6|pages=1641–1648|doi=10.1152/ajplegacy.1975.229.6.1641|issn=0002-9513|pmid=2019|url=https://semanticscholar.org/paper/9b04e6ce2df3adb17a3a480434536f4b690882a2}} /ref 
+
+== History ==
+
+=== DMK Foundation ===
+The party, which derived from parent parties,
+
+* Justice Party '''(''' '''South Indian Liberal Federation )'''
+* Dravidar Kazhagam 
+* Dravida Munnetra Kazhagam 
+==== Justice Party ====
+DMK traces its roots to the South Indian Liberal Federation ([[Justice Party (India)|Justice Party]]) formed in 1916, by [[P. Thyagaraya Chetty]], Dr. [[P.T. Rajan]], Dr. [[C. Natesa Mudaliar]], Mr. [[T. M. Nair]] and a few others in [[Victoria Public Hall]] [[Madras Presidency]].[https://www.thenewsminute.com/article/100-years-justice-party-movement-which-defined-tamil-nadu-politics-53163] The Justice Party, whose objectives included social equality and justice, came to power in the first General Elections to the [[Madras Presidency]] in 1920. ref {{cite book
+ | last = Radhan
+ | first = O.P.
+ | title = Encyclopaedia of Political Parties
+ | publisher = Anmol Publications
+ | year = 2002
+ | isbn = 978-81-7488-865-5
+ | pages = 187
+ | chapter = A Time-Bound Plan for Muslim India
+}} /ref  Communal division between [[Brahmin]]s and non-Brahmins began in the presidency during the late-19th and early-20th century, mainly due to [[Caste in India|caste]] prejudices and disproportionate Brahminical representation in government jobs. The Justice Party's foundation marked the culmination of several efforts to establish an organisation to represent the non-Brahmins in Madras and is seen as the start of the [[Dravidian Movement]]. ref {{cite book|author1=Joshua Fishman|author2=Ofelia Garcia|title=Handbook of Language and Ethnic Identity:The Success-Failure Continuum in Language and Ethnic Identity Efforts (Volume 2): The Success-Failure Continuum in Language and Ethnic Identity Efforts|url=https://books.google.com/books?id=OBoSDAAAQBAJ&pg=PA230|accessdate=7 July 2016|year=2010|publisher=Oxford University Press, USA|isbn=978-0-19-539245-6|pages=230–}} {{verify source |date=August 2019 |reason=This ref was deleted ([[Special:Diff/910239471]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/904492385]] cite No. 1 - please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref  ref {{cite web | url=https://indianexpress.com/article/opinion/columns/tamil-nadu-politics-history-dravidian-movement-brahmins-lower-caste-casteism-madras-presidency-4388452/ | title=A century of reform The Dravidian movement has left its progressive imprint on Tamil Nadu| work=Manuraj Shunmugasundaram | date=22 November 2016 | accessdate=8 August 2018}} {{verify source |date=August 2019 |reason=This ref was deleted ([[Special:Diff/910239471]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/904492385]] cite No. 2 – please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref  ref {{cite web | url=https://www.outlookindia.com/magazine/story/the-inner-grammar-of-dissent-lives/298224 | title=The Inner Grammar Of Dissent Lives | work=K.S. Chalam | publisher=Outlook India | date=12 December 2016 | accessdate=8 August 2018}} {{verify source |date=August 2019 |reason=This ref was deleted ([[Special:Diff/910239471]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/904492385]] cite No. 3 – please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref 
+
+[[E. V. Ramasami]] ('''Periyar'''), a popular Tamil reformist leader of the time, had joined [[Indian National Congress]] in 1919, to oppose what he considered the [[Brahmin]]ic leadership of the party. ref name="Gail_Omvedt_Dalit_visions" {{cite book
+ | last = Omvedt
+ | first = Gail
+ | authorlink = Gail Omvedt
+ | title = Dalit Visions: The Anti-caste Movement and the Construction on an Indian Identity
+ | publisher = Orient Longman
+ | year = 2006
+ | isbn = 978-81-250-2895-6
+ | pages = 54–55
+}} /ref  Periyar's experience at the [[Vaikom Satyagraha]] made him to start the [[Self-Respect Movement]] in 1926 which was rationalistic and "anti-Brahministic". ref {{cite magazine|url=http://indiatoday.intoday.in/index.php?option=com_content&task=view&issueid=2138&id=2714&sectionid=30&Itemid=1|title=Ethnic balance|magazine=India Today|date=20 December 2007|accessdate=24 May 2009}} /ref  He quit Congress and in 1935, he joined the Justice Party.
+
+In the 1937 elections, the Justice Party lost and the [[Indian National Congress]] under [[C. Rajagopalachari]] ('''Rajaji''') came to power in Madras Presidency. Rajaji's introduction of [[Hindi]] as a compulsory subject in schools led to the [[anti-Hindi agitations]], led by Periyar and his associates. ref {{Cite news|url=https://www.thehindu.com/opinion/columns/the-justice-party-torchbearer-of-reform/article7892747.ece|title=Torch-bearer of reform|last=Veeramani|first=K.|date=19 November 2015|work=The Hindu|access-date=10 August 2019|issn=0971-751X}} /ref 
+
+====Dravidar Kazhagam  ====
+
+==== Self respect movement ====
+See also: [[Self-Respect Movement]]
+
+In August 1944, Periyar created the '[[Dravidar Kazhagam|Dravidar Kazhagham]]' out of the Justice Party and the Self-Respect Movement at the Salem Provincial Conference. ref {{cite book
+ | last = Dirks
+ | first = Nicholas B.
+ | authorlink = Nicholas Dirks
+ | title = Castes of Mind: Colonialism and the Making of Modern India
+ | publisher = Princeton University Press
+ | year = 2001
+ | isbn = 978-0-691-08895-2
+ | pages = 263
+}} /ref  Dravidar Kazhagam, conceived as a movement and not a political party, insisted on an independent nation for Dravidians called [[Dravida Nadu]] consisting of areas that were covered under Madras Presidency.
+
+The party at its inception retained the flag of the South Indian Liberal Federation which had a picture of a traditional type of [[Beam balance|balance]] signifying the idea of [[Social equality|equality]]. ref Saraswathi, S. (2004) ''Towards Self-Respect''. Institute of South Indian Studies, pp. 93 & 94 {{verify source |date=August 2019 |reason=This ref was deleted ([[Special:Diff/910239471]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/905473880]] cite No. 1 – please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref  Its central theme was to remove the degraded status imposed on [[Dravidian people|Dravidians]], and to denote this, the party adopted a black flag with a red circle inside it, the black signifying their degradation and the red denoting the movement for upliftment. ref Saraswathi, S., ''Towards Self-Respect'', p. 94. {{verify source |date=August 2019 |reason=This ref was deleted ([[Special:Diff/910239471]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/905473880]] cite No. 2 – please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref 
+
+It opposed Brahminical social, political and ritual dominance, and aimed to form a separate country of [[Dravidistan|Dravida Nadu]], to include either all of [[South India]] or the predominantly Tamil-speaking regions.
+
+====Dravida Munnetra Kazhagam====
+
+Over the years, many disagreements arose between Periyar and his followers. In 1949, several of his followers led by [[C. N. Annadurai]] nowiki/ decided to split from Dravidar Kazhagham, after an aged Periyar married a young woman [[Maniammai]] and appointed his young wife to act as his successor to lead the party, superseding senior party leaders. Until then [[E. V. K. Sampath]], the nephew of Periyar, was considered his political heir. ref {{cite news|url=http://sify.com/news/politics/fullstory.php?id=13493522 |title=Priest-less weddings in TN VIP families|work= Sify News|accessdate=11 November 2013}} /ref  ref {{Cite journal|last=Ram|first=N.|year=1977|editor-last=Barnett|editor-first=Marguerite Ross|title=Pre-History and History of the DMK|journal=Social Scientist|volume=6|issue=5|pages=59–91|doi=10.2307/3520089|issn=0970-0293|jstor=3520089}} /ref 
+
+# [[C. N. Annadurai|C N.Annadurai]], ( on 17 September 1949 along with )
+# [[E. V. K. Sampath]],
+# [[V. R. Nedunchezhiyan]],
+# [[K. A. Mathiazhagan]],
+# [[N. V. Natarajan]] called  nowiki '' /nowiki  '''Aimberum Thalaivargal'''  nowiki '' /nowiki  (Great Five Leaders)
+
+along with [[M. Karunanidhi]] then an emerging screenwriter and thousands of others in [[Robinson park]] in [[Royapuram]] in [[Chennai]] announced the formation of the DMK. The name of the party (DMK) was announced by Kudanthai Perunthagai.  K. K. Neelamegam.
+
+=== After split from Dravidar Kazhagam :  ===
+
+==== C.N. Annadurai's era (1949–1969)    ====
+{{See also|C.N. Annadurai}}
+
+====== DMK's Anti-Hindi Imposition agitations ======
+{{See also|Anti-Hindi agitations of Tamil Nadu}}
+
+The Dravida Munnetra Kazhagam (DMK) which split from the Dravidar Kazhagam in 1949, inherited the anti-Hindi Imposition policies of its parent organisation. DMK's founder Annadurai had earlier participated in the anti-Hindi imposition agitations during 1938–40 and in the 1940s. In July 1953, the DMK launched an agitation for changing the name of a town from [[Kallakudi]] to [[Dalmiapuram]]. They claimed that the town's name (after [[Ramkrishna Dalmia]]) symbolised the exploitation of South India by the North. ref {{cite book|last=Mills|first=James H.|url=https://books.google.com/books?id=2hIUBioZHHQC&pg=PT151|title=Confronting the body: the politics of physicality in colonial and post-colonial India|last2=Sen|first2=Satadru|publisher=Anthem Press|year=2004|isbn=978-1-84331-033-4|page=151}} {{verify source|date=August 2019|reason=This ref was deleted ([[Special:Diff/901408232]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/897738684]] cite No. 54 - please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref  ref {{cite web|url=http://www.sangam.org/2009/09/Anna_Centennial_3.php?print=true|title=Anna in the dock (1953)|author=Sachi Sri Kantha|date=16 September 2009|work=Anna's Birth Centennial Anthology Part 3|publisher=Sangam.org|accessdate=24 November 2009}} {{verify source|date=August 2019|reason=This ref was deleted ([[Special:Diff/901408232]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/897738684]] cite No. 55 – please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref  On 15 July 1953, [[M. Karunanidhi]] (later Chief Minister of Tamil Nadu) and other DMK members erased the Hindi name in Dalmiapuram railway station's name board and lay down on the tracks. In the altercation with the Police that followed the protests, two DMK members lost their lives and several others including Karunanidhi and Kannadhasan were arrested. ref {{Harvnb|Ramaswamy|1997|p=108|loc=ch. 5.29 (The Warrior Devotee)}} {{verify source|date=August 2019|reason=This ref was deleted ([[Special:Diff/901408232]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/897738684]] cite No. 56 – please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref 
+
+In the 1950s DMK continued its anti-Hindi Imposition policies along with the secessionist demand for [[Dravida Nadu]]. On 28 January 1956, Annadurai along with Periyar and Rajaji signed a resolution passed by the Academy of Tamil Culture endorsing the continuation of English as the official language. ref {{cite book|url=https://books.google.com/books?id=AGcOAQAAIAAJ|title=Modern India rejects Hindi|publisher=Association for the Advancement of the National Languages of India|year=1958|page=29}} {{verify source|date=August 2019|reason=This ref was deleted ([[Special:Diff/901408232]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/897738684]] cite No. 57 – please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref  ref {{cite book|last=Copley|first=Antony R. H.|url=https://archive.org/details/politicalcareero0000copl|url-access=registration|title=The political career of C. Rajagopalachari, 1937–1954: a moralist in politics|publisher=Macmillan|year=1978|page=[https://archive.org/details/politicalcareero0000copl/page/311 311]}} {{verify source|date=August 2019|reason=This ref was deleted ([[Special:Diff/901408232]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/897738684]] cite No. 58 – please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref  On 21 September 1957 the DMK convened an anti-Hindi Conference to protest against the imposition of Hindi. It observed 13 October 1957 as "anti-Hindi Day". ref {{cite web|url=http://www.business-standard.com/india/news/a-script-which-karuna-would-never-imagined-in-tn/61923/on|title=A script which Karuna would never imagined in TN|date=16 May 2009|work=[[Business Standard]]|publisher=Business Standard Ltd|url-status=live|archiveurl=https://web.archive.org/web/20091201202600/http://www.business-standard.com/india/news/a-script-which-karuna-would-never-imagined-in-tn/61923/on|archivedate=1 December 2009|accessdate=24 November 2009}} {{verify source|date=August 2019|reason=This ref was deleted ([[Special:Diff/901408232]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/897738684]] cite No. 59 – please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref  ref {{cite book|last=Swaminathan|first=S.|url=https://books.google.com/books?id=Q-uYmpYmXuMC|title=Karunanidhi: man of destiny|publisher=Affiliated East-West Press|year=1974|page=8}} {{verify source|date=August 2019|reason=This ref was deleted ([[Special:Diff/901408232]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/897738684]] cite No. 60 – please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref  On 31 July 1960, another open air anti-Hindi conference was held at [[Kodambakkam]], Madras. ref {{cite book|last=Venu|first=E.Es.|url=https://books.google.com/books?id=83xIAAAAMAAJ|title=Why South opposes Hindi|publisher=Justice Publications|year=1979|page=76}} {{verify source|date=August 2019|reason=This ref was deleted ([[Special:Diff/901408232]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/897738684]] cite No. 61 – please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref In November 1963, DMK dropped its secessionist demand in the wake of the [[Sino-Indian War]] and the passage of the anti-secessionist 16th Amendment to the Indian Constitution. But the anti-Hindi stance remained and hardened with the passage of Official Languages Act of 1963. ref {{cite book|last=Rajagopalan|first=Swarna|url=https://books.google.com/books?id=q7Yz5aGeoTsC&pg|title=State and nation in south Asia|publisher=Lynne Rienner Publishers|year=2001|isbn=978-1-55587-967-9|pages=153–156}} {{verify source|date=August 2019|reason=This ref was deleted ([[Special:Diff/901408232]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/897738684]] cite No. 62 - please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref  The DMK's view on Hindi's qualifications for official language status were reflected in Annadurai's response to the "numerical superiority of Hindi" argument: "If we had to accept the principle of numerical superiority while selecting our national bird, the choice would have fallen not on the peacock but on the common crow."
+
+======First Election======
+DMK entered the electoral fray for 1957 State Assembly elections with [[M Karunanidhi]] winning the [[Kulithalai]] constituency while other seniors members like [[V. R. Nedunchezhiyan]] losing from [[Salem, Tamil Nadu|Salem]]. In 1962 another prominent actor [[S.S.Rajendran]] ("SSR") contested in Theni, legislative assembly election, against the then popular congress leader N. R. Theagarajan and won the seat.
+
+====== Formation of State Government ======
+In 1967, DMK came to power in [[Madras province]] 18 years after its formation and 10 years after it had first entered electoral politics. This began the Dravidian era in Madras province which later became [[Tamil Nadu]]. In 1967, the Congress lost nine states to opposition parties, but it was only in Madras state that a single non-Congress party majority was achieved. ref {{cite book | last = Chakrabarty | first = Bidyut | title = Indian Politics and Society Since Independence | publisher = Routledge | year = 2008 | pages = 110–111 | url = https://books.google.com/books?id=QzQHZ178C24C | isbn = 978-0-415-40868-4 }} {{verify source |date=August 2019 |reason=This ref was deleted ([[Special:Diff/901408232]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/900528858]] cite No. 33 - please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref  The [[1967 Tamil Nadu state assembly election|electoral victory of 1967]] is also reputed to an [[electoral fusion]] among the non-[[Indian National Congress|Congress]] parties to avoid a split in the [[Opposition (parliamentary)|Opposition]] votes. [[Rajaji|Rajagopalachari]], a former senior leader of the Congress party, had by then left the Congress and launched the right-wing [[Swatantra Party]]. He played a vital role in bringing about the electoral fusion amongst the opposition parties to align against the Congress. ref {{cite news | last = Viswanathan | first = S | title = Dravidian power | work = Frontline | date = 10–23 April 2004 | url = http://www.frontline.in/fl2108/stories/20040423007701500.htm | accessdate = 19 February 2008 | url-status = dead | archiveurl = https://web.archive.org/web/20080303061014/http://www.frontline.in/fl2108/stories/20040423007701500.htm | archivedate = 3 March 2008 }} {{verify source |date=August 2019 |reason=This ref was deleted ([[Special:Diff/901408232]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/900528858]] cite No. 34 – please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref  At that time, his cabinet was the youngest in the country. ref {{cite news | last = Venkatachalapathy | first = AR | title = C.N. Annadurai – Politician, 1909–1969 | date = 10 April 2008 | url = http://indiatoday.digitaltoday.in/index.php?option=com_content&issueid=48&task=view&id=6878&acc=high | accessdate = 20 December 2008 | url-status = dead | archiveurl = https://web.archive.org/web/20090112030229/http://indiatoday.digitaltoday.in/index.php?option=com_content&issueid=48&task=view&id=6878&acc=high | archivedate = 12 January 2009 }} {{verify source |date=August 2019 |reason=This ref was deleted ([[Special:Diff/901408232]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/900528858]] cite No. 35 – please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref 
+
+====== Self-respect marriages Act ======
+Annadurai legalised [[Self-respect marriages]] for the first time in the country. Such marriages were void of priests to preside over the ceremony and thus did not need a [[Brahmin]] to carry out the wedding. ref {{cite news | last = Venkatesh | first = MR | title = Solidarity show at wedding – ADMK's brickbats on cauvery mixes with Pranab's bonhomie | publisher = The Telegraph, Calcutta | date = 7 June 2004 | url = http://www.telegraphindia.com/1040607/asp/nation/story_3340313.asp | accessdate = 20 December 2008 | location = Calcutta, India | archive-url = https://web.archive.org/web/20090816173201/http://www.telegraphindia.com/1040607/asp/nation/story_3340313.asp | archive-date = 16 August 2009 | url-status = live | df = dmy-all }} {{verify source |date=August 2019 |reason=This ref was deleted ([[Special:Diff/901408232]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/900528858]] cite No. 36 – please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref  Self-respect marriages were a brainchild of Periyar, who regarded the then conventional marriages as mere financial arrangements which often caused great debt through [[dowry]]. Self-Respect marriages, according to him, encouraged inter-caste marriages and caused [[arranged marriages]] to be replaced by love marriages. ref {{cite journal | last = Hodges | first = Sara | title = Revolutionary family life and the Self Respect movement in Tamil south India | journal = Contributions to Indian Sociology | volume = 39 | issue = 2 | pages = 251–277 | year = 2005 | doi = 10.1177/006996670503900203 | df = dmy-all }} {{verify source |date=August 2019 |reason=This ref was deleted ([[Special:Diff/901408232]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/900528858]] cite No. 37 – please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref  Annadurai was also the first to use subsidising of the price of rice for election victory. He promised one rupee a measure of rice, which he initially implemented once in government, but had to withdraw later. Subsidising rice costs are still used as an [[election promise]] in Tamil Nadu. ref {{cite news | title = Rice promises stir Tamil Nadu | publisher = Rediff.com | date = 19 April 2006 | url = http://in.rediff.com/election/2006/apr/19ptn.htm | accessdate = 20 December 2008 | archive-url = https://web.archive.org/web/20080907170313/http://in.rediff.com/election/2006/apr/19ptn.htm | archive-date = 7 September 2008 | url-status = live | df = dmy-all }} {{verify source |date=August 2019 |reason=This ref was deleted ([[Special:Diff/901408232]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/900528858]] cite No. 38 – please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref 
+
+====== Madras State to Tamil Nadu (14 January 1969) ======
+It was Annadurai's government that renamed the [[Madras State]] to its present-day form declaring officially as Tamil Nadu. The name change itself was first presented in the upper house ([[Rajya Sabha]]) of the [[Parliament of India]] by [[Bhupesh Gupta]], a communist MP from [[West Bengal]], but was then defeated. ref {{cite book | last = Rajagopalan | first = Swarna | title = State and Nation in South Asia | publisher = Lynne Rienner Publishers | year = 2001 | pages = 152–154 | url = https://books.google.com/books?id=q7Yz5aGeoTsC | isbn = 978-1-55587-967-9 }} {{verify source |date=August 2019 |reason=This ref was deleted ([[Special:Diff/901408232]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/900528858]] cite No. 13 - please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref  With Annadurai as chief minister, the state assembly succeeded in passing the bill renaming the states. ref {{cite book | url = https://books.google.com/?id=hgb-MKcsSR0C&pg=PA112&dq=rename+Tamil+Nadu+Annadurai#PPA112,M1 | title = Fuzzy and Neutrosophic Analysis of Periyar's Views on Untouchability | publisher = | accessdate = 29 March 2015 | isbn = 978-1-931233-00-2 | last1 = Vasantha Kandasamy | first1 = W. B | last2 = Smarandache | first2 = Florentin | last3 = Kandasamy | first3 = K | year = 2005 | bibcode = 2005math.....11559V | arxiv = math/0511559 }} {{verify source |date=August 2019 |reason=This ref was deleted ([[Special:Diff/901408232]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/900528858]] cite No. 39 – please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref 
+
+====== Two language policy (1967) ======
+Anna was instrumental in organising the World Tamil Conference under the aegis of UNESCO in 1967. ref {{cite book | title = India through the ages | url = https://archive.org/details/indiathroughages00mada | last = Gopal | first = Madan | year = 1990 | page = [https://archive.org/details/indiathroughages00mada/page/192 192] | editor = K.S. Gautam | publisher = Publication Division, Ministry of Information and Broadcasting, Government of India }} {{verify source |date=August 2019 |reason=This ref was deleted ([[Special:Diff/901408232]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/900528858]] cite No. 40 – please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref  Another major achievement of Annadurai's government was to introduce a ''two language policy''{{which|date=August 2019}} over the then popular [[three language formula]]. ref {{cite book | title = Fuzzy and Neutrosopohc Analysis of Periyar's Views on Untouchability | author = Kandasamy, W.B. Vansantha | author2 = Florentin Smarandache; K. Kandasamy | year = 2005 | publisher = HEXIS: Phoenix | page = 106 | url = https://books.google.com/books?id=hgb-MKcsSR0C&printsec=frontcover&dq=Fuzzy+and+neutrosophic+analysis+of+Periyar%27s+views+on+untouchability#PPA106,M1 | isbn = 978-1-931233-00-2 }} {{verify source |date=August 2019 |reason=This ref was deleted ([[Special:Diff/901408232]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/900528858]] cite No. 11 - please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref  The three language formula, which was implemented in the neighbouring states of [[Karnataka]], Andhra Pradesh and [[Kerala]], entitled students to study three languages: the regional language, English and Hindi. ref {{cite journal | last = Hardgrave | first = Robert | title = The Riots in Tamilnad: Problems and Prospects of India's Language Crisis | journal = Asian Survey | volume = 5 | issue = 8 | pages = 399–407 | year = 1965 | doi = 10.1525/as.1965.5.8.01p0095g | df = dmy-all }} {{verify source |date=August 2019 |reason=This ref was deleted ([[Special:Diff/901408232]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/900528858]] cite No. 22 – please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref 
+
+====== World Tamil conference (1967) ======
+It was during the period of his Chief Ministership that the Second World Conference was conducted on a grand scale on 3 January 1968. ref name="Asaan 2008" {{cite web | last = Asaan | first = GVK | title = Anna the genius | work = The birth centenary of Arignar Anna (C.N. Annadurai – 15 September 1909 – 3 February 1969) is being celebrated between September 2008 and September 2009. The first part of his life sketch appeared in the September issue. In this issue we give the second and the concluding part | publisher = Modern Rationalist | year = 2008 | url = http://www.themronline.com/200810mr/page14.html | accessdate = 20 December 2008 | url-status = dead | archiveurl = https://web.archive.org/web/20110126110833/http://www.themronline.com/200810mr/page14.html | archivedate = 26 January 2011 | df = dmy-all }} {{verify source |date=August 2019 |reason=This ref was deleted ([[Special:Diff/901408232]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/900528858]] cite No. 15 – please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref  Nevertheless, when a commemorative stamp was released to mark the Tamil conference, Annadurai expressed his dissatisfaction that the stamp contained Hindi when it was for Tamil. ref {{cite book | last = Jayakanthan | first = Dandapani | title = A Literary Man's Political Experiences | publisher = Read books | year = 2006 | page = 212 | url = https://books.google.com/books?id=Lnl_um7uFcsC | isbn = 978-1-4067-3569-7 }} {{verify source |date=August 2019 |reason=This ref was deleted ([[Special:Diff/901408232]]) by a bug in VisualEditor and later restored by a bot from the original cite at [[Special:Permalink/900528858]] cite No. 41 - please verify the cite's accuracy and remove this {verify source} template. [[User:GreenC bot/Job 18]]}} /ref  Annadurai also issued an order for the removal of the pictures of gods and religious symbols from public offices and buildings. ref name="Asaan 2008"/ 
+
+====Karunanidhi's era (1969–2018)====
+DMK was headed by [[M. Karunanidhi]] from 1969 to until his death on 7 August 2018. ref name=":0" /  He also served as [[Chief Minister of Tamil Nadu]] five terms.
+
+===== Karunanidhi'' nowiki/ 's'' Dmk five slogans :  ''('' Aimperum Muzhakkam ) =====
+[[M. Karunanidhi]] in 1970 Anna's 1st anniversary, DMK statewide conference held in Trichy where Five slogans were released at the conference. Those are, ref {{Cite web|url=http://shanthibabu.blogspot.com/2017/10/dmk-history.html|title=சமூக உறவு: திமுக வரலாறு – DMK History|last=கலைநிதி|date=14 October 2017|website=சமூக உறவு|access-date=11 August 2019}} /ref  ref {{Cite journal|last=research pdf about dravidian party|date=n.d.|title=|url=dspace.pondiuni.edu.in/jspui/bitstream/1/2109/1/T5980.pdf}} /ref  ref {{Cite web|url=http://www.puthiyathalaimurai.com/news/tamilnadu/49670-list-of-achievements-for-dmk-chief-m-karunanidhi.html|title=மறக்க முடியுமா கருணாநிதியை...!|website=Puthiyathalaimurai|language=ta|access-date=11 August 2019}} /ref 
+
+# The party always follows the footsteps of '''Annadurai''',
+# An '''egalitarian society''' will be formed,
+# Forever, the party opposes the '''imposition of Hindi''',
+# '''Poverty''' will be overcome through a '''peaceful''' manner,
+# '''Autonomy for state''' governments and '''Union government by coalition'''.
+
+===== MGR faction =====
+[[M. G. Ramachandran]] (MGR) who was a popular actor and the then party treasurer, the political feud between MGR and the party president Karunanidhi emerged as an aftermath of the latter calling himself "[[Sheikh Mujibur Rahman|Mujib]] of Tamil Nadu". In 1972, MGR called for a boycott of the party's General Council. With the crisis falling into call for corruption probe by MGR where he was a treasurer, he was eventually suspended from the General Council by the high power committee of DMK. Thus emerged a new party [[Anna Dravida Munnetra Kazhagam]] (AIADMK). ref name="Hardgrave" {{cite book|first=Robert j|last=Hardgrave, Jr.|year=1973|title= Politics and the Film in Tamilnadu: The Stars and the DMK |series=Asian Survey|publisher= University of California Press}} /ref 
+
+===== Five terms Chief Minister =====
+Karunanidhi became an MLA 13 times,5times chief minister and one time member of council in Tamil Nadu legislative assembly.
+
+===== Kalaignar fought for the right of CM's to hoist the National Flag in a State =====
+[[M. Karunanidhi|Karunanidhi]] secured right for chief ministers to unfurl Tricolour on Independence Day in 1974, he became first Tamil CM to do so. Karunanidhi secured a precious right for all the Chief Ministers from [[Indira Gandhi]]. ref {{Cite web|url=https://www.firstpost.com/india/karunanidhi-secured-right-for-chief-ministers-to-unfurl-tricolour-on-independence-day-in-1974-he-became-first-tamil-cm-to-do-so-4918711.html|title=Karunanidhi secured right for chief ministers to unfurl Tricolour on Independence Day; in 1974, he became first Tamil CM to do so|website=Firstpost|access-date=15 August 2019}} /ref  ref {{Cite news|url=https://www.indiatoday.in/india/story/karunanidhi-independence-day-national-flag-1308750-2018-08-08|title=Why all CMs must thank Karunanidhi for right to hoist national flag|newspaper=India Today|access-date=15 August 2019|agency=Ist}} /ref  ref {{Cite web|url=https://www.outlookindia.com/blog/story/chief-ministers-who-unfurl-national-flag-on-independence-day-have-one-person-to-/3944|title=Chief Ministers Who Unfurl National Flag On Independence Day Have One Person To Thank- Karunanidhi|website=outlookindia.com/|access-date=15 August 2019}} /ref  ref {{Cite news|url=https://www.thehindu.com/news/national/tamil-nadu/karunanidhi-secured-a-precious-right-for-all-the-chief-ministers/article24548803.ece|title=Karunanidhi secured a precious right for all the Chief Ministers|last=Ramakrishnan|first=T.|date=7 August 2018|work=The Hindu|access-date=15 August 2019|issn=0971-751X}} /ref 
+
+===== Elections under Karunanidhi's Presidency =====
+
+* In the '''1977''', DMK lost the Assembly elections to MGR's AIADMK, and stayed out of power in the state till 1989. ref name="Murali82" [[#Murali|Murali 1994]], p. 82 /ref  After MGR's death in December 1987, AIADMK split into two factions between [[V. N. Janaki|Janaki]] (MGR's wife) and [[Jayalalithaa]]. DMK returned to power in 1989 State assembly elections and Karunanidhi took over as chief minister in January 1989.
+
+* in the '''1991''' election was held on the backdrop of DMK government dissolved within 2 years of formation due to pressure from Rajiv gandhi, in the same year Rajiv was killed by Human bomb during election campaign. Due to DMK's pro Tamil stance and the dismissal of the state government mid way by Rajiv, people's presumption was against DMK and the sympathy wave in favour of AIADMK–Congress alliance and the DMK was deprived of any seats in the Parliament.
+* In the '''1996''' state elections, DMK came to power on strength of corruption charges against [[J.Jayalalithaa]] and the alliance with [[Tamil Maanila Congress]] (TMC), headed by [[G.K. Moopanar]] and supported by cine actor [[Rajinikanth]]. However, in 2001, the AIADMK, on strength of a strong alliance and the incumbency factor against DMK, came back to power in the state assembly elections.
+* In the '''2004''' parliamentary elections, DMK formed an alliance with Congress, the [[Marumalarchi Dravida Munnetra Kazhagam]] (MDMK) and the [[Pattali Makkal Katchi]] (PMK) and swept a grand Victory, the alliance winning all 40 seats including [[Puducherry]]. This enabled 7 ministerial posts in the Central government and influential power to DMK.
+* Two years later in '''2006''', the same alliance won in the state assembly elections and the DMK for the first time formed a minority government in the state with help from Congress. [[M Karunanidhi]] became the Chief Minister of the state for the fifth time. The DMK-Congress alliance was also successful in the 2009 parliamentary elections.
+* In the [[2011 Tamil Nadu legislative assembly election result|2011 Assembly elections]], held in the wake of the [[2G case]] and allegations of nepotism, the DMK won only 23 seats, 127 seats less than earlier.
+* In the 2014 [[Lok Sabha]] election DMK failed to win any seats; however, by vote percentage it was second only to AIADMK.
+* in the 2016 state assembly elections gave DMK 89 MLA's. The most number for an opposition party in the history of Tamil Nadu legislative assembly.
+
+==== M. K. Stalin era (2018–present) ====
+Karunanidhi died on 7 August 2018, leaving the party in the hands of his son, [[M. K. Stalin|M.K Stalin]]. Stalin had been appointed as the working president in January 2017 when [[M. Karunanidhi|Karunanidhi's]] health started declining, and had previously been named heir apparent by his father. Stalin thus became the second DMK president since the party's inception. ref {{Cite web|url=https://www.firstpost.com/politics/mk-stalin-takes-charge-of-dmk-after-51-years-of-joining-politics-fighting-a-dynastic-battle-the-65-year-old-has-learnt-it-hard-way-5059921.html|title=MK Stalin takes charge of DMK after 51 years in politics: Fighting a dynastic battle, the 65-year-old learnt it the hard way|website=Firstpost|access-date=29 December 2019}} /ref 
+
+===== M.K Stalin's Dmk five slogans: (Aimperum Muzhakkam) =====
+[[File:The Minister for Rural Development and Local Administration , Government of Tamil Nadu Shri.M.K.Stalin called on the Prime Minister, Dr. Manmohan Singh, in New Delhi on July 04, 2007 (1).jpg|alt=|thumb|201x201px|M.K. Stalin calls on the Prime Minister, Dr. [[Manmohan Singh]] in New Delhi on 4 July 2007.]]
+[[M. K. Stalin]] in 25 March 2018 DMK statewide conference held in Erode where Five slogans were released at the conference. Those are, ref {{Cite web|url=https://tamil.samayam.com/latest-news/state-news/mk-stalin-addressed-the-followers-in-erode-dmk-meet/articleshow/63454760.cms|title=ஐம்பெரும் முழக்கங்கள்: ஈரோடு மண்டல மாநாட்டில் ஸ்டாலின் உரை|date=25 March 2018|website=Samayam Tamil|language=ta|access-date=11 August 2019}} /ref  ref {{Cite web|url=https://minnambalam.com/k/2018/03/26/31|title=ஸ்டாலின் முன்வைத்த ஐம்பெரும் முழக்கங்கள்!|website=மின்னம்பலம்|language=ta|access-date=11 August 2019}} /ref  ref {{Cite web|url=https://tamil.oneindia.com/news/tamilnadu/mk-stalin-releases-5-slogans-dmk-315312.html|title=மதவெறியை மாய்ப்போம்- அதிகார குவியலை அடித்து நொறுக்குவோம்: திமுகவின் 5 முழக்கங்களை அறிவித்த ஸ்டாலின்|last=Priya|first=Lakshmi|date=25 March 2018|website=https://tamil.oneindia.com|language=ta|access-date=11 August 2019}} /ref 
+
+# Let's keep an eye on the '''Kalaignar's command''',
+# Let us grow and '''admire Tamil''',
+# Let's crush the '''power pile''',
+# Let us protect the '''humanity from extremism''',
+# Let us grow a '''prosperous Tamil Nadu.'''
+
+===== Elections under M.K Stalin's Presidency =====
+
+===== 2019 General election – Secular Progressive Alliance =====
+M.K.Stalin formed Secular Progressive Alliance in Tamil Nadu under the [[United Progressive Alliance]] in the center and led the alliance in [[2019 Indian general election in Tamil Nadu|2019 general election]]. ref {{Cite news|url=https://www.business-standard.com/article/pti-stories/secular-progressive-alliance-will-romp-home-in-lok-sabha-polls-119033100605_1.html|title=Secular Progressive Alliance will romp home in Lok Sabha polls|last=India|first=Press Trust of|date=31 March 2019|work=Business Standard India|access-date=29 December 2019}} /ref  ref {{Cite news|url=https://www.business-standard.com/article/pti-stories/dmk-led-front-in-tn-christened-secular-progressive-alliance-119031500955_1.html|title=DMK-led front in TN christened "Secular Progressive Alliance"|last=India|first=Press Trust of|date=15 March 2019|work=Business Standard India|access-date=29 December 2019}} /ref  MK Stalin and his alliance in Tamil Nadu won 39 out of 40 seats in the parliament and 12 out of 21 in the Assembly by-election with 52% vote share. ref {{Cite web|url=https://timesofindia.indiatimes.com/city/chennai/stalin-wins-big-but-gains-little/articleshow/69472678.cms|title=M K Stalin wins big but gains little in Tamil Nadu {{!}} Chennai News|last=24 May|first=D. Govardan {{!}} TNN {{!}}|last2=2019|website=The Times of India|access-date=29 December 2019|last3=Ist|first3=6:31}} /ref  ref [https://www.ndtv.com/india-news/election-results-2019-mk-stalin-on-dmk-victory-in-tamil-nadu-amazed-north-united-south-astounded-ind-2046617] /ref 
+
+===== 2020 Tamilnadu Local body election (Rural) =====
+The DMK led alliance won the [[2019 Tamil Nadu local body elections]] under the Secular Progressive alliance. ref {{Cite web|url=https://timesofindia.indiatimes.com/city/chennai/dmk-alliance-wins-tamil-nadu-rural-local-body-polls/articleshow/73086250.cms|title=DMK alliance wins Tamil Nadu rural local body polls {{!}} Chennai News|last=3 Jan|first=IANS {{!}} Updated:|last2=2020|website=The Times of India|access-date=24 March 2020|last3=Ist|first3=19:08}} /ref  ref {{Cite web|url=https://www.indiatoday.in/india/story/tamil-nadu-local-body-poll-results-dmk-wins-243-district-panchayat-wards-aiadmk-214-counting-underway-1633997-2020-01-04|title=Tamil Nadu local body poll results: DMK wins 243 district panchayat wards, AIADMK 214; counting underway|last=ChennaiJanuary 4|first=Akshaya Nath|last2=January 4|first2=2020UPDATED:|website=India Today|access-date=24 March 2020|last3=Ist|first3=2020 20:17}} /ref 
+
+==Party ideology==
+==== Dravidian Nationalism ====
+The [[Anti-Hindi agitations of Tamil Nadu|Anti-Hindi Imposition agitations]] of 1965 forced the [[Government of India|central government]] to abandon its efforts to use [[Hindi]] as the only official language of the country; still Hindi usage continued as Indian government employees are asked to write as much as 65% of the letters and memoranda in Hindi. ref name="Palani" {{cite book|title=Polyethnicity in India and Canada: Possibilities for Exploration|url=https://books.google.com/books?id=BdxwA3xDtSEC&pg=PA21|pages=21–22|last=Palanithurai|first=Ganapathy |publisher=M.D. Publications Pvt. Ltd.|year=1997|isbn=9788175330399}} /ref 
+
+==== State Autonomy ====
+After emergency invoked by Indira Gandhi more state powers like school education,medical are moved to state list to central list M.Karunadhi Announced trichy conference after death of Anna. " state Autonomy " principal to fight their state aspirations. In April 1974, the DMK government brought in a resolution in the House urging the Centre to accept the Rajamannar Committee recommendations on state autonomy and amend the Constitution of India to pave the way for a true federal system. ref name="Palani" /  
+
+==== Social justice ====
+The DMK reconstituted the disabled persons welfare board to Differently Abled Persons Departments and the changed words for transgender to more appropriate terms like Thirunangai and Thirunambi. ref {{Cite web|url=https://www.thenewsminute.com/article/self-respect-weddings-transgender-rights-karunanidhi-leader-minorities-86159|title=Self-respect weddings to transgender rights: Karunanidhi, a leader of minorities|last=N|date=Nadika|website=thenewsminute.com|url-status=live|archive-url=|archive-date=|access-date=24 March 2020}} /ref  
+
+==Party symbol==
+[[File:DMK Flag and official symbol.png|thumb|DMK Official flag and symbol  |119x119px]]
+The Party's election symbol is the " '''sun rising from between two mountains "''', with a black and red flag often pictured. The symbol was inspired from leader and scriptwriter M. Karunanidhi's 1950s play "Udaya Suryan", and is intended to signify the "rising" spirit of the Dravidian people. ref {{cite web |url=https://www.thenewsminute.com/article/story-udaya-suriyan-how-rising-sun-became-symbol-dmk-43247|title=The story of Udaya Suriyan: How the rising sun became the symbol of DMK|date=14 May 2016}} /ref 
+
+In the 1957 poll, the DMK was not recognised by the Election Commission. The party was grouped as independents and was not united by its rising sun symbol and were forced to contest under the rooster symbol. ref {{Cite web|url=https://www.thenewsminute.com/article/story-udaya-suriyan-how-rising-sun-became-symbol-dmk-43247|title=The story of Udaya Suriyan: How the rising sun became the symbol of DMK|last=Isaac|first=Anna|date=n.d.|website=thenewsminute.com|url-status=live|archive-url=|archive-date=|access-date=24 March 2020}} /ref 
+
+==Election history==
+=== Tamil Nadu General Election ===
+{| class="wikitable" cellpadding="5"
+|+
+! style="width:25%;"| Year
+! style="width:15%;"| Legislature
+! Party leader
+! style="width:15%;"| Seats won (DMK+)
+! style="width:15%;"| Change in seats
+! style="width:15%;"| Percentage of votes
+! style="width:15%;"| Popular vote
+! Outcome
+|- style="text-align:center;"
+|| [[1957 Indian general election|1957]]
+|| [[1957 Indian general election in Madras]]
+|[[C.N. Annadurai]]
+||{{Composition bar|8|41|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{increase}} 8
+|| –
+|| –
+| {{partial|DMK grouped under independent won a total of 8 seats}}
+|- style="text-align:center;"
+|| [[1962 Indian general election|1962]]
+|| [[1962 Indian general election in Madras]]
+|[[C.N. Annadurai]]
+||{{Composition bar|7|41|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{decrease}} 1
+||  18.64%
+|| 2,315,610
+| {{no2|Opposition}}
+|- style="text-align:center;"
+|| [[1967 Indian general election|1967]]
+|| [[1967 Indian general election in Madras]]
+|[[C.N. Annadurai]]
+||{{Composition bar|36|39|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{increase}} 29
+||  51.79%
+|| 7,996,264
+| {{yes2|government}}
+|- style="text-align:center;"
+|| [[1971 Indian general election|1971]]
+|| [[1971 Indian general election in Tamil Nadu]]
+|[[M. Karunanidhi]]
+||{{Composition bar|38|39|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{increase}} 2
+||  55.61% 
+|| 8,869,095
+| {{yes2|government}}
+|- style="text-align:center;"
+|| [[1977 Indian general election|1977]]
+|| [[1977 Indian general election in Tamil Nadu]]
+|[[M. Karunanidhi]]
+||{{Composition bar|5|39|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{decrease}} 33
+||  37.84% 
+|| 6,758,517
+| {{no2|Opposition}}
+|- style="text-align:center;"
+|| [[1980 Indian general election|1980]]
+|| [[1980 Indian general election in Tamil Nadu]]
+|[[M. Karunanidhi]]
+||{{Composition bar|37|39|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{increase}} 32
+||  55.89% 
+|| 10,290,515
+| {{yes2|government}}
+|- style="text-align:center;"
+|- style="text-align:center;"
+|| [[1984 Indian general election|1984]]
+|| [[1984 Indian general election in Tamil Nadu]]
+|[[M. Karunanidhi]]
+||{{Composition bar|2|39|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{decrease}} 36
+||  37.04% 
+|| 8,006,513
+| {{no2|Opposition}}
+|- style="text-align:center;"
+|| [[1989 Indian general election|1989]]
+|| [[1989 Indian general election in Tamil Nadu]]
+|[[M. Karunanidhi]]
+||{{Composition bar|1|39|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{decrease}} 1
+||  33.78%
+|| 8,918,905
+| {{no2|Opposition}}
+|- style="text-align:center;"
+|| [[1991 Indian general election|1991]]
+|| [[1991 Indian general election in Tamil Nadu]]
+|[[M. Karunanidhi]]
+||{{Composition bar|0|39|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{decrease}} 1
+||  27.64% 
+|| 6,823,581
+| {{no2|Opposition}}
+|- style="text-align:center;"
+|| [[1996 Indian general election|1996]]
+|| [[1996 Indian general election in Tamil Nadu]]
+|[[M. Karunanidhi]]
+||{{Composition bar|39|39|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{increase}} 39
+||  54.96%
+|| 14,940,474 
+| {{yes2|Government}}
+|- style="text-align:center;"
+|| [[1998 Indian general election|1998]]
+|| [[1998 Indian general election in Tamil Nadu]]
+|[[M. Karunanidhi]]
+||{{Composition bar|9|39|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{decrease}} 30
+||  42.72% 
+|| 10,937,809
+| {{no2|Opposition}}
+|- style="text-align:center;"
+|| [[1999 Indian general election|1999]]
+|| [[1999 Indian general election in Tamil Nadu]]
+|[[M. Karunanidhi]]
+||{{Composition bar|26|39|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{increase}} 17
+||  46.41%
+|| 12,638,602
+| {{yes2|Government}}
+|- style="text-align:center;"
+|| [[2004 Indian general election|2004]]
+|| [[2004 Indian general election in Tamil Nadu]]
+|[[M. Karunanidhi]]
+||{{Composition bar|39|39|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{increase}} 13
+||  57.40% 
+|| 16,483,390
+| {{yes2|Government}}
+|- style="text-align:center;"
+|| [[2009 Indian general election|2009]]
+|| [[2009 Indian general election in Tamil Nadu]]
+|[[M. Karunanidhi]]
+||{{Composition bar|27|39|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{decrease}} 12
+||  42.54%
+|| 12,929,043 
+| {{yes2|Government}}
+|- style="text-align:center;"
+|| [[2014 Indian general election|2014]]
+|| [[2014 Indian general election in Tamil Nadu]]
+|[[M. Karunanidhi]]
+||{{Composition bar|0|39|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{decrease}} 27
+||  26.8% 
+|| 10,887,347 
+| {{no2|Opposition}}
+|- style="text-align:center;"
+|| [[2019 Indian general election|2019]]
+|| [[2019 Indian general election in Tamil Nadu]]
+|[[M. K. Stalin]]
+||{{Composition bar|38|39|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{increase}} 39
+||  52% 
+|| 22,303,698
+| {{no2|Opposition }}
+|}
+
+=== Tamil Nadu Assembly Election ===
+{| class="wikitable" cellpadding="5"
+|+
+! style="width:25%;"| Year
+! style="width:15%;"| Legislature
+! Party leader
+! style="width:15%;"| Seats won (DMK+)
+! style="width:15%;"| Change in seats
+! style="width:15%;"| Percentage of votes
+! style="width:15%;"| Popular vote
+! Outcome
+|- style="text-align:center;"
+|| [[1957 Madras Legislative Assembly election|1957]]
+|| [[1957 Madras Legislative Assembly election]]
+|[[C.N. Annadurai]]
+||{{Composition bar|13|205|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{increase}} 13
+|| –
+|| –
+| {{partial|DMK grouped under independent won a total of 13 seats}}
+|- style="text-align:center;"
+|| [[1962 Madras Legislative Assembly election|1962]]
+|| [[1962 Madras Legislative Assembly election]]
+|[[C.N. Annadurai]]
+||{{Composition bar|50|205|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{increase}} 37
+|| 27.10% 
+|| 3,435,633 
+| {{no2|opposition}}
+|- style="text-align:center;"
+|| [[1967 Madras Legislative Assembly election|1967]]
+|| [[1967 Madras Legislative Assembly election]]
+|[[C.N. Annadurai]]
+||{{Composition bar|179|234|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{increase}} 129
+|| 52.59%
+|| 8,051,437
+| {{yes2|government}}
+|- style="text-align:center;"
+|| [[1971 Tamil Nadu Legislative Assembly election|1971]]
+|| [[1971 Tamil Nadu Legislative Assembly election]]
+|[[M. Karunanidhi]]
+||{{Composition bar|205|234|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{increase}} 26
+||  54.30%
+|| 8,506,078 
+| {{yes2|government}}
+|- style="text-align:center;"
+|| [[1977 Tamil Nadu Legislative Assembly election|1977]]
+|| [[1977 Tamil Nadu Legislative Assembly election]]
+|[[M. Karunanidhi]]
+||{{Composition bar|48|234|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{decrease}} 157
+||  24.89% 
+|| 4,258,771 
+| {{no2|opposition}}
+|- style="text-align:center;"
+|| [[1980 Tamil Nadu Legislative Assembly election|1980]]
+|| [[1980 Tamil Nadu Legislative Assembly election]]
+|[[M. Karunanidhi]]
+||{{Composition bar|69|234|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{increase}} 21
+||  44.43% 
+|| 8,371,718 
+| {{no2|opposition}}
+|- style="text-align:center;"
+|| [[1984 Tamil Nadu Legislative Assembly election|1984]]
+|| [[1984 Tamil Nadu Legislative Assembly election]]
+|[[M. Karunanidhi]]
+||{{Composition bar|34|234|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{decrease}} 35
+||  37.00% 
+|| 8,021,293
+| {{no2|opposition}}
+|- style="text-align:center;"
+|| [[1989 Tamil Nadu Legislative Assembly election|1989]]
+|| [[1989 Tamil Nadu Legislative Assembly election]]
+|[[M. Karunanidhi]]
+||{{Composition bar|150|234|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{increase}} 116
+||  37.89%
+|| 9,135,220 
+| {{yes2|government}}
+|- style="text-align:center;"
+|| [[1991 Tamil Nadu Legislative Assembly election|1991]]
+|| [[1991 Tamil Nadu Legislative Assembly election]]
+|[[M. Karunanidhi]]
+||{{Composition bar|7|234|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{decrease}} 143
+||  30.05% 
+|| 7,405,935
+| {{no2|opposition}}
+|- style="text-align:center;"
+|| [[1996 Tamil Nadu Legislative Assembly election|1996]]
+|| [[1996 Tamil Nadu Legislative Assembly election]]
+|[[M. Karunanidhi]]
+||{{Composition bar|221|234|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{increase}} 214
+||  53.77%
+|| 14,600,748
+| {{yes2|government}}
+|- style="text-align:center;"
+|| [[2001 Tamil Nadu Legislative Assembly election|2001]]
+|| [[2001 Tamil Nadu Legislative Assembly election]]
+|[[M. Karunanidhi]]
+||{{Composition bar|37|234|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{decrease}} 138
+||  38.67%
+|| 10,841,157 
+| {{no2|opposition}}
+|- style="text-align:center;"
+|| [[2006 Tamil Nadu Legislative Assembly election|2006]]
+|| [[2006 Tamil Nadu Legislative Assembly election]]
+|[[M. Karunanidhi]]
+||{{Composition bar|163|234|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{increase}} 71
+||  26.5%
+|| 8,728,716
+| {{yes2|government}}
+|- style="text-align:center;"
+|| [[2011 Tamil Nadu Legislative Assembly election|2011]]
+|| [[2011 Tamil Nadu Legislative Assembly election]]
+|[[M. Karunanidhi]]
+||{{Composition bar|31|234|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{decrease}} 132
+||  39.5% 
+|| 14,530,215
+| {{no2|opposition}}
+|- style="text-align:center;"
+|| [[2016 Tamil Nadu Legislative Assembly election|2016]]
+|| [[2016 Tamil Nadu Legislative Assembly election]]
+|[[M. Karunanidhi]]
+||{{Composition bar|89|234|{{Dravida Munnetra Kazhagam/meta/color}}}}
+|| {{increase}} 58
+||  40% 
+|| 17,175,374
+| {{no2|opposition}}
+|- style="text-align:center;"
+|| [[2021 Tamil Nadu Legislative Assembly election|2021]]
+|| [[2021 Tamil Nadu Legislative Assembly election]]
+|[[M. K. Stalin]]
+||TBD
+||  TBD
+|| TBD
+||TBD
+| {{yes2|TBD}}
+
+|}
+
+===Puducherry===
+{| class="wikitable sortable
+|-
+! Year || Election || Votes Polled || Seats Won
+|-
+| 1974 || 3rd Assembly || 47,823 || 2
+|-
+| 1977 || 4th Assembly || 30,441 || 3
+|-
+| 1980 || 5th Assembly || 68,030 || 14
+|-
+| 1985 || 6th Assembly || 87,754 || 5
+|-
+| 1990 || 7th Assembly || 101,127 || 9
+|-
+| 1991 || 8th Assembly || 96,607 || 4
+|-
+| 1996 || 9th Assembly || 105,392 || 7
+|-
+| 2001 || 10th Assembly || 83,679 || 7
+|-
+| 2006 || 11th Assembly || || 7
+|-
+| 2011 || 12th Assembly || || 3
+|-
+| 2016 || 13th Assembly || || 2
+|-
+|}
+
+{| class="wikitable sortable
+|-
+! Year || Election || Votes Polled || Seats Won
+|- bgcolor="lightsteelblue"
+| 1984 || 8th Lok Sabha || 97,672 || 0
+|- bgcolor="lightsteelblue"
+| 1989 || 9th Lok Sabha || 157,250 || 0
+|- bgcolor="lightsteelblue"
+| 1991 || 10th Lok Sabha || 140,313 || 0
+|- bgcolor="lightsteelblue"
+| 1996 || 11th Lok Sabha || 183,702 || 0
+|- bgcolor="lightsteelblue"
+| 1998 || 12th Lok Sabha || 168,122 || 1
+|}
+
+== List of presidents of DMK ==
+{| class="wikitable sortable" style="text-align:center"
+|-
+!S.No
+!Portrait
+!Name br / {{small|(birth–death)}}
+!Tenure
+!Duration
+|-
+|1
+|[[File:Kalaignar_M._Karunanidhi.jpg|75px]]
+|[[M. Karunanidhi]] br /  small (1923–2018) /small 
+|27 July 1969 – 7 August 2018
+|{{age in years and days|1969|7|27|2018|8|7}}
+|-
+|2
+|[[File:MKStalin.png|75px]]
+|[[M. K. Stalin]] br /  small (1953–) /small 
+|28 August 2018 – ''Incumbent''
+|{{age in years and days|2018|8|28}}
+|}
+
+== List of Chief Ministers from DMK==
+
+====Chief Minister of Madras State====
+*[[C. N. Annadurai]] (6 March 1967 – 13 January 1969)
+
+====Chief Minister of Tamil Nadu====
+*[[C. N. Annadurai]] (14 January 1969 – 3 February 1969)
+*[[M. Karunanidhi]] (10 February 1969 – 4 January 1971), (15 March 1971 – 31 January 1976), (27 January 1989 – 30 January 1991), (13 May 1996 – 13 May 2001), (13 May 2006 – 15 May 2011) 
+
+====Acting Chief Minister of Tamil Nadu====
+*[[V. R. Nedunchezhiyan]] (4 February 1969 – 9 February 1969)
+
+====Chief Minister of Pondicherry====
+*[[M. O. H. Farook]] (17 March 1969 – 3 January 1974)
+*[[M. D. R. Ramachandran]] (16 January 1980 – 24 June 1983), (8 March 1990 – 3 March 1991)
+*[[R. V. Janakiraman]] (26 May 1996 – 21 March 2000)
+
+== List of Deputy Chief Ministers from DMK==
+====Deputy Chief Minister of Tamil Nadu====
+*[[M. K. Stalin]] (29 May 2009 – 15 May 2011)
+
+==List of Leaders of Opposition==
+
+==== Tamil Nadu ====
+*[[V. R. Nedunchezhiyan]] (1962–1967)
+*[[M. Karunanidhi]] (1977–1987)
+*[[K. Anbazhagan]] (2001–2006)
+*[[M. K. Stalin]] (2016 – ''Incumbent'')
+
+==== Pondicherry ====
+* [[Kuppusamy Gounder]] (1989–95)
+* [[R. V. Janakiraman]] (2001–06)
+* [[A.M.H.Nazeem]] (2006–11)
+
+== Current Office Bearers / Prominent Members ==
+{|class="sortable wikitable"
+|-
+!style="text-align:center;"|Member
+! style="text-align:center;" |Position in government
+! style="text-align:center;" |Party Position
+|- style="text-align:left; background:#fff;"
+|[[M. K. Stalin]] ref {{Cite web|url=https://web.archive.org/web/20090223120738/http://www.assembly.tn.gov.in/disp_ind.asp?prof_id=49 /ref 
+|Leader of the Opposition in the [[Tamil Nadu Legislative Assembly|TNLA]], Former Deputy Chief Minister
+|President 
+|- style="text-align:left; background:#fff;"
+|[[Duraimurugan]] ref {{Cite web|url=https://web.archive.org/web/20090222093834/http://assembly.tn.gov.in/disp_ind.asp?prof_id=78 /ref 
+|Deputy Leader of Opposition, Former State Minister in the TNLA
+|General Secretary 
+|- style="text-align:left; background:#fff;"
+|[[T. R. Baalu]] ref {{Cite web|url=https://archive.india.gov.in/govt/loksabhampbiodata.php?mpcode=26 /ref 
+|Member of parliament, Former Union Minister for ship and roadways
+|Parliamentary Party Leader
+|- style="text-align:left; background:#fff;"
+|[[Tiruchi Siva]] ref {{Cite web|url=https://archive.india.gov.in/govt/rajyasabhampbiodata.php?mpcode=2046 /ref 
+|Member of parliament (Rajyasabha) 2020
+|Rajya Sabha Leader of DMK
+|- style="text-align:left; background:#fff;"
+|[[K. N. Nehru]] ref {{Cite web|url=https://web.archive.org/web/20090425145856/http://www.assembly.tn.gov.in/disp_ind.asp?prof_id=214 /ref 
+|Member of Legislative Assembly, Former State Minister for transport
+|Principal Secretary
+|- style="text-align:left; background:#fff;"
+|[[R. S. Bharathi]] ref {{Cite web|url=https://rajyasabha.nic.in/rsnew/member_site/Main.aspx /ref 
+|Member of parliament (Rajyasabha), Former Chairman of Alandur Municipality 1986–91 and 1996–2009) 
+|Organization Secretary
+|- style="text-align:left; background:#fff;"
+|[[T. K. S. Elangovan]] ref {{Cite web|url=https://archive.india.gov.in/govt/loksabhampbiodata.php?mpcode=4533 /ref 
+|Member of parliament (Rajyasabha)
+|Official Spokesperson
+|- style="text-align:left; background:#fff;"
+|[[I. Periyasamy]] ref {{Cite web|url=https://web.archive.org/web/20090221114246/http://assembly.tn.gov.in/disp_ind.asp?prof_id=196 /ref 
+|Member of Legislative Assembly 2016, Former State Minister Revenue and Housing
+|Deputy General Secretary
+|- style="text-align:left; background:#fff;"
+|[[Subbulakshmi Jagadeesan]] ref {{Cite web|url=http://164.100.47.194/Loksabha/Members/memberbioprofile.aspx?mpsno=4147&lastls=14 /ref 
+|former Minister of State in the Ministry of Social Justice and Empowerment 
+|Deputy General Secretary
+|- style="text-align:left; background:#fff;"
+|[[V. P. Duraisamy]] ref {{Cite web|url=https://web.archive.org/web/20090102081305js_/http://www.assembly.tn.gov.in/disp_ind.asp?prof_id=297 /ref 
+|Former deputy speaker in the Tamil Nadu Legislative Assembly
+|Deputy General Secretary
+|- style="text-align:left; background:#fff;"
+|[[Arcot N. Veeraswami]] ref {{Cite web|url=https://web.archive.org/web/20090420020649/http://www.assembly.tn.gov.in/disp_ind.asp?prof_id=66 /ref 
+|Former State minister for power 2006–2011
+|High Level executive committee member
+|- style="text-align:left; background:#fff;"
+|[[Kanimozhi]] ref {{Cite web|url=http://loksabhaph.nic.in/Members/MemberBioprofile.aspx?mpsno=4960&lastls=17 /ref 
+|Chairperson, Standing Committee on Chemicals & Fertilizers, Member of parliament
+|Deputy Leader of Parliamentry party 
+|- style="text-align:left; background:#fff;"
+|[[Andimuthu Raja]] ref {{Cite web|url=http://loksabhaph.nic.in/Members/MemberBioprofile.aspx?mpsno=344&lastls=17 /ref 
+|Member of parliament, Former union Minister telecom 
+|Whip of DMK Parliamentry Party 
+|- style="text-align:left; background:#fff;"
+|[[Dayanidhi Maran]] ref {{Cite web|url=http://loksabhaph.nic.in/Members/MemberBioprofile.aspx?mpsno=4144&lastls=17 /ref 
+|Member of parliament, Former Union Cabinet Minister, Textiles
+| High Level executive committee member
+|- style="text-align:left; background:#fff;"
+|[[S. Jagathrakshakan]] ref {{Cite web|url=http://loksabhaph.nic.in/Members/MemberBioprofile.aspx?mpsno=157 /ref 
+|Member of parliament, Former Union Minister of State, Commerce and Industry
+|High Level executive committee member
+|- style="text-align:left; background:#fff;"
+|[[Suba Thangavelan]] ref {{Cite web|url=https://web.archive.org/web/20090223120727/http://assembly.tn.gov.in/disp_ind.asp?prof_id=252 /ref 
+|Member of Tamil Nadu Legislative Assembly, Former state Minister for Slum Clearance
+|High Level executive committee member
+|- style="text-align:left; background:#fff;"
+|[[E. V. Velu]] ref {{Cite web|url=https://web.archive.org/web/20090221034955/http://assembly.tn.gov.in/disp_ind.asp?prof_id=87 /ref 
+|Member of Tamil Nadu Legislative Assembly, Former State Minister for food
+| Distric Secretary – Thiruvannamalai
+|- style="text-align:left; background:#fff;"
+|[[K. Ponmudy]] ref {{Cite web|url=https://web.archive.org/web/20090425160532/http://www.assembly.tn.gov.in/disp_ind.asp?prof_id=102 /ref 
+|Member of Tamil Nadu Legislative Assembly, Former state Minister for Higher education 
+|Distric Secretary – Villupuram
+|- style="text-align:left; background:#fff;"
+|[[M. R. K. Panneerselvam]] ref {{Cite web|url=https://web.archive.org/web/20080702232103/http://www.assembly.tn.gov.in/disp_ind.asp?prof_id=108 /ref 
+|Member of Tamil Nadu Legislative Assembly, Former Minister for Health
+| |Distric Secretary – Cuddalore
+|- style="text-align:left; background:#fff;"
+|[[T. M. Selvaganapathy]] ref {{Cite web|url=https://archive.india.gov.in/govt/rajyasabhampbiodata.php?mpcode=2148 /ref 
+|former Member, Committee on Science and Technology, Environment and Forests (2012)
+|Distric Secretary – Salem west 
+|- style="text-align:left; background:#fff;"
+|[[S. S. Palanimanickam]] ref {{Cite web|url=http://164.100.47.194/Loksabha/members/MemberBioprofile.aspx?mpsno=284&lastls=17 /ref 
+|Member of parliament, Former Union Minister of State, Finance (2004–2012)
+|High Level executive committee member
+|- style="text-align:left; background:#fff;"
+|[[K. C. Palanisamy]] ref {{Cite web|url=http://164.100.47.194/Loksabha/members/ArchiveMemberBioprofile.aspx?mpsno=3355&lastls=14 /ref 
+|former Member, Committee on Industy (2007) 
+|High Level executive committee member
+|- style="text-align:left; background:#fff;"
+|[[M. Kannappan]]. ref {{Cite web|url=http://164.100.47.194/Loksabha/members/ArchiveMemberBioprofile.aspx?mpsno=177&lastls=13  /ref 
+|Union Minister of State (Independent Charge) Non-Conventional Energy Sources  
+|High Level executive committee member
+|}
+
+==Media==
+The DMK party runs two newspapers, one each in English and Tamil, namely "The Rising Sun" (weekly journal) and "[[Murasoli]]" (daily) respectively. ref {{cite web|url=http://www.dmk.in/|title=DMK homepage|accessdate=11 November 2013|publisher=Dravida Munnetra Kazhagam}} /ref  Kalaignar TV is a channel started on 15 September 2007 and managed by [[Kanimozhi]] and Dayalu Ammal, the daughter and wife of Karunanidhi. The sister channels of Kalaignar TV are Isaiaruvi (music channel), Seithigal (news channel), Sirippoli (comedy channel), Kalaignar Asia and Chithiram (Tamil cartoon channel). ref {{cite web|url=http://www.kalaignartv.co.in/|title=Kalaignar Channel|publisher=Kalaignar Channel|accessdate=11 November 2013}} /ref 
+
+==Controversies==
+Indira Gandhi dismissed the Karunanidhi government in 1976 based on charges of possible secession and corruption. The DMK government has been indicted by the Sarkaria commission for corruption in allotting tenders for the [[Veeranam]] drainage project. ref {{cite news|url=http://www.hinduonnet.com/2001/06/10/stories/0410223a.htm|work=The Hindu|title=What the Sarkaria Commission said|accessdate=11 November 2013|date=10 June 2001|archive-url=https://web.archive.org/web/20101205052213/http://www.hinduonnet.com/2001/06/10/stories/0410223a.htm|archive-date=5 December 2010|url-status=dead}} /ref  
+
+===Connections with LTTE===
+The interim report of Justice [[Jain Commission]], which oversaw the investigation into [[Rajiv Gandhi]]'s [[Assassination of Rajiv Gandhi|assassination]], indicted Karunanidhi for abetting the [[Liberation Tigers of Tamil Eelam]] (LTTE). ref {{cite magazine|url=http://www.india-today.com/itoday/17111997/cov.html|last=Chawla|first=Prabhu|magazine=India Today|title=Jain Commission Revelations: Damning the DMK|accessdate=11 November 2013|date=17 November 1997|archive-url=https://web.archive.org/web/20150924034354/http://www.india-today.com/itoday/17111997/cov.html|archive-date=24 September 2015|url-status=dead}} /ref  The interim report recommended that Tamil Nadu Chief Minister M. Karunanidhi and the DMK party be held responsible for abetting Rajiv Gandhi's murderers. The final report contained no such allegations. ref {{cite news| url=http://www.hindu.com/2004/02/14/stories/2004021405140100.htm | location=Chennai, India | title=No adverse comments on DMK leaders in Jain report | date=14 February 2004|work=The Hindu|accessdate=11 November 2013}} /ref 
+
+===Allegations of nepotism===
+Karunanidhi's nephew, [[Murasoli Maran]], was a [[Union Minister]]; however, it has been pointed out that he was in politics long before Karunanidhi became the Chief Minister in 1969. ref {{cite news|url=http://news.indiainfo.com/2003/11/23/23maran1.html|title=Maran&nbsp;– the eyes and ears of DMK in Delhi|publisher=Indiainfo.com|accessdate=11 November 2013|url-status=dead|archiveurl=https://web.archive.org/web/20110617023328/http://news.indiainfo.com/2003/11/23/23maran1.html|archivedate=17 June 2011}} /ref 
+
+Many political opponents and DMK party senior leaders have been critical of the rise of M. K. Stalin in the party. But some of the party men have pointed out that Stalin has come up on his own. ref {{cite news|url=http://www.india-today.com/itoday/19991101/stalin.html|title=Politics: Special Series; M K Stalin|work=India Today|date=1 November 1999|accessdate=11 November 2013|archive-url=https://web.archive.org/web/20150924034411/http://www.india-today.com/itoday/19991101/stalin.html|archive-date=24 September 2015|url-status=dead}} /ref  
+
+Karunanidhi has been accused of helping Murasoli Maran's son [[Kalanidhi Maran]], who runs [[Sun Network]], India's second largest television network. According to Forbes, Kalanidhi is among India's richest 20, with $2.9&nbsp;billion. ref {{cite news| url=https://www.forbes.com/lists/2010/10/billionaires-2010_The-Worlds-Billionaires_CountryOfCitizen_11.html | work=Forbes | title=The World's Billionaires Page 11 of 41 | date=10 March 2010|accessdate=11 November 2013}} /ref 
+
+It has been pointed out that Karunanidhi has hesitated to take action against his erring family members. ref {{cite magazine|title=DMK's sonny-come-lately|url=http://www.tehelka.com/story_main18.asp?filename=Ne051306up_close.asp|magazine=Tehelka|date=13 May 2006|accessdate=11 November 2013|url-status=dead|archiveurl=https://archive.today/20120911130612/http://www.tehelka.com/story_main18.asp?filename=Ne051306up_close.asp|archivedate=11 September 2012}} /ref 
+
+Karunanidhi is also accused of allowing Azhagiri to function as an extraconstitutional authority in Madurai. ref {{cite news| url=http://www.hindu.com/thehindu/2003/08/19/stories/2003081902600400.htm | location=Chennai, India | work=The Hindu | title=Charge sheet filed against Azhagiri in Kiruttinan case | date=19 August 2003|accessdate=11 November 2013}} /ref  The Dinakaran newspaper case was handed over to the CBI. But the District and Sessions court acquitted all the 17 accused in that case. ref {{cite news|url=http://www.hindu.com/2009/12/10/stories/2009121059620100.htm|work= The Hindu |title= All acquitted in Dinakaran case|date=5 December 2009|accessdate=11 November 2013}} /ref  
+
+===Involvement in 2G case===
+DMK has been facing allegations regarding [[2G spectrum case]]. ref name="Transparent" {{cite news | url=http://www.outlookindia.com/article.aspx?270152 | title=It's a Bit too Transparent | work=Outlook | date=31 January 2011 | accessdate=23 November 2012 | archive-url=https://web.archive.org/web/20121016065106/http://www.outlookindia.com/article.aspx?270152 | archive-date=16 October 2012 | url-status=dead | df=dmy-all }} /ref  The case was brought into limelight in 2010 when case filed against Minister for Communications and Information Technology [[A. Raja]] had been reported. 2G licences were issued to private telecom players at throwaway prices in 2008. The CAG estimated on the basis of 3G auction that the 2G Spectrum case had cost the government {{INRConvert|1.76|lc|year=2010|lk=on}} ([[Long and short scales|short scale]]). Rules and procedures were flouted while issuing licences. ref [http://www.ndtv.com/article/india/what-is-2g-spectrum-scam-66418 2G Spectrum Scam] /ref  The CBI in the Supreme Court has since indicated that the factual loss is around {{INRConvert|30000|c|year=2010|lk=on}}. One of the party's TV channel stations, [[Kalaignar TV]] was raided by [[Central Bureau of Investigation]] (CBI) officers in connection with the 2G Spectrum case on 19 February 2011. ref {{cite news| url=http://articles.timesofindia.indiatimes.com/2011-02-18/chennai/28615098_1_cineyug-films-shahid-usman-swan-telecom | work=The Times of India | title=CBI raids Karunanidhi family's Kalaignar TV office | date=18 February 2011|accessdate=11 November 2013}} /ref  Karunanidhi's daughter MK Kanimozhi arrested and sent to [[Tihar jail]] on 20 May 2011 for alleged kickbacks in 2G case. She has been arrested for the illegal transfer of money to the DMK's official channel [[Kalaignar TV]]. DMK MP A Raja is the prime accused in 2G case and sent to Tihar Jail. Kanimozhi was subsequently released on bail on 29 November 2011 ref {{cite news| url=http://www.thehindu.com/news/national/article2671861.ece | work=The Hindu | title=Kanimozhi walks out of Tihar jail | date=29 November 2011|accessdate=11 November 2013}} /ref  On 21 December a Delhi Court cleared all charges of all the members, including former telecom minister A. Raja and DMK Rajya Sabha member Kanimozhi in the 2G spectrum allocation case since the prosecution failed to prove the charges beyond reasonable doubt. ref {{Cite news|last=Kumar|first=Nirnimesh|url=https://www.thehindu.com/news/cities/Delhi/a-raja-kanimozhi-others-acquitted-in-2g-spectrum-scam-case/article22121626.ece|title=A. Raja, Kanimozhi, others acquitted in 2G spectrum allocation case|date=21 December 2017|work=The Hindu|access-date=24 March 2020|issn=0971-751X}} /ref  ref {{Cite web|url=https://www.newindianexpress.com/nation/2017/dec/21/2g-spectrum-case-verdict-special-cbi-court-acquits-rajya-sabha-mp-kanimozhi-former-telecom-ministe-1733064.html|title=2G spectrum case verdict: Special CBI court acquits Rajya Sabha MP Kanimozhi, Former Telecom Minister A Raja|website=The New Indian Express|access-date=24 March 2020}} /ref 
+
+==Notes==
+{{reflist|30em}}
+
+==References==
+{{refbegin|2}}
+* {{Cite book |first= M. L. |last=Ahuja|authorlink= |title=Electoral politics and general elections in India, 1952–1998|year=1998|publisher=Mittal Publication |location=New Delhi |isbn=978-81-7099-711-5|url=https://books.google.com/books?id=CFCjniBF9s8C&pg=PA358|ref=Ahuja}}
+* {{Cite book |first= Geetha Kamalakshi |last=Murali|authorlink= |author2=University of California, Berkeley |title=Tracing the signs: Voter mobilization and the functionality of ideas in ..|year=2007|location=MI|url=https://books.google.com/books?id=Mb2PDvlu30IC&pg=PA82|ref=Murali|isbn=9780549737612}}
+* {{Cite book |first= Geetha Kamalakshi |last=Mahendra Singh |authorlink= |title=India votes: Lok Sabha & Vidhan Sabha elections 2001–2005|year=2006|publisher=Sarup & Sons |location=New Delhi|isbn=978-81-7625-647-6|url=https://books.google.com/books?id=yInZdHn-pKoC&pg=PA413&dq=admk#v=onepage&q=admk&f=false|ref=Mahendra Singh}}
+* {{cite web|title=Tamil Nadu Legislative Assembly Quadrennial Review 1957–62|publisher=Legislative Assembly Department|location=Fort St. George, Madras|url=http://www.assembly.tn.gov.in/archive/reviews/Review_2-1957-62.pdf|date=June 1962|ref=second}}
+* {{cite web|title=Tamil Nadu Legislative Assembly Quadrennial Review 1962–67|publisher=Legislative Assembly Department|location=Fort St. George, Madras|url=http://www.assembly.tn.gov.in/archive/reviews/review_3_62-67.pdf|date=June 1967|ref=third}}
+* {{cite web|title=Tamil Nadu Legislative Assembly Quadrennial Review 1967–70|publisher=Legislative Assembly Department|location=Fort St. George, Madras|url=http://www.assembly.tn.gov.in/archive/reviews/Review%204_67-70.pdf|date=June 1971|ref=fourth|url-status=dead|archiveurl=https://web.archive.org/web/20131202225355/http://www.assembly.tn.gov.in/archive/reviews/Review%204_67-70.pdf|archivedate=2 December 2013}}
+* {{cite web|title=Tamil Nadu Legislative Assembly Quadrennial Review 1971–76|publisher=Legislative Assembly Department|location=Fort St. George, Madras|url=http://www.assembly.tn.gov.in/archive/reviews/Review_5_1971_1976.pdf|date=June 1976|ref=fifth}}
+* {{cite web|title=Tamil Nadu Legislative Assembly Quadrennial Review 1977–80|publisher=Legislative Assembly Department|location=Fort St. George, Madras|url=http://www.assembly.tn.gov.in/archive/reviews/Review_6_1977_1980.pdf|year=1980|ref=sixth}}
+* {{cite web|title=Statistical report on Tamil Nadu Assembly elections 1984|publisher=Election Commission of India|location=New Delhi|year=1984|url=http://eci.nic.in/eci_main/statisticalreports/SE_1984/StatisticalReportTamilNadu84.pdf|ref=eighth}}
+* {{cite web|title=Statistical report on Tamil Nadu Assembly elections 2001|publisher=Election Commission of India|location=New Delhi|year=2001|url=http://eci.nic.in/eci_main/statisticalreports/SE_2001/Stat_Rep_TN_2001.pdf|ref=twelfth}}
+* {{cite web|title=Statistical report on Tamil Nadu Assembly elections 2011|publisher=Election Commission of India|location=New Delhi|year=2011|url=http://eci.nic.in/eci_main/StatisticalReports/AE2011/stat_TN_May2011.pdf|ref=thirteenth}}
+* {{cite web|title=Statistical report on Tamil Nadu Assembly general elections 1980|publisher=Election Commission of India|location=New Delhi|year=1980|url=http://eci.nic.in/eci_main/statisticalreports/SE_1980/StatisticalReportTamil%20Nadu%201980.pdf|ref=seventh}}
+* {{cite web|title=Statistical report on Tamil Nadu Assembly general elections 1989|publisher=Election Commission of India|location=New Delhi|year=1989|url=http://eci.nic.in/eci_main/statisticalreports/SE_1989/StatisticalReportTamilNadu89.pdf|ref=ninth}}
+* {{cite web|title=Statistical report on Tamil Nadu Assembly general elections 1991|publisher=Election Commission of India|location=New Delhi|year=1991|url=http://eci.nic.in/eci_main/statisticalreports/SE_1991/StatisticalReport-Tamil%20Nadu91.pdf|ref=tenth}}
+* {{cite web|title=Statistical report on Tamil Nadu Assembly general elections 1996 |publisher=Election Commission of India |location=New Delhi |year=1996 |url=http://eci.nic.in/eci_main/statisticalreports/SE_1996/StatisticalReport-TN96.pdf |ref=eleventh |url-status=dead |archiveurl=https://web.archive.org/web/20101007221700/http://eci.nic.in/eci_main/StatisticalReports/SE_1996/StatisticalReport-TN96.pdf |archivedate=7 October 2010  }}
+* {{cite web|title=Statistical report on Tamil Nadu Assembly general elections 2006|publisher=Election Commission of India|location=New Delhi|year=2006|url=http://eci.nic.in/eci_main/statisticalreports/SE_2006/StatReport_TN_2006.pdf|ref=stat2006}}
+{{refend}}
+
+==External links==
+* {{official}} 
+* [https://www.britannica.com/topic/Dravidian-Progressive-Federation Dravida Munnetra Kazhagam] — entry at ''[[Encyclopædia Britannica]]'' 
+
+{{Dravidian politics-hor}}
+{{India separatist movements}}
+{{Indian political parties}}
+{{United Progressive Alliance |state=collapsed}}
+
+{{Use dmy dates|date=March 2020}}
+
+[[Category:Political parties in India]]
+[[Category:1949 establishments in India]]
+[[Category:Dravida Munnetra Kazhagam|*]] 
+[[Category:Democratic socialist parties in Asia]] 
+[[Category:State political parties in Tamil Nadu]]
+[[Category:State political parties in Puducherry]]
+[[Category:Dravidian political parties]]
+[[Category:Political parties established in 1949]] 
+[[Category:Regionalist parties in India]] 
+[[Category:Social democratic parties]] 
+[[Category:Left-wing politics in India]] 
+[[Category:Left-wing populist parties]]

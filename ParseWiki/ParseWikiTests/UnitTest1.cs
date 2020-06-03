@@ -1,5 +1,10 @@
 using System;
 using System.Drawing.Printing;
+using System.IO;
+using System.Linq;
+using System.Net;
+using MwParserFromScratch;
+using MwParserFromScratch.Nodes;
 using NUnit.Framework;
 using ParseWiki;
 
@@ -45,6 +50,26 @@ namespace ParseWikiTests
             Assert.AreEqual(coord.Latitude,-22.90833333333333, 1e-5);
             Assert.AreEqual(coord.Longitude, -43.243611111111115, 1e-5);
 
+        }
+
+        [Test]
+        public void TestSettlementInfobox()
+        {
+            var text = File.ReadAllText("settlement_infobox.txt");
+            var block = new WikiBlock(0, "San Francisco", text);
+            var template = block.Wtext.EnumDescendants().OfType<Template>().First();
+            var infobox = Infobox.FromWiki(block, template);
+            Console.Out.WriteLine(infobox.Location);
+            Assert.AreEqual(infobox.Location.Latitude, 37.7775, 1e-5);
+            Assert.AreEqual(infobox.Location.Longitude, -122.416388, 1e-5);
+        }
+
+        [Test]
+        public void TestParseProblemWiki1()
+        {
+            var text = File.ReadAllText("problem_wiki1.txt");
+            var parser = new WikitextParser();
+            var wtext = parser.Parse(text);
         }
     }
 }

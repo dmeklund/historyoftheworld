@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 namespace ParseWiki
@@ -10,7 +11,7 @@ namespace ParseWiki
             _connstr = connstr;
         }
         
-        public async void SaveEvent(int id, string title, string eventtype, DateRange range, Coord coord)
+        public async Task SaveEvent(int id, string title, string eventtype, DateRange range, Coord coord)
         {
             await using var conn = new MySqlConnection(_connstr);
             await conn.OpenAsync();
@@ -36,12 +37,36 @@ namespace ParseWiki
             await cmd.ExecuteNonQueryAsync();
         }
 
-        public async void Truncate()
+        public async Task SaveLocation(int id, string title, Coord coord)
+        { 
+            await using var conn = new MySqlConnection(_connstr);
+            await conn.OpenAsync();
+            var cmd = conn.CreateCommand();
+            cmd.CommandText =
+                "INSERT INTO locations (id, title, lat, lng)" +
+                "VALUES (@id, @title, @lat, @lng)";
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@title", title);
+            cmd.Parameters.AddWithValue("@lat", coord.Latitude);
+            cmd.Parameters.AddWithValue("@lng", coord.Longitude);
+            await cmd.ExecuteNonQueryAsync();
+        }
+
+        public async void TruncateEvents()
         {
             await using var conn = new MySqlConnection(_connstr);
             await conn.OpenAsync();
             var cmd = conn.CreateCommand();
             cmd.CommandText = "TRUNCATE TABLE events";
+            await cmd.ExecuteNonQueryAsync();
+        }
+
+        public async void TruncateLocations()
+        {
+            await using var conn = new MySqlConnection(_connstr);
+            await conn.OpenAsync();
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = "TRUNCATE TABLE locations";
             await cmd.ExecuteNonQueryAsync();
         }
     }

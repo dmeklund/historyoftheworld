@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 using System.Xml;
@@ -11,6 +12,35 @@ using MwParserFromScratch.Nodes;
 
 namespace ParseWiki
 {
+    public struct WikiBlock
+    {
+        public int Id { get; }
+        public string Title { get; }
+        private Wikitext _wtext;
+        private string _text;
+
+        public Wikitext Wtext => _wtext ??= new WikitextParser().Parse(_text);
+
+        public string Text => _text ??= _wtext.ToString();
+
+
+        public WikiBlock(int id, string title, string text)
+        {
+            Id = id;
+            Title = title;
+            _text = text;
+            _wtext = null;
+        }
+
+        public WikiBlock(int id, string title, Wikitext wtext)
+        {
+            Id = id;
+            Title = title;
+            _text = null;
+            _wtext = wtext;
+        }
+    }
+    
     public class WikiParser
     {
         private readonly string _filepath;
@@ -20,33 +50,6 @@ namespace ParseWiki
         {
             this._filepath = filepath;
             this._datasource = datasource;
-        } 
-
-        private struct WikiBlock
-        {
-            public int Id { get; }
-            public string Title { get; }
-            public string Text { get; }
-            private Wikitext _wtext;
-
-            public Wikitext Wtext
-            {
-                get
-                {
-                    if (_wtext == null)
-                    {
-                        _wtext = new WikitextParser().Parse(Text);
-                    }
-                    return _wtext;
-                }
-            }
-            public WikiBlock(int id, string title, string text)
-            {
-                Id = id;
-                Title = title;
-                Text = text;
-                _wtext = null;
-            }
         }
 
         private readonly struct WikiEvent
@@ -77,8 +80,23 @@ namespace ParseWiki
             var extractor = new TransformBlock<WikiBlock, WikiLocation>(
                 // ExtractEvents,
                 ExtractLocations,
-                new ExecutionDataflowBlockOptions { MaxDegreeOfParallelism = 32 }
+                new ExecutionDataflowBlockOptions
+                {
+                    MaxDegreeOfParallelism = 32,
+                    BoundedCapacity = 100
+                }
             );
+            var saveLocation = new ActionBlock<WikiLocation>(
+                SaveLocation, 
+                new ExecutionDataflowBlockOptions
+                {
+                    MaxDegreeOfParallelism = 5,
+                    BoundedCapacity = 50
+                }
+            );
+            var linkOptions = new DataflowLinkOptions { PropagateCompletion = true };
+            extractor.LinkTo(saveLocation, linkOptions);
+            
             while (await reader.ReadAsync())
             {
                 switch (reader.NodeType)
@@ -101,6 +119,10 @@ namespace ParseWiki
                         if (isTitle)
                         {
                             title = reader.Value;
+                            if (title == "Cincinnati Zoo and Botanical Garden")
+                            {
+                                Console.WriteLine("Found it!");
+                            }
                             isTitle = false;
                         }
                         else if (isId)
@@ -112,11 +134,12 @@ namespace ParseWiki
                         {
                             isText = false;
                             var text = reader.Value;
-                            // if (text.Contains("| coord"))
-                            // {
-                                extractor.Post(new WikiBlock(id, title, text));
-                                // ExtractEvents(new WikiBlock(id, title, text));
-                            // }
+                            if (title != "Kid Chocolate")
+                            {
+                                await extractor.SendAsync(new WikiBlock(id, title, text));
+                                // var result = ExtractLocations(new WikiBlock(id, title, text));
+                                // await SaveLocation(result);
+                            }
                         }
                         break;
                     case XmlNodeType.None:
@@ -162,27 +185,43 @@ namespace ParseWiki
             // extractor.Complete();
             // await extractor.Completion;
         }
-
-        private static WikiLocation ExtractLocations(WikiBlock block)
+        
+        private WikiLocation ExtractLocations(WikiBlock block)
         {
-            var coords = block.Wtext.EnumDescendants()
-                .OfType<Template>()
-                .Where(t => MwParserUtility.NormalizeTemplateArgumentName(t.Name).StartsWith("Coord"))
-                .Select(t => Coord.FromWikitext(t.ToString()))
-                .ToList();
-            if (coords.Count > 0)
+            WikiLocation location = null;
+            try
             {
-                foreach (var coord in coords)
+                var parser = new WikitextParser();
+                var text = block.Text.Replace('<', ' ').Replace('>', ' ');
+                var wtext = parser.Parse(text);
+                var templates = wtext.EnumDescendants()
+                    .OfType<Template>()
+                    .Where(t => WikiUtil.NormalizeTemplateName(t.Name)
+                        .StartsWith("Infobox", StringComparison.InvariantCultureIgnoreCase));
+                foreach (var template in templates)
                 {
-                    Console.WriteLine("Found coord for {0}: {1}", block.Title, coord);
+                    var infobox = Infobox.FromWiki(block, template);
+                    if (infobox != null)
+                    {
+                        location = infobox.ToLocation();
+                        break;
+                    }
                 }
-                return new WikiLocation(block.Id, block.Title, coords[0]);
             }
-            else
+            catch (Exception e)
             {
-                return null;
+                Console.WriteLine(e);
             }
+            return location;
+        }
 
+        private async Task SaveLocation(WikiLocation location)
+        {
+            if (location != null)
+            {
+                Console.WriteLine("Saving location: {0}", location);
+                await _datasource.SaveLocation(location.Id, location.Title, location.Coordinate);
+            }
         }
         
         private async Task<WikiEvent?> ExtractEvents(WikiBlock block)

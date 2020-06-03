@@ -1,0 +1,124 @@
+{{Infobox settlement
+<!--See the table at Template:Infobox settlement for all fields and descriptions of their usage-->
+| name                            = San Francisco, California
+| official_name                   = City and County of San Francisco
+| settlement_type                 = [[Consolidated city-county]]
+| image_skyline                   = San_Francisco_from_the_Marin_Headlands_in_March_2019.jpg
+| imagesize                       = 300px
+| image_caption                   = San Francisco from the [[Marin Headlands]]
+| image_flag                      = Flag of San Francisco.svg
+| flag_size                       = 100px
+| image_seal                      = Seal of San Francisco.svg
+| seal_size                       = 100px
+| nickname                        = See [[List of nicknames for San Francisco]] <ref name=TBI20130630 />
+| motto                           = ''Oro en Paz, Fierro en Guerra'' (Spanish)<br />(English: "Gold in Peace, Iron in War")
+<!-- Location ------------->
+| pushpin_map                     = California#San Francisco Bay Area#USA#North America
+| pushpin_label                   = San Francisco
+| pushpin_map_alt                 = 
+| pushpin_map_caption             = Location within California##Location within the [[San Francisco Bay Area]]##Location within the contiguous United States##Location within North America
+| coordinates                     = {{coord|37|46|39|N|122|24|59|W|region:US-CA|display=inline,title}}
+| subdivision_type                = Country
+| subdivision_name                = {{flagu|United States|size=23px}}
+| subdivision_type1               = [[U.S. state|State]]
+| subdivision_type2               = [[Combined Statistical Area|CSA]]
+| subdivision_type3               = [[Metropolitan statistical area|Metro]]
+| subdivision_name1               = {{flag|California}}
+| subdivision_name2               = [[San Jose–San Francisco–Oakland, CA Combined Statistical Area|San Jose–San Francisco–Oakland]]
+| subdivision_name3               = [[San Francisco–Oakland–Hayward]]
+<!-- Politics ----------------->
+| established_title               = Mission
+| established_date                = June 29, 1776<ref name="DeAnza-Moraga-Palou"/>
+| established_title1              = [[Municipal incorporation|Incorporated]]
+| established_date1               = April 15, 1850<ref>{{cite web|url = http://www6.sfgov.org/index.aspx?page=4|archive-url = https://web.archive.org/web/20120316222315/http://www6.sfgov.org/index.aspx?page=4|archive-date = March 16, 2012|title = San Francisco: Government|publisher = SFGov.org|accessdate = March 8, 2012|quote = San Francisco was incorporated as a City on April 15th, 1850 by act of the Legislature.}}</ref>
+| founder                         = [[José Joaquín Moraga]]<br />[[Francisco Palóu]]
+| named_for                       = [[Francis of Assisi|St. Francis of Assisi]]
+| government_type                 = [[Mayor–council government|Mayor-council]]
+| governing_body                  = [[San Francisco Board of Supervisors|Board of Supervisors]]
+| leader_title                    = [[Mayor of San Francisco|Mayor]]
+| leader_name                     = [[London Breed]] ([[California Democratic Party|D]])<ref>{{cite web|url = http://sfmayor.org/|title = Office of the Mayor : Home|publisher = City & County of San Francisco|accessdate = July 11, 2018}}</ref>
+| leader_title1                   = [[San Francisco Board of Supervisors|Supervisors]]<ref>{{cite web|title = Board of Supervisors|url = http://www.sfbos.org/|website = City and County of San Francisco|accessdate = January 28, 2017}}</ref>
+| leader_name1                    = {{Collapsible list
+ |frame_style = border:none; padding: 0;
+ |list_style = text-align:left;
+ |1 = [[Sandra Lee Fewer]] (D)
+ |2 = [[Catherine Stefani]] (D)
+ |3 = [[Aaron Peskin]] (D)
+ |4 = [[Gordon Mar]] (D)
+ |5 = [[Dean Preston]] (D)
+ |6 = [[Matt Haney]] (D)
+ |7 = [[Norman Yee]] (D)
+ |8 = [[Rafael Mandelman]] (D)
+ |9 = [[Hillary Ronen]] (D)
+ |10 = [[Shamann Walton]] (D)
+ |11 = [[Ahsha Safaí]] (D)
+ }}
+| total_type                      = City and county
+| unit_pref                       = Imperial
+| area_footnotes                  = <ref name="CenPopGazetteer2016">{{cite web|title=2016 U.S. Gazetteer Files|url=https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2016_Gazetteer/2016_gaz_place_06.txt|publisher=United States Census Bureau|accessdate=June 28, 2017}}</ref>
+| area_total_km2                  = 600.59
+| area_total_sq_mi                = 231.89
+| area_land_km2                   = 121.46
+| area_land_sq_mi                 = 46.89
+| area_water_km2                  = 479.14
+| area_water_sq_mi                = 185.00
+| area_water_percent              = 80.00
+| area_metro_sq_mi                = 3524.4
+<!-- Elevation ------------------------->
+| area_note                       = 
+| elevation_footnotes             = <ref>{{Cite GNIS|277593|San Francisco}}</ref>
+| elevation_ft                    = 52
+| elevation_min_ft                = 0
+<!-- Population ----------------------->
+| elevation_max_footnotes         = <ref name=elvadist>{{cite web |url = http://egsc.usgs.gov/isb//pubs/booklets/elvadist/elvadist.html |title=Elevations and Distances in the United States|publisher=US Geological Survey|date=April 29, 2005|accessdate=October 29, 2014}}</ref>
+| elevation_min_footnotes         = <ref name=elvadist/>
+| population_total                = 881549
+| population_as_of                = 2019
+| population_footnotes            = <ref name="USCensusPopEstimateSF">{{cite web |title=QuickFacts: San Francisco County, California |url=https://www.census.gov/quickfacts/fact/table/sanfranciscocountycalifornia,CA,US/PST045217 |publisher=US Census Bureau |accessdate=April 5, 2019}}</ref>
+| population_density_km2          = 7272
+| population_density_sq_mi        = 18838
+| pop_est_footnotes               = <ref name=PopHousingEst>{{cite web|url=https://www.census.gov/programs-surveys/popest.html|title=Population and Housing Unit Estimates |date=August 15, 2017 |accessdate=August 15, 2017|publisher=[[U.S. Census Bureau]]}}</ref>
+| population_metro                = 4729484 ([[List of Metropolitan Statistical Areas|12th]])
+| population_rank                 = [[List of largest California cities by population|4th]] in California<br />[[List of United States cities by population|16th]] in United States
+| population_blank1_title         = [[Combined statistical area|CSA]]
+| population_blank1               = 9666055 ([[List of Combined Statistical Areas|5th]])
+| population_demonym              = San Franciscan<br />San Francisqueño/a
+| blank2_name                     = [[GDP]] (2018)<ref>{{Cite web | url=https://www.bea.gov/data/gdp/gdp-county-metro-and-other-areas | title=GDP by County, Metro, and Other Areas; U.S. Bureau of Economic Analysis (BEA)}}</ref>
+| blank2_info                     = City—$183.2billion
+[[Metropolitan statistical area|MSA]]—$548.6 billion (4th)
+[[Combined statistical area|CSA]]—$1.032 trillion (3rd)
+| postal_code_type                = [[ZIP Code]]s<ref>{{cite web|url = https://tools.usps.com/go/ZipLookupAction!input.action|title = ZIP Code(tm) Lookup|publisher = [[United States Postal Service]]|accessdate = November 9, 2014}}</ref>
+| postal_code                     = {{Collapsible list 
+|94102–94105
+|94107–94112
+|94114–94134
+|94137
+|94139–94147
+|94151
+|94158–94161
+|94163–94164
+|94172
+|94177
+|94188}}
+| area_code                       = [[Area codes 415 and 628|415/628]]<ref>{{cite web |url = http://www.nanpa.com/enas/npa_city_query.do |title = NPA City Report |publisher = North American Numbering Plan Administration |accessdate = November 5, 2014 |archive-url = https://web.archive.org/web/20141104200810/http://www.nanpa.com/enas/npa_city_query.do |archive-date = November 4, 2014 |url-status = dead }}</ref>
+| area_code_type                  = [[North American Numbering Plan|Area codes]]
+| website                         = {{URL|sf.gov/}}
+| footnotes                       = 
+| leader_title2                   = [[California State Assembly|Assembly members]]<ref>{{cite web|url = http://wedrawthelines.ca.gov/downloads/meeting_handouts_072011/handouts_20110729_q2_ad_finaldraft_splits.zip|title = Communities of Interest – City|publisher = California Citizens Redistricting Commission|accessdate = September 23, 2014|archive-url = https://web.archive.org/web/20151023054757/http://wedrawthelines.ca.gov/downloads/meeting_handouts_072011/handouts_20110729_q2_ad_finaldraft_splits.zip|archive-date = October 23, 2015|url-status=dead}}</ref><ref>{{cite web|url = http://assembly.ca.gov/assemblymembers|title = Members Assembly|publisher = California State Assembly|accessdate = September 23, 2014}}</ref>
+| leader_name2                    = {{Representative|caad|17|fmt=sleader}}<br />{{Representative|caad|19|fmt=sleader}}
+| leader_title3                   = [[California's 11th State Senate district|State senator]]
+| leader_name3                    = {{Representative|casd|11|fmt=sleader}}<ref>{{cite web|url=http://statewidedatabase.org/gis/gis2011/index_2011.html|title=Statewide Database|publisher=UC Regents|accessdate=November 21, 2014|archive-url=https://web.archive.org/web/20150201113744/http://statewidedatabase.org/gis/gis2011/index_2011.html|archive-date=February 1, 2015|url-status=dead}}</ref>
+| leader_title4                   = [[United States House of Representatives|United States Representatives]]<ref>{{cite web|url = http://wedrawthelines.ca.gov/downloads/meeting_handouts_072011/handouts_20110729_q2_cd_finaldraft_splits.zip|title = Communities of Interest – City|publisher = California Citizens Redistricting Commission|accessdate = September 23, 2014|archive-url = https://web.archive.org/web/20130930184128/http://wedrawthelines.ca.gov/downloads/meeting_handouts_072011/handouts_20110729_q2_cd_finaldraft_splits.zip|archive-date = September 30, 2013|url-status=dead}}</ref><ref>{{cite web|url = http://www.house.gov/representatives/#state_ca|title = Directory of Representatives|publisher = U.S. House of Representatives}}</ref>
+| leader_name4                    = {{Representative|cacd|12|fmt=usleader}}<br />{{Representative|cacd|14|fmt=usleader}}
+<!-- Area------------------>
+| elevation_max_ft                = 934
+| timezone                        = [[Pacific Time Zone]]
+| utc_offset                      = −8
+| timezone_DST                    = [[Pacific Daylight Time]]
+| utc_offset_DST                  = −7
+<!-- Area/postal codes & others -------->
+| blank_name_sec1                 = [[Federal Information Processing Standards|FIPS code]]
+| blank_info_sec1                 = 06-67000
+| blank1_name_sec1                = [[Geographic Names Information System|GNIS]] feature IDs
+| blank1_info_sec1                = {{GNIS 4|277593}}, {{GNIS 4|2411786}}
+}}

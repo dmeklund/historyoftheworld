@@ -12,5 +12,10 @@ namespace ParseWiki
             Title = title;
             Coordinate = coord;
         }
+
+        public override string ToString()
+        {
+            return $"{Title} ({Id}): {Coordinate}";
+        }
     }
 }

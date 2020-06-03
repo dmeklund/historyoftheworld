@@ -16,4 +16,15 @@
       <ProjectReference Include="..\ParseWiki\ParseWiki.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="settlement_infobox.txt" />
+      <Content Include="settlement_infobox.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="problem_wiki1.txt" />
+      <Content Include="problem_wiki1.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
 </Project>
