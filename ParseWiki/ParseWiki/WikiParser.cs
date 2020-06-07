@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 using System.Xml;
@@ -77,42 +78,60 @@ namespace ParseWiki
             var isId = false;
             var isText = false;
             // Task<void> task;
-            var extractor = new TransformBlock<WikiBlock, WikiLocation>(
-                // ExtractEvents,
-                ExtractLocations,
-                new ExecutionDataflowBlockOptions
-                {
-                    MaxDegreeOfParallelism = 32,
-                    BoundedCapacity = 100
-                }
-            );
-            var saveLocation = new ActionBlock<WikiLocation>(
-                SaveLocation, 
-                new ExecutionDataflowBlockOptions
-                {
-                    MaxDegreeOfParallelism = 5,
-                    BoundedCapacity = 50
-                }
-            );
-            var linkOptions = new DataflowLinkOptions { PropagateCompletion = true };
-            extractor.LinkTo(saveLocation, linkOptions);
-            
+            // var extractor = new TransformBlock<WikiBlock, WikiLocation>(
+            //     // ExtractEvents,
+            //     ExtractLocations,
+            //     new ExecutionDataflowBlockOptions
+            //     {
+            //         MaxDegreeOfParallelism = 32,
+            //         BoundedCapacity = 100
+            //     }
+            // );
+            // var saveLocation = new ActionBlock<WikiLocation>(
+            //     SaveLocation, 
+            //     new ExecutionDataflowBlockOptions
+            //     {
+            //         MaxDegreeOfParallelism = 5,
+            //         BoundedCapacity = 50
+            //     }
+            // );
+            // var linkOptions = new DataflowLinkOptions { PropagateCompletion = true };
+            // extractor.LinkTo(saveLocation, linkOptions);
+
+            var parentElements = new Stack<string>();
             while (await reader.ReadAsync())
             {
+                if (reader.NodeType != XmlNodeType.EndElement && parentElements.Count != reader.Depth)
+                {
+                    throw new ApplicationException("Failed to track depth correctly");
+                }
+                parentElements.TryPeek(out var parentElementName);
+                while (GC.GetTotalMemory(false) > 1.5e9)
+                {
+                    await Task.Delay(1000);
+                }
                 switch (reader.NodeType)
                 {
                     case XmlNodeType.Element:
-                        switch (reader.Name)
+                        if (parentElementName == "page")
                         {
-                            case "title":
-                                isTitle = true;
-                                break;
-                            case "text":
-                                isText = true;
-                                break;
-                            case "id":
-                                isId = true;
-                                break;
+                            switch (reader.Name)
+                            {
+                                case "title":
+                                    isTitle = true;
+                                    break;
+                                case "id":
+                                    isId = true;
+                                    break;
+                            }
+                        }
+                        if (parentElementName == "revision" && reader.Name == "text")
+                        {
+                            isText = true;
+                        }
+                        if (!reader.IsEmptyElement)
+                        {
+                            parentElements.Push(reader.Name);
                         }
                         break;
                     case XmlNodeType.Text:
@@ -136,7 +155,11 @@ namespace ParseWiki
                             var text = reader.Value;
                             if (title != "Kid Chocolate")
                             {
-                                await extractor.SendAsync(new WikiBlock(id, title, text));
+                                // await extractor.SendAsync(new WikiBlock(id, title, text));
+                                if (text.Contains("coord", StringComparison.InvariantCultureIgnoreCase))
+                                {
+                                    ThreadPool.QueueUserWorkItem(ExtractLocations, new WikiBlock(id, title, text), true);
+                                }
                                 // var result = ExtractLocations(new WikiBlock(id, title, text));
                                 // await SaveLocation(result);
                             }
@@ -169,6 +192,7 @@ namespace ParseWiki
                     case XmlNodeType.SignificantWhitespace:
                         break;
                     case XmlNodeType.EndElement:
+                        parentElements.Pop();
                         break;
                     case XmlNodeType.EndEntity:
                         break;
@@ -186,13 +210,15 @@ namespace ParseWiki
             // await extractor.Completion;
         }
         
-        private WikiLocation ExtractLocations(WikiBlock block)
+        private async void ExtractLocations(WikiBlock block)
         {
             WikiLocation location = null;
+            // Console.WriteLine("Parsing {0}", block.Title);
             try
             {
                 var parser = new WikitextParser();
-                var text = block.Text.Replace('<', ' ').Replace('>', ' ');
+                var text = Regex.Replace(block.Text, "<.*?>", "");
+                text = text.Replace('<', ' ').Replace('>', ' ');
                 var wtext = parser.Parse(text);
                 var templates = wtext.EnumDescendants()
                     .OfType<Template>()
@@ -212,7 +238,7 @@ namespace ParseWiki
             {
                 Console.WriteLine(e);
             }
-            return location;
+            await SaveLocation(location);
         }
 
         private async Task SaveLocation(WikiLocation location)

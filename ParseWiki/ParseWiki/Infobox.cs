@@ -51,7 +51,12 @@ namespace ParseWiki
 
         public static Infobox FromWiki(WikiBlock block, TemplateArgument arg)
         {
-            return new Infobox(block.Id, block.Title, Coord.FromWikitext(arg.Value.ToString()));
+            var coordText = arg.Value.ToString().Trim();
+            if (coordText == "")
+            {
+                return null;
+            }
+            return new Infobox(block.Id, block.Title, Coord.FromWikitext(coordText));
         }
 
         private static TemplateArgument FindTemplateArgument(Template template, string argName)
