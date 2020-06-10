@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -46,11 +47,13 @@ namespace ParseWiki
     {
         private readonly string _filepath;
         private readonly IDataSource _datasource;
+        private ConcurrentQueue<WikiBlock> _queue;
 
         public WikiParser(string filepath, IDataSource datasource)
         {
             this._filepath = filepath;
             this._datasource = datasource;
+            this._queue = new ConcurrentQueue<WikiBlock>();
         }
 
         private readonly struct WikiEvent
@@ -68,148 +71,22 @@ namespace ParseWiki
         public async Task Parse()
         {
             Console.WriteLine("Parsing {0}", _filepath);
-            await using var stream = File.OpenRead(_filepath);
-            var settings = new XmlReaderSettings {Async = true};
-            using var reader = XmlReader.Create(stream, settings);
-            string title = "";
-            int id = 0;
-            var counter = 0;
-            var isTitle = false;
-            var isId = false;
-            var isText = false;
-            // Task<void> task;
-            // var extractor = new TransformBlock<WikiBlock, WikiLocation>(
-            //     // ExtractEvents,
-            //     ExtractLocations,
-            //     new ExecutionDataflowBlockOptions
-            //     {
-            //         MaxDegreeOfParallelism = 32,
-            //         BoundedCapacity = 100
-            //     }
-            // );
-            // var saveLocation = new ActionBlock<WikiLocation>(
-            //     SaveLocation, 
-            //     new ExecutionDataflowBlockOptions
-            //     {
-            //         MaxDegreeOfParallelism = 5,
-            //         BoundedCapacity = 50
-            //     }
-            // );
-            // var linkOptions = new DataflowLinkOptions { PropagateCompletion = true };
-            // extractor.LinkTo(saveLocation, linkOptions);
-
+            var source = new MediawikiSource(_filepath);
             var parentElements = new Stack<string>();
-            while (await reader.ReadAsync())
+
+            await foreach (var block in source.ReadWikiBlock())
             {
-                if (reader.NodeType != XmlNodeType.EndElement && parentElements.Count != reader.Depth)
-                {
-                    throw new ApplicationException("Failed to track depth correctly");
-                }
-                parentElements.TryPeek(out var parentElementName);
                 while (GC.GetTotalMemory(false) > 1.5e9)
                 {
                     await Task.Delay(1000);
                 }
-                switch (reader.NodeType)
+                if (block.Text.Contains("coord", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    case XmlNodeType.Element:
-                        if (parentElementName == "page")
-                        {
-                            switch (reader.Name)
-                            {
-                                case "title":
-                                    isTitle = true;
-                                    break;
-                                case "id":
-                                    isId = true;
-                                    break;
-                            }
-                        }
-                        if (parentElementName == "revision" && reader.Name == "text")
-                        {
-                            isText = true;
-                        }
-                        if (!reader.IsEmptyElement)
-                        {
-                            parentElements.Push(reader.Name);
-                        }
-                        break;
-                    case XmlNodeType.Text:
-                        if (isTitle)
-                        {
-                            title = reader.Value;
-                            if (title == "Cincinnati Zoo and Botanical Garden")
-                            {
-                                Console.WriteLine("Found it!");
-                            }
-                            isTitle = false;
-                        }
-                        else if (isId)
-                        {
-                            id = int.Parse(reader.Value);
-                            isId = false;
-                        }
-                        else if (isText)
-                        {
-                            isText = false;
-                            var text = reader.Value;
-                            if (title != "Kid Chocolate")
-                            {
-                                // await extractor.SendAsync(new WikiBlock(id, title, text));
-                                if (text.Contains("coord", StringComparison.InvariantCultureIgnoreCase))
-                                {
-                                    ThreadPool.QueueUserWorkItem(ExtractLocations, new WikiBlock(id, title, text), true);
-                                }
-                                // var result = ExtractLocations(new WikiBlock(id, title, text));
-                                // await SaveLocation(result);
-                            }
-                        }
-                        break;
-                    case XmlNodeType.None:
-                        break;
-                    case XmlNodeType.Attribute:
-                        break;
-                    case XmlNodeType.CDATA:
-                        break;
-                    case XmlNodeType.EntityReference:
-                        break;
-                    case XmlNodeType.Entity:
-                        break;
-                    case XmlNodeType.ProcessingInstruction:
-                        break;
-                    case XmlNodeType.Comment:
-                        break;
-                    case XmlNodeType.Document:
-                        break;
-                    case XmlNodeType.DocumentType:
-                        break;
-                    case XmlNodeType.DocumentFragment:
-                        break;
-                    case XmlNodeType.Notation:
-                        break;
-                    case XmlNodeType.Whitespace:
-                        break;
-                    case XmlNodeType.SignificantWhitespace:
-                        break;
-                    case XmlNodeType.EndElement:
-                        parentElements.Pop();
-                        break;
-                    case XmlNodeType.EndEntity:
-                        break;
-                    case XmlNodeType.XmlDeclaration:
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
+                    ThreadPool.QueueUserWorkItem(ExtractLocations, block, true);
                 }
-                ++counter;
-                // if (counter > 100000)
-                    // break;
             }
-
-            // extractor.Complete();
-            // await extractor.Completion;
         }
-        
+
         private async void ExtractLocations(WikiBlock block)
         {
             WikiLocation location = null;
@@ -249,6 +126,22 @@ namespace ParseWiki
                 await _datasource.SaveLocation(location.Id, location.Title, location.Coordinate);
             }
         }
+
+        private readonly Regex _linkRegex = new Regex(@"\[\[(?<title>.*?)(\|(?<alias>.*?))?\]\]");
+        private Dictionary<string, string> ExtractLinks(string text)
+        {
+            var result = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
+            foreach (Match match in _linkRegex.Matches(text))
+            {
+                var title = match.Groups["title"].Value;
+                result[title] = title;
+                if (match.Groups.TryGetValue("alias", out var alias))
+                {
+                    result[alias.Value] = title;
+                }
+            }
+            return result;
+        }
         
         private async Task<WikiEvent?> ExtractEvents(WikiBlock block)
         {
@@ -270,6 +163,7 @@ namespace ParseWiki
                 };
                 var skipDateTypes = new HashSet<string> {"date_format"};
                 var astParser = new WikitextParser();
+                var links = ExtractLinks(block.Text);
                 var ast = astParser.Parse(block.Text);
                 DateRange daterange = null;
                 var proc = new NlpProcessor();

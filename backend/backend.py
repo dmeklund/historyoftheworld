@@ -66,8 +66,8 @@ class Events(Resource):
             "maxlng": maxlng
         }
         query = """
-            SELECT id, title, eventtype, lat, lng 
-            FROM events 
+            SELECT id, title, "" as eventtype, lat, lng 
+            FROM locations1 
             WHERE lat BETWEEN %(minlat)f AND %(maxlat)f
             AND lng BETWEEN %(minlng)f AND %(maxlng)f
             LIMIT 100
