@@ -6,7 +6,7 @@ using System.Xml;
 
 namespace ParseWiki
 {
-    public class MediawikiSource
+    public class MediawikiSource : IWikiSource
     {
         private string _filepath;
         
