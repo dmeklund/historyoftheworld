@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Xml;
+using ParseWiki.Sources;
 
 namespace ParseWiki
 {
-    public class MediawikiSource : IWikiSource
+    public class MediawikiSource : IWikiSource, ISource<WikiBlock>
     {
         private string _filepath;
         
@@ -15,7 +16,7 @@ namespace ParseWiki
             _filepath = filePath;
         }
         
-        public async IAsyncEnumerable<WikiBlock> ReadWikiBlock()
+        public async IAsyncEnumerable<WikiBlock> FetchAll()
         {
             await using var stream = File.OpenRead(_filepath);
             var settings = new XmlReaderSettings() {Async = true};

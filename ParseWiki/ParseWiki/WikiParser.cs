@@ -11,10 +11,11 @@ using System.Xml;
 using DateLocNLP;
 using MwParserFromScratch;
 using MwParserFromScratch.Nodes;
+using ParseWiki.Sources;
 
 namespace ParseWiki
 {
-    public struct WikiBlock
+    public struct WikiBlock : IWithId
     {
         public int Id { get; }
         public string Title { get; }
@@ -74,7 +75,7 @@ namespace ParseWiki
             var source = new MediawikiSource(_filepath);
             var parentElements = new Stack<string>();
 
-            await foreach (var block in source.ReadWikiBlock())
+            await foreach (var block in source.FetchAll())
             {
                 while (GC.GetTotalMemory(false) > 1.5e9)
                 {

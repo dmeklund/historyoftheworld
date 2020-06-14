@@ -4,6 +4,6 @@ namespace ParseWiki
 {
     public interface IWikiSource
     {
-        public IAsyncEnumerable<WikiBlock> ReadWikiBlock();
+        public IAsyncEnumerable<WikiBlock> FetchAll();
     }
 }

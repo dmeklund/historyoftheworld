@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using ParseWiki.Sinks;
 
 namespace ParseWiki
 {
@@ -68,6 +69,35 @@ namespace ParseWiki
             var cmd = conn.CreateCommand();
             cmd.CommandText = "TRUNCATE TABLE locations";
             await cmd.ExecuteNonQueryAsync();
+        }
+
+        public async Task SaveTitle(int id, string title)
+        {
+            await using var conn = new MySqlConnection(_connstr);
+            await conn.OpenAsync();
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = "INSERT INTO titles (id, title) VALUES (@id, @title)";
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@title", title);
+            await cmd.ExecuteNonQueryAsync();
+        }
+
+        public ISink<string> GetTitleSink()
+        {
+            return new TitleSink(this);
+        }
+
+        private class TitleSink : ISink<string>
+        {
+            private readonly MySqlDataSource _source;
+            internal TitleSink(MySqlDataSource source)
+            {
+                _source = source;
+            }
+            public async Task Save(int id, string item)
+            {
+                await _source.SaveTitle(id, item);
+            }
         }
     }
 }
