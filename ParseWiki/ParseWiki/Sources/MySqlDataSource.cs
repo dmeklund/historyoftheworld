@@ -1,8 +1,12 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using ParseWiki.DataTypes;
+using ParseWiki.Extractors;
 using ParseWiki.Sinks;
+using ParseWiki.Translators;
 
-namespace ParseWiki
+namespace ParseWiki.Sources
 {
     public class MySqlDataSource : IDataSource
     {
@@ -82,9 +86,25 @@ namespace ParseWiki
             await cmd.ExecuteNonQueryAsync();
         }
 
+        internal async Task<int?> GetIdByTitle(string title)
+        {
+            await using var conn = new MySqlConnection(_connstr);
+            await conn.OpenAsync();
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT id FROM titles1 WHERE title=@title";
+            cmd.Parameters.AddWithValue("@title", title);
+            var result = await cmd.ExecuteScalarAsync();
+            return (int?)result;
+        }
+
         public ISink<string> GetTitleSink()
         {
             return new TitleSink(this);
+        }
+
+        public IExtractor<string, int?> GetTitleToIdExtractor()
+        {
+            return new TitleToIdExtractor(this);
         }
 
         private class TitleSink : ISink<string>
@@ -97,6 +117,21 @@ namespace ParseWiki
             public async Task Save(int id, string item)
             {
                 await _source.SaveTitle(id, item);
+            }
+        }
+
+        private class TitleToIdExtractor : IExtractor<string, int?>
+        {
+            private readonly MySqlDataSource _src;
+            
+            internal TitleToIdExtractor(MySqlDataSource src)
+            {
+                _src = src;
+            }
+
+            public Task<int?> Extract(string title)
+            {
+                return _src.GetIdByTitle(title);
             }
         }
     }

@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Threading;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
 using ParseWiki.Extractors;
 using ParseWiki.Processors;
+using ParseWiki.Sources;
 
 namespace ParseWiki
 {

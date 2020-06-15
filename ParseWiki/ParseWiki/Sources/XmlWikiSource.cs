@@ -5,7 +5,7 @@ using System.Text;
 using System.Xml;
 using ParseWiki.Sources;
 
-namespace ParseWiki
+namespace ParseWiki.Sources
 {
     public class XmlWikiSource : IWikiSource, ISource<WikiBlock>
     {

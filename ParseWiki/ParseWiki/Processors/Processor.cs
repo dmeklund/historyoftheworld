@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using System.Threading.Tasks;
 using ParseWiki.Extractors;
 using ParseWiki.Sinks;

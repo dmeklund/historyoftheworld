@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 using ParseWiki.Extractors;
@@ -44,6 +45,11 @@ namespace ParseWiki.Processors
             extractBlock.LinkTo(sinkBlock, linkOptions);
             await foreach (var input in Source.FetchAll())
             {
+                // this should not be necessary with the dataflow block model
+                // while (GC.GetTotalMemory(false) > 1.5e9)
+                // {
+                //     await Task.Delay(1000);
+                // }
                 await extractBlock.SendAsync(input);
             }
             extractBlock.Complete();
