@@ -22,7 +22,9 @@ namespace ParseWiki
         static async Task Main1(string[] args)
         {
             const string filepath = "/mnt/data/wiki/articles_in_xml.xml";
-            var source = new XmlWikiSource(filepath);
+            var connstr = "server=localhost; database=hotw; uid=hotw; pwd=hotw;";
+            var datasource = new MySqlDataSource(connstr);
+            var source = new XmlWikiSource(filepath, datasource.GetTitleToIdExtractor());
             await foreach (var item in source.FetchAll())
             {
                 Console.WriteLine(item);
