@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ParseWiki.Extractors
@@ -12,11 +13,15 @@ namespace ParseWiki.Extractors
             _ex2 = ex2;
         }
 
-        public async Task<T3> Extract(T1 input)
+        public async IAsyncEnumerable<T3> Extract(T1 input)
         {
-            var intermediary = await _ex1.Extract(input);
-            var result = await _ex2.Extract(intermediary);
-            return result;
+            await foreach (var intermediary in _ex1.Extract(input))
+            {
+                await foreach (var result in _ex2.Extract(intermediary))
+                {
+                    yield return result;
+                }
+            }
         }
     }
 }

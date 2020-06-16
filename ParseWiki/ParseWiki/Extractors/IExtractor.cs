@@ -1,9 +1,9 @@
-using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace ParseWiki.Extractors
 {
     public interface IExtractor<in T1, T2>
     {
-        Task<T2> Extract(T1 block);
+        IAsyncEnumerable<T2> Extract(T1 block);
     }
 }

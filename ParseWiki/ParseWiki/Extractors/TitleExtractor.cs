@@ -1,13 +1,12 @@
-using System.Threading.Tasks;
-using ParseWiki.Sinks;
+using System.Collections.Generic;
 
 namespace ParseWiki.Extractors
 {
     public class TitleExtractor : IExtractor<WikiBlock, string>
     {
-        public async Task<string> Extract(WikiBlock block)
+        public async IAsyncEnumerable<string> Extract(WikiBlock block)
         {
-            return block.Title;
+            yield return block.Title;
         }
     }
 }

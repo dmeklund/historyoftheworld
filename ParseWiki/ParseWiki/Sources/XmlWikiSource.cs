@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -82,7 +83,6 @@ namespace ParseWiki.Sources
                         if (reader.Name == "text")
                         {
                             var text = pageText.ToString();
-                            Console.WriteLine("Finished");
                             var result = new WikiPageLazyLoadId(title, text, _idExtractor)
                             {
                                 Links = links
@@ -92,6 +92,10 @@ namespace ParseWiki.Sources
                         }
                         else if (reader.Name == "link")
                         {
+                            if (linkAnchor == null || linkTarget == null)
+                            {
+                                Console.WriteLine($"Invalid link found in {title}: {linkAnchor} -> {linkTarget}");
+                            }
                             await ProcessLink(linkAnchor, linkTarget, links);
                             linkAnchor = null;
                             linkTarget = null;
@@ -107,13 +111,15 @@ namespace ParseWiki.Sources
         {
             if (linkAnchor == null || linkTarget == null)
             {
-                throw new ApplicationException("Link missing target or anchor");
+                // throw new ApplicationException("Link missing target or anchor");
+                // Console.WriteLine("Link missing target or anchor");
+                return;
             }
 
-            var id = await _idExtractor.Extract(linkTarget);
+            var id = await _idExtractor.Extract(linkTarget).FirstOrDefaultAsync();
             if (id == null)
             {
-                Console.WriteLine($"Warning: target not found: {linkTarget}");
+                // Console.WriteLine($"Warning: target not found: {linkTarget}");
             }
             else
             {

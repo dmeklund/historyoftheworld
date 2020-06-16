@@ -129,9 +129,13 @@ namespace ParseWiki.Sources
                 _src = src;
             }
 
-            public Task<int?> Extract(string title)
+            public async IAsyncEnumerable<int?> Extract(string title)
             {
-                return _src.GetIdByTitle(title);
+                var result = await _src.GetIdByTitle(title);
+                if (result.HasValue)
+                {
+                    yield return result.Value;
+                }
             }
         }
     }

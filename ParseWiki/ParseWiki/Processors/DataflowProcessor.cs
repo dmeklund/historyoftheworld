@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 using ParseWiki.Extractors;
@@ -28,8 +30,19 @@ namespace ParseWiki.Processors
 
         internal override async Task Process()
         {
-            var extractBlock = new TransformBlock<T1, WrappedOutput>(
-                async input => new WrappedOutput(input.Id, await Extractor.Extract(input))
+            // TransformManyBlock does not inherently support async enumerables
+            // so we have to translate to a list by hand.
+            // https://github.com/dotnet/runtime/issues/30863
+            var extractBlock = new TransformManyBlock<T1, WrappedOutput>(
+                async input =>
+                {
+                    var resultList = new List<WrappedOutput>();
+                    await foreach (var result in Extractor.Extract(input))
+                    {
+                        resultList.Add(new WrappedOutput(input.Id, result));
+                    }
+                    return resultList;
+                }
             );
             var sinkBlock = new ActionBlock<WrappedOutput>(
                 async output => await Sink.Save(output.Id, output.Value),

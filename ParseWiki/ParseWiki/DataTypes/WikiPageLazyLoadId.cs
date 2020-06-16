@@ -1,5 +1,7 @@
 using System;
+using System.Reactive.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using ParseWiki.Extractors;
 using ParseWiki.Sources;
@@ -22,7 +24,8 @@ namespace ParseWiki.DataTypes
 
         public async Task InitId()
         {
-            _id = await _idExtractor.Extract(Title);
+            // _idExtractor.Extract(Title)
+            _id = await _idExtractor.Extract(Title).FirstOrDefaultAsync();
         }
         
         private int? _id;
@@ -33,7 +36,7 @@ namespace ParseWiki.DataTypes
                 if (_id == null)
                 {
                     Console.WriteLine("Warning: ID being initialized synchronously");
-                    _id = _idExtractor.Extract(Title).Result;
+                    InitId().Wait();
                 }
 
                 return _id.Value;
