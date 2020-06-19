@@ -34,7 +34,7 @@ namespace ParseWiki
             }
         }
 
-        static async Task Main3(string[] args)
+        static async Task Main(string[] args)
         {
             var connstr = "server=localhost; database=hotw; uid=hotw; pwd=hotw;";
             var datasource = new MySqlDataSource(connstr);
@@ -42,11 +42,12 @@ namespace ParseWiki
             var source = new MediawikiSource(filepath);
             var extractor = new TitleExtractor();
             var sink = datasource.GetTitleSink();
-            var proc = new DataflowProcessor<WikiBlock, string>(source, extractor, sink);
+            // var proc = new DataflowProcessor<WikiBlock, string>(source, extractor, sink);
+            var proc = new SynchronousProcessor<WikiBlock, string>(source, extractor, sink);
             await proc.Process();
         }
 
-        static async Task Main(string[] args)
+        static async Task Main3(string[] args)
         {
             const string connstr = "server=localhost; database=hotw; uid=hotw; pwd=hotw;";
             var datasource = new MySqlDataSource(connstr);

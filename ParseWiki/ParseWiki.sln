@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParseWikiTests", "ParseWiki
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateLocNLP", "DateLocNLP\DateLocNLP.csproj", "{217200DD-17A3-48B2-96FF-EBEEF4EE0134}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlPrettyPrint", "XmlPrettyPrint\XmlPrettyPrint.csproj", "{B0E13B47-5EFC-4D91-8CB7-980F093C1D95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{217200DD-17A3-48B2-96FF-EBEEF4EE0134}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{217200DD-17A3-48B2-96FF-EBEEF4EE0134}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{217200DD-17A3-48B2-96FF-EBEEF4EE0134}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0E13B47-5EFC-4D91-8CB7-980F093C1D95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0E13B47-5EFC-4D91-8CB7-980F093C1D95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0E13B47-5EFC-4D91-8CB7-980F093C1D95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0E13B47-5EFC-4D91-8CB7-980F093C1D95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

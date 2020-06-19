@@ -85,11 +85,11 @@ namespace ParseWiki
                             // if (title != "Kid Chocolate")
                             // {
                             // await extractor.SendAsync(new WikiBlock(id, title, text));
-                            if (text.Contains("coord", StringComparison.InvariantCultureIgnoreCase))
-                            {
+                            // if (text.Contains("coord", StringComparison.InvariantCultureIgnoreCase))
+                            // {
                                 yield return new WikiBlock(id, title, text);
                                 // ThreadPool.QueueUserWorkItem(ExtractLocations, new WikiBlock(id, title, text), true);
-                            }
+                            // }
                             // var result = ExtractLocations(new WikiBlock(id, title, text));
                             // await SaveLocation(result);
                             // }

@@ -42,6 +42,10 @@ namespace ParseWiki.Processors
                         resultList.Add(new WrappedOutput(input.Id, result));
                     }
                     return resultList;
+                },
+                new ExecutionDataflowBlockOptions()
+                {
+                    MaxDegreeOfParallelism = 32
                 }
             );
             var sinkBlock = new ActionBlock<WrappedOutput>(

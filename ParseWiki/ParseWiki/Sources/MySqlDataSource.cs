@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
@@ -83,7 +84,14 @@ namespace ParseWiki.Sources
             cmd.CommandText = "INSERT INTO titles (id, title) VALUES (@id, @title)";
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Parameters.AddWithValue("@title", title);
-            await cmd.ExecuteNonQueryAsync();
+            try
+            {
+                await cmd.ExecuteNonQueryAsync();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Couldn't save title to database: {e.Message}");
+            }
         }
 
         internal async Task<int?> GetIdByTitle(string title)
