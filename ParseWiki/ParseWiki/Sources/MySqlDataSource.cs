@@ -81,7 +81,7 @@ namespace ParseWiki.Sources
             await using var conn = new MySqlConnection(_connstr);
             await conn.OpenAsync();
             var cmd = conn.CreateCommand();
-            cmd.CommandText = "INSERT INTO titles (id, title) VALUES (@id, @title)";
+            cmd.CommandText = "INSERT INTO titles2 (id, title) VALUES (@id, @title)";
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Parameters.AddWithValue("@title", title);
             try

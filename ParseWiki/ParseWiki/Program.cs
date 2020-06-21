@@ -42,8 +42,8 @@ namespace ParseWiki
             var source = new MediawikiSource(filepath);
             var extractor = new TitleExtractor();
             var sink = datasource.GetTitleSink();
-            // var proc = new DataflowProcessor<WikiBlock, string>(source, extractor, sink);
-            var proc = new SynchronousProcessor<WikiBlock, string>(source, extractor, sink);
+            var proc = new DataflowProcessor<WikiBlock, string>(source, extractor, sink);
+            // var proc = new SynchronousProcessor<WikiBlock, string>(source, extractor, sink);
             await proc.Process();
         }
 
