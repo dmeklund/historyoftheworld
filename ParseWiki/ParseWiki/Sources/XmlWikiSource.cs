@@ -92,6 +92,7 @@ namespace ParseWiki.Sources
                         }
                         else if (reader.Name == "link")
                         {
+                            linkAnchor ??= linkTarget;
                             if (linkAnchor == null || linkTarget == null)
                             {
                                 Console.WriteLine($"Invalid link found in {title}: {linkAnchor} -> {linkTarget}");

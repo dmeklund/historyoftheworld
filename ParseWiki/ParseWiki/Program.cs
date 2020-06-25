@@ -34,7 +34,7 @@ namespace ParseWiki
             }
         }
 
-        static async Task Main(string[] args)
+        static async Task Main3(string[] args)
         {
             var connstr = "server=localhost; database=hotw; uid=hotw; pwd=hotw;";
             var datasource = new MySqlDataSource(connstr);
@@ -47,11 +47,11 @@ namespace ParseWiki
             await proc.Process();
         }
 
-        static async Task Main3(string[] args)
+        static async Task Main(string[] args)
         {
             const string connstr = "server=localhost; database=hotw; uid=hotw; pwd=hotw;";
             var datasource = new MySqlDataSource(connstr);
-            const string filepath = "/mnt/data/wiki/articles_in_xml.xml";
+            const string filepath = "/mnt/data/wiki/articles_in_xml_indented.xml";
             var wikisource = new XmlWikiSource(filepath, datasource.GetTitleToIdExtractor());
             var pipeline = new NlpEventPipeline(wikisource, new NullSink<WikiEvent>());
             var proc = pipeline.Build();

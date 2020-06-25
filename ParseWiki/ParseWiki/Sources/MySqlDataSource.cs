@@ -96,13 +96,20 @@ namespace ParseWiki.Sources
 
         internal async Task<int?> GetIdByTitle(string title)
         {
-            await using var conn = new MySqlConnection(_connstr);
-            await conn.OpenAsync();
-            var cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT id FROM titles1 WHERE title=@title";
-            cmd.Parameters.AddWithValue("@title", title);
-            var result = await cmd.ExecuteScalarAsync();
-            return (int?)result;
+            try
+            {
+                await using var conn = new MySqlConnection(_connstr);
+                await conn.OpenAsync();
+                var cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT id FROM titles2 WHERE title=@title";
+                cmd.Parameters.AddWithValue("@title", title);
+                var result = await cmd.ExecuteScalarAsync();
+                return (int?) result;
+            }
+            catch (TimeoutException)
+            {
+                return null;
+            }
         }
 
         public ISink<string> GetTitleSink()
