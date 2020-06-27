@@ -27,7 +27,7 @@ namespace ParseWiki
             const string filepath = "/mnt/data/wiki/articles_in_xml.xml";
             var connstr = "server=localhost; database=hotw; uid=hotw; pwd=hotw;";
             var datasource = new MySqlDataSource(connstr);
-            var source = new XmlWikiSource(filepath, datasource.GetTitleToIdExtractor());
+            var source = new XmlWikiSource(filepath, datasource.GetTitleToIdTranslator());
             await foreach (var item in source.FetchAll())
             {
                 Console.WriteLine(item);
@@ -52,8 +52,15 @@ namespace ParseWiki
             const string connstr = "server=localhost; database=hotw; uid=hotw; pwd=hotw;";
             var datasource = new MySqlDataSource(connstr);
             const string filepath = "/mnt/data/wiki/articles_in_xml_indented.xml";
-            var wikisource = new XmlWikiSource(filepath, datasource.GetTitleToIdExtractor());
-            var pipeline = new NlpEventPipeline(wikisource, new NullSink<WikiEvent>());
+            var titleToId = datasource.GetTitleToIdTranslator();
+            var wikisource = new XmlWikiSource(filepath, titleToId);
+            var pipeline = new NlpEventPipeline(
+                wikisource, 
+                new NullSink<WikiEvent>(),
+                datasource.GetIdToLocationTranslator(),
+                datasource.GetTitleToLocationTranslator(),
+                titleToId
+            );
             var proc = pipeline.Build();
             await proc.Process();
         }

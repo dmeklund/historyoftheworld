@@ -8,6 +8,8 @@ using ParseWiki.Extractors;
 using ParseWiki.Processors;
 using ParseWiki.Sinks;
 using ParseWiki.Sources;
+using ParseWiki.Translators;
+using Microsoft.EntityFrameworkCore;
 
 namespace ParseWiki.Pipelines
 {
@@ -15,80 +17,117 @@ namespace ParseWiki.Pipelines
     {
         private class NlpEventExtractor : IExtractor<WikiPageLazyLoadId, WikiEvent>
         {
-            private NlpProcessor _proc;
-            public NlpEventExtractor()
+            private readonly NlpProcessor _proc;
+            private readonly ITranslator<int, WikiLocation> _idToLocation;
+            private readonly ITranslator<string, WikiLocation> _titleToLocation;
+            private readonly ITranslator<string, int?> _titleToId;
+            public NlpEventExtractor(
+                ITranslator<int,WikiLocation> idToLocation, 
+                ITranslator<string,WikiLocation> titleToLocation,
+                ITranslator<string,int?> titleToId
+            )
             {
                 _proc = new NlpProcessor();
+                _idToLocation = idToLocation;
+                _titleToLocation = titleToLocation;
+                _titleToId = titleToId;
             }
             
             public async IAsyncEnumerable<WikiEvent> Extract(WikiPageLazyLoadId block)
             {
                 var paragraphs = block.Text.Split('\n');
+                // var paragraphs = new[] {block.Text};
                 foreach (var par in paragraphs)
                 {
                     var result = await _proc.ProcessText(par);
                     foreach (var sentence in result.sentences)
                     {
-                        string location = null;
-                        string date = null;
+                        var locations = new List<WikiLocation>();
+                        var dates = new List<DateRange>();
                         if (sentence.entitymentions == null) continue;
                         foreach (var entity in sentence.entitymentions)
                         {
                             if (entity.ner == "LOCATION" || entity.ner == "CITY")
                             {
-                                location = entity.text;
+                                var location = await FindLocation(entity.text, block.Links);
+                                if (location != null)
+                                {
+                                    locations.Add(location);
+                                }
                             }
                             else if (entity.ner == "DATE")
                             {
-                                date = entity.text;
+                                var date = DateRange.Parse(entity.text);
+                                if (date != null)
+                                {
+                                    dates.Add(date);
+                                }
                             }
                         }
 
-                        if (location != null && date != null)
+                        if (locations.Count > 0 && dates.Count == 1)
                         {
-                            var eventInfo = sentence.openie.FirstOrDefault(
-                                // info => info.subject.Contains(location) || info.object_.Contains(location)
-                                info => (
-                                    (info.subject.Contains(date) || info.object_.Contains(date)) &&
-                                    (info.subject.Contains(location) || info.object_.Contains(location)))
-                            );
-
-                            if (eventInfo != null)
+                            foreach (var info in sentence.openie)
                             {
-                                // TODO: update coreferences
-                                // Console.WriteLine(
-                                //     "Found in {0}: {1} {2} {3} ({4})",
-                                //     block.Title, 
-                                //     eventInfo.subject,
-                                //     eventInfo.relation,
-                                //     eventInfo.object_,
-                                //     date
-                                // );
-                                yield return new WikiEvent(
-                                    $"{eventInfo.subject} {eventInfo.relation} {eventInfo.object_}",
-                                    DateRange.Parse(date)
-                                );
-                                // Console.WriteLine("Original sentence: {0}", sentence);
+                                if (info.subject.Contains(' ') &&
+                                    info.object_.Contains(' ') &&
+                                    await _titleToId.Translate(info.subject) != null &&
+                                    await _titleToId.Translate(info.object_) != null)
+                                {
+                                    yield return new WikiEvent(
+                                        $"{info.subject} {info.relation} {info.object_}",
+                                        dates[0]
+                                    );
+                                    break;
+                                }
                             }
                         }
                     }
                 }
             }
+            
+
+            private async Task<WikiLocation> FindLocation(string name, IDictionary<string, int> links)
+            {
+                WikiLocation location;
+                if (links.TryGetValue(name, out var id))
+                {
+                    location = await _idToLocation.Translate(id);
+                    if (location != null)
+                    {
+                        return location;
+                    }
+                }
+                location = await _titleToLocation.Translate(name);
+                return location;
+            }
         }
         
         private readonly ISource<WikiPageLazyLoadId> _source;
         private readonly ISink<WikiEvent> _sink;
-        public NlpEventPipeline(ISource<WikiPageLazyLoadId> source, ISink<WikiEvent> sink)
+        private readonly ITranslator<int, WikiLocation> _idToLocation;
+        private readonly ITranslator<string, WikiLocation> _titleToLocation;
+        private readonly ITranslator<string, int?> _titleToId;
+        public NlpEventPipeline(
+            ISource<WikiPageLazyLoadId> source,
+            ISink<WikiEvent> sink,
+            ITranslator<int, WikiLocation> idToLocation,
+            ITranslator<string, WikiLocation> titleToLocation,
+            ITranslator<string, int?> titleToId
+        )
         {
             _source = source;
             _sink = sink;
+            _idToLocation = idToLocation;
+            _titleToLocation = titleToLocation;
+            _titleToId = titleToId;
         }
 
         public Processor<WikiPageLazyLoadId, WikiEvent> Build()
         {
             var proc = new DataflowProcessor<WikiPageLazyLoadId, WikiEvent>(
                 _source,
-                new NlpEventExtractor(), 
+                new NlpEventExtractor(_idToLocation, _titleToLocation, _titleToId), 
                 _sink
             );
             return proc;

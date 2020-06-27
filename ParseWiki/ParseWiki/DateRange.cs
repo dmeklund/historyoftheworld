@@ -238,7 +238,7 @@ namespace ParseWiki
                 {
                     var startTime = MinimumForGranularity(new PWDateTime(dateTime), granularity.Value);
                     var endTime = MaximumForGranularity(startTime, granularity.Value);
-                    return new DateRange(startTime, endTime, granularity.Value);
+                    return new DateRange(startTime, endTime, granularity.Value, input);
                 }
             }
 
@@ -265,7 +265,8 @@ namespace ParseWiki
             return new DateRange(
                 MinimumForGranularity(start.ToPWDateTime(), granularity.Value),
                 MaximumForGranularity(end.ToPWDateTime(), granularity.Value),
-                granularity.Value
+                granularity.Value,
+                input
             );
 
         }
@@ -393,18 +394,26 @@ namespace ParseWiki
             }
         }
         
-        public DateRange(PWDateTime startTime, PWDateTime endTime, DateGranularity granularity)
+        public DateRange(
+            PWDateTime startTime,
+            PWDateTime endTime,
+            DateGranularity granularity,
+            string originalRepresentation
+        )
         {
             StartTime = startTime;
             EndTime = endTime;
             Granularity = granularity;
+            OriginalRepresentation = originalRepresentation;
         }
 
-        public PWDateTime StartTime { get; set; }
+        public PWDateTime StartTime { get; }
 
-        public PWDateTime EndTime { get; set; }
+        public PWDateTime EndTime { get; }
         
-        public DateGranularity Granularity { get; set; }
+        public DateGranularity Granularity { get; }
+        
+        public string OriginalRepresentation { get; }
 
         public override string ToString()
         {

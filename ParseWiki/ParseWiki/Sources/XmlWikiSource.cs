@@ -1,23 +1,22 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using ParseWiki.DataTypes;
-using ParseWiki.Extractors;
+using ParseWiki.Translators;
 
 namespace ParseWiki.Sources
 {
     public class XmlWikiSource : ISource<WikiPageLazyLoadId>
     {
         private string _filepath;
-        private IExtractor<string, int?> _idExtractor;
-        public XmlWikiSource(string wikiXmlPath, IExtractor<string, int?> idExtractor)
+        private readonly ITranslator<string, int?> _titleToId;
+        public XmlWikiSource(string wikiXmlPath, ITranslator<string, int?> titleToId)
         {
             _filepath = wikiXmlPath;
-            _idExtractor = idExtractor;
+            _titleToId = titleToId;
         }
         
         public async IAsyncEnumerable<WikiPageLazyLoadId> FetchAll()
@@ -31,6 +30,8 @@ namespace ParseWiki.Sources
             StringBuilder pageText = null;
             string linkTarget = null, linkAnchor = null;
             var links = new Dictionary<string, int>(StringComparer.InvariantCultureIgnoreCase);
+            var skipArticles = new Random().Next(0, 1000);
+            var count = 0;
             while (await reader.ReadAsync())
             {
                 if (reader.NodeType != XmlNodeType.EndElement && parentElements.Count != reader.Depth)
@@ -83,7 +84,7 @@ namespace ParseWiki.Sources
                         if (reader.Name == "text")
                         {
                             var text = pageText.ToString();
-                            var result = new WikiPageLazyLoadId(title, text, _idExtractor)
+                            var result = new WikiPageLazyLoadId(title, text, _titleToId)
                             {
                                 Links = links
                             };
@@ -93,11 +94,15 @@ namespace ParseWiki.Sources
                         else if (reader.Name == "link")
                         {
                             linkAnchor ??= linkTarget;
+                            linkTarget ??= linkAnchor;
                             if (linkAnchor == null || linkTarget == null)
                             {
                                 Console.WriteLine($"Invalid link found in {title}: {linkAnchor} -> {linkTarget}");
                             }
-                            await ProcessLink(linkAnchor, linkTarget, links);
+                            if (count > ++skipArticles)
+                            {
+                                await ProcessLink(linkAnchor, linkTarget, links);
+                            }
                             linkAnchor = null;
                             linkTarget = null;
                         }
@@ -117,7 +122,7 @@ namespace ParseWiki.Sources
                 return;
             }
 
-            var id = await _idExtractor.Extract(linkTarget).FirstOrDefaultAsync();
+            var id = await _titleToId.Translate(linkTarget);
             if (id == null)
             {
                 // Console.WriteLine($"Warning: target not found: {linkTarget}");

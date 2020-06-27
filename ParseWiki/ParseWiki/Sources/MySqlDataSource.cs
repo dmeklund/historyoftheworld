@@ -94,6 +94,44 @@ namespace ParseWiki.Sources
             }
         }
 
+        internal async Task<WikiLocation> GetLocationById(int id)
+        {
+            await using var conn = new MySqlConnection(_connstr);
+            await conn.OpenAsync();
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT title, lat, lng FROM locations1 WHERE id=@id";
+            cmd.Parameters.AddWithValue("@id", id);
+            var reader = await cmd.ExecuteReaderAsync();
+            if (await reader.ReadAsync())
+            {
+                return new WikiLocation(
+                    id,
+                    reader.GetString(0),
+                    new Coord(reader.GetFloat(1), reader.GetFloat(2))
+                );
+            }
+            return null;
+        }
+        
+        internal async Task<WikiLocation> GetLocationByTitle(string title)
+        {
+            await using var conn = new MySqlConnection(_connstr);
+            await conn.OpenAsync();
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT id, lat, lng FROM locations1 WHERE title=@title";
+            cmd.Parameters.AddWithValue("@title", title);
+            var reader = await cmd.ExecuteReaderAsync();
+            if (await reader.ReadAsync())
+            {
+                return new WikiLocation(
+                    reader.GetInt32(0),
+                    title,
+                    new Coord(reader.GetFloat(1), reader.GetFloat(2))
+                );
+            }
+            return null;
+        }
+
         internal async Task<int?> GetIdByTitle(string title)
         {
             try
@@ -110,6 +148,10 @@ namespace ParseWiki.Sources
             {
                 return null;
             }
+            catch (MySqlException)
+            {
+                return null;
+            }
         }
 
         public ISink<string> GetTitleSink()
@@ -117,9 +159,48 @@ namespace ParseWiki.Sources
             return new TitleSink(this);
         }
 
-        public IExtractor<string, int?> GetTitleToIdExtractor()
+        public ITranslator<string, int?> GetTitleToIdTranslator()
         {
-            return new TitleToIdExtractor(this);
+            return new TitleToIdTranslator(this);
+        }
+
+        public ITranslator<int, WikiLocation> GetIdToLocationTranslator()
+        {
+            return new IdToLocationTranslator(this);
+        }
+
+        public ITranslator<string, WikiLocation> GetTitleToLocationTranslator()
+        {
+            return new TitleToLocationTranslator(this);
+        }
+
+        private class IdToLocationTranslator : ITranslator<int, WikiLocation>
+        {
+            private readonly MySqlDataSource _source;
+            internal IdToLocationTranslator(MySqlDataSource source)
+            {
+                _source = source;
+            }
+            
+            public Task<WikiLocation> Translate(int id)
+            {
+                return _source.GetLocationById(id);
+            }
+        }
+
+        private class TitleToLocationTranslator : ITranslator<string, WikiLocation>
+        {
+            private readonly MySqlDataSource _source;
+
+            internal TitleToLocationTranslator(MySqlDataSource source)
+            {
+                _source = source;
+            }
+
+            public Task<WikiLocation> Translate(string title)
+            {
+                return _source.GetLocationByTitle(title);
+            }
         }
 
         private class TitleSink : ISink<string>
@@ -135,22 +216,18 @@ namespace ParseWiki.Sources
             }
         }
 
-        private class TitleToIdExtractor : IExtractor<string, int?>
+        private class TitleToIdTranslator : ITranslator<string, int?>
         {
             private readonly MySqlDataSource _src;
             
-            internal TitleToIdExtractor(MySqlDataSource src)
+            internal TitleToIdTranslator(MySqlDataSource src)
             {
                 _src = src;
             }
 
-            public async IAsyncEnumerable<int?> Extract(string title)
+            public async Task<int?> Translate(string title)
             {
-                var result = await _src.GetIdByTitle(title);
-                if (result.HasValue)
-                {
-                    yield return result.Value;
-                }
+                return await _src.GetIdByTitle(title);
             }
         }
     }

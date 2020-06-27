@@ -9,6 +9,7 @@ namespace DateLocNLP
     {
         public List<Sentence> sentences { get; set; }
         public Dictionary<string, Coref[]> corefs { get; set; }
+
     }
 
     public class Sentence

@@ -5,27 +5,28 @@ using System.Linq;
 using System.Threading.Tasks;
 using ParseWiki.Extractors;
 using ParseWiki.Sources;
+using ParseWiki.Translators;
 
 namespace ParseWiki.DataTypes
 {
     public class WikiPageLazyLoadId : IWithId
     {
-        private readonly IExtractor<string, int?> _idExtractor;
+        private readonly ITranslator<string, int?> _titleToId;
         public string Title { get; }
         public string Text { get; }
         public IDictionary<string, int> Links { get; set; }
 
-        public WikiPageLazyLoadId(string title, string text, IExtractor<string, int?> idExtractor)
+        public WikiPageLazyLoadId(string title, string text, ITranslator<string, int?> titleToId)
         {
             Title = title;
             Text = text;
-            _idExtractor = idExtractor;
+            _titleToId = titleToId;
         }
 
         public async Task InitId()
         {
             // _idExtractor.Extract(Title)
-            _id = await _idExtractor.Extract(Title).FirstOrDefaultAsync();
+            _id = await _titleToId.Translate(Title);
         }
         
         private int? _id;
