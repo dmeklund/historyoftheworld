@@ -67,19 +67,14 @@ namespace ParseWiki.Pipelines
 
                         if (locations.Count > 0 && dates.Count == 1)
                         {
-                            foreach (var info in sentence.openie)
+                            if (sentence.openie.Count > 0)
                             {
-                                if (info.subject.Contains(' ') &&
-                                    info.object_.Contains(' ') &&
-                                    await _titleToId.Translate(info.subject) != null &&
-                                    await _titleToId.Translate(info.object_) != null)
-                                {
-                                    yield return new WikiEvent(
-                                        $"{info.subject} {info.relation} {info.object_}",
-                                        dates[0]
-                                    );
-                                    break;
-                                }
+                                sentence.LinkCoreferences(result.corefs.Values);
+                                await block.InitId();
+                                Console.WriteLine($"Passing along event for sentence: {sentence}");
+                                yield return new WikiEvent(
+                                    locations[0], dates[0], sentence, block.Id
+                                );
                             }
                         }
                     }
@@ -87,15 +82,19 @@ namespace ParseWiki.Pipelines
             }
             
 
-            private async Task<WikiLocation> FindLocation(string name, IDictionary<string, int> links)
+            private async Task<WikiLocation> FindLocation(string name, IDictionary<string, string> links)
             {
                 WikiLocation location;
-                if (links.TryGetValue(name, out var id))
+                if (links.TryGetValue(name, out var title))
                 {
-                    location = await _idToLocation.Translate(id);
-                    if (location != null)
+                    var id = await _titleToId.Translate(title);
+                    if (id != null)
                     {
-                        return location;
+                        location = await _idToLocation.Translate(id.Value);
+                        if (location != null)
+                        {
+                            return location;
+                        }
                     }
                 }
                 location = await _titleToLocation.Translate(name);

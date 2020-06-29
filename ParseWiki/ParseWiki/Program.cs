@@ -54,9 +54,12 @@ namespace ParseWiki
             const string filepath = "/mnt/data/wiki/articles_in_xml_indented.xml";
             var titleToId = datasource.GetTitleToIdTranslator();
             var wikisource = new XmlWikiSource(filepath, titleToId);
+            // var sink = new NullSink<WikiEvent>();
+            var sink = datasource.GetWikiEventSink();
+            datasource.TruncateWikiEvents();
             var pipeline = new NlpEventPipeline(
                 wikisource, 
-                new NullSink<WikiEvent>(),
+                sink,
                 datasource.GetIdToLocationTranslator(),
                 datasource.GetTitleToLocationTranslator(),
                 titleToId

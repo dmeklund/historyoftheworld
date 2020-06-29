@@ -14,7 +14,7 @@ namespace ParseWiki.DataTypes
         private readonly ITranslator<string, int?> _titleToId;
         public string Title { get; }
         public string Text { get; }
-        public IDictionary<string, int> Links { get; set; }
+        public IDictionary<string, string> Links { get; set; }
 
         public WikiPageLazyLoadId(string title, string text, ITranslator<string, int?> titleToId)
         {
@@ -25,8 +25,7 @@ namespace ParseWiki.DataTypes
 
         public async Task InitId()
         {
-            // _idExtractor.Extract(Title)
-            _id = await _titleToId.Translate(Title);
+            _id ??= await _titleToId.Translate(Title);
         }
         
         private int? _id;
@@ -34,11 +33,11 @@ namespace ParseWiki.DataTypes
         {
             get
             {
-                if (_id == null)
-                {
-                    Console.WriteLine("Warning: ID being initialized synchronously");
-                    InitId().Wait();
-                }
+                // if (_id == null)
+                // {
+                //     Console.WriteLine("Warning: ID being initialized synchronously");
+                //     InitId().Wait();
+                // }
 
                 return _id.Value;
             }

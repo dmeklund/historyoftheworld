@@ -25,6 +25,51 @@ namespace DateLocNLP
         {
             return string.Join(' ', tokens);
         }
+        
+        public void LinkCoreferences(ICollection<Coref[]> corefs)
+        {
+            foreach (var corefSet in corefs)
+            {
+                for (var i = 0; i < corefSet.Length; ++i)
+                {
+                    if (corefSet[i].sentNum == index+1)
+                    {
+                        LinkCoreferences(corefSet, i);
+                    }
+                }
+            }
+        }
+
+        public void LinkCoreferences(Coref[] corefs, int ind)
+        {
+            var coref = corefs[ind];
+            if (coref.sentNum != index+1) return;
+            foreach (var ie in openie)
+            {
+                if (_corefMatchesSpan(coref, ie.subjectSpan))
+                {
+                    _saveCoref(ie, corefs, coref.startIndex);
+                }
+                if (_corefMatchesSpan(coref, ie.relationSpan))
+                {
+                    _saveCoref(ie, corefs, coref.startIndex);
+                }
+                if (_corefMatchesSpan(coref, ie.objectSpan))
+                {
+                    _saveCoref(ie, corefs, coref.startIndex);
+                }
+            }
+        }
+
+        private static void _saveCoref(OpenIe ie, Coref[] corefs, int ind)
+        {
+            ie.KnownCoreferences ??= new List<Coref[]>();
+            ie.KnownCoreferences.Add(corefs);
+        }
+        private static bool _corefMatchesSpan(Coref coref, int[] span)
+        {
+            return (span[0] <= coref.startIndex - 1 && span[1] >= coref.endIndex - 1);
+        }
     }
 
     public class Dependency
@@ -45,6 +90,11 @@ namespace DateLocNLP
         [JsonPropertyName("object")] 
         public string object_ { get; set; }
         public int[] objectSpan { get; set; }
+        public List<Coref[]> KnownCoreferences { get; set; }
+        public override string ToString()
+        {
+            return string.Join(" ", subject, relation, object_);
+        }
     }
 
     public class EntityMention
@@ -93,5 +143,9 @@ namespace DateLocNLP
         public int sentNum { get; set; }
         public int[] position { get; set; }
         public bool isRepresentativeMention { get; set; }
+        public override string ToString()
+        {
+            return text;
+        }
     }
 }

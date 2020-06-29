@@ -1,14 +1,26 @@
+using System.Collections.Generic;
+using DateLocNLP;
+
 namespace ParseWiki.DataTypes
 {
     public class WikiEvent
     {
-        public DateRange Range { get; }
-        public string Title { get; }
+        internal WikiLocation Location { get; }
+        internal DateRange Date { get; }
+        internal Sentence Sentence { get; }
+        internal int PageId { get; }
 
-        public WikiEvent(string title, DateRange range)
+        public WikiEvent(
+            WikiLocation location,
+            DateRange date,
+            Sentence sentence,
+            int pageId
+        )
         {
-            Title = title;
-            Range = range;
+            Location = location;
+            Date = date;
+            Sentence = sentence;
+            PageId = pageId;
         }
     }
 }

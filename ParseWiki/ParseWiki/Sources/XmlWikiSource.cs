@@ -29,7 +29,7 @@ namespace ParseWiki.Sources
             var isText = false;
             StringBuilder pageText = null;
             string linkTarget = null, linkAnchor = null;
-            var links = new Dictionary<string, int>(StringComparer.InvariantCultureIgnoreCase);
+            var links = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
             var skipArticles = new Random().Next(0, 1000);
             var count = 0;
             while (await reader.ReadAsync())
@@ -88,8 +88,13 @@ namespace ParseWiki.Sources
                             {
                                 Links = links
                             };
-                            yield return result;
-                            links = new Dictionary<string, int>();
+                            if (++count > skipArticles)
+                            {
+                                await result.InitId();
+                                yield return result;
+                            }
+
+                            links = new Dictionary<string, string>();
                         }
                         else if (reader.Name == "link")
                         {
@@ -97,12 +102,14 @@ namespace ParseWiki.Sources
                             linkTarget ??= linkAnchor;
                             if (linkAnchor == null || linkTarget == null)
                             {
-                                Console.WriteLine($"Invalid link found in {title}: {linkAnchor} -> {linkTarget}");
+                                // Console.WriteLine($"Invalid link found in {title}: {linkAnchor} -> {linkTarget}");
                             }
-                            if (count > ++skipArticles)
+
+                            if (count > skipArticles)
                             {
                                 await ProcessLink(linkAnchor, linkTarget, links);
                             }
+
                             linkAnchor = null;
                             linkTarget = null;
                         }
@@ -113,7 +120,7 @@ namespace ParseWiki.Sources
 
         }
 
-        private async Task ProcessLink(string linkAnchor, string linkTarget, Dictionary<string, int> links)
+        private async Task ProcessLink(string linkAnchor, string linkTarget, Dictionary<string, string> links)
         {
             if (linkAnchor == null || linkTarget == null)
             {
@@ -122,19 +129,21 @@ namespace ParseWiki.Sources
                 return;
             }
 
-            var id = await _titleToId.Translate(linkTarget);
-            if (id == null)
-            {
-                // Console.WriteLine($"Warning: target not found: {linkTarget}");
-            }
-            else
-            {
-                links[linkTarget] = id.Value;
-                if (linkTarget != linkAnchor)
-                {
-                    links[linkAnchor] = id.Value;
-                }
-            }
+            // var id = await _titleToId.Translate(linkTarget);
+            // if (id == null)
+            // {
+            //     // Console.WriteLine($"Warning: target not found: {linkTarget}");
+            // }
+            // else
+            // {
+            //     links[linkTarget] = id.Value;
+            //     if (linkTarget != linkAnchor)
+            //     {
+            //         links[linkAnchor] = id.Value;
+            //     }
+            // }
+            links[linkAnchor] = linkTarget;
+            links[linkTarget] = linkTarget;
         }
     }
 }

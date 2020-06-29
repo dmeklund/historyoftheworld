@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using ParseWiki.DataTypes;
@@ -42,6 +43,34 @@ namespace ParseWiki.Sources
             cmd.Parameters.AddWithValue("@lng", coord.Longitude);
             await cmd.ExecuteNonQueryAsync();
         }
+        
+        
+        internal async Task SaveWikiEvent(WikiEvent wEvent)
+        {
+            await using var conn = new MySqlConnection(_connstr);
+            await conn.OpenAsync();
+            var cmd = conn.CreateCommand();
+            var sentenceJson = JsonSerializer.Serialize(wEvent.Sentence);
+            Console.WriteLine($"Saving wiki event for sentence: {wEvent.Sentence}");
+            cmd.CommandText =
+                "INSERT INTO nlpevents (sentence, startyear, startmonth, startday, starthour, startminute, endyear, endmonth, endday, endhour, endminute, lat, lng, pageid)" +
+                "VALUES (@sentence, @startyear, @startmonth, @startday, @starthour, @startminute, @endyear, @endmonth, @endday, @endhour, @endminute, @lat, @lng, @pageid)";
+            cmd.Parameters.AddWithValue("@sentence", sentenceJson);
+            cmd.Parameters.AddWithValue("@startyear", wEvent.Date.StartTime.YearWithEpoch);
+            cmd.Parameters.AddWithValue("@startmonth", wEvent.Date.StartTime.Month);
+            cmd.Parameters.AddWithValue("@startday", wEvent.Date.StartTime.Day);
+            cmd.Parameters.AddWithValue("@starthour", wEvent.Date.StartTime.Hour);
+            cmd.Parameters.AddWithValue("@startminute", wEvent.Date.StartTime.Minute);
+            cmd.Parameters.AddWithValue("@endyear", wEvent.Date.EndTime.YearWithEpoch);
+            cmd.Parameters.AddWithValue("@endmonth", wEvent.Date.EndTime.Month);
+            cmd.Parameters.AddWithValue("@endday", wEvent.Date.EndTime.Day);
+            cmd.Parameters.AddWithValue("@endhour", wEvent.Date.EndTime.Hour);
+            cmd.Parameters.AddWithValue("@endminute", wEvent.Date.EndTime.Minute);
+            cmd.Parameters.AddWithValue("@lat", wEvent.Location.Coordinate.Latitude);
+            cmd.Parameters.AddWithValue("@lng", wEvent.Location.Coordinate.Longitude);
+            cmd.Parameters.AddWithValue("@pageid", wEvent.PageId);
+            await cmd.ExecuteNonQueryAsync();
+        }
 
         public async Task SaveLocation(int id, string title, Coord coord)
         { 
@@ -64,6 +93,15 @@ namespace ParseWiki.Sources
             await conn.OpenAsync();
             var cmd = conn.CreateCommand();
             cmd.CommandText = "TRUNCATE TABLE events";
+            await cmd.ExecuteNonQueryAsync();
+        }
+
+        public async void TruncateWikiEvents()
+        {
+            await using var conn = new MySqlConnection(_connstr);
+            await conn.OpenAsync();
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = "TRUNCATE TABLE nlpevents";
             await cmd.ExecuteNonQueryAsync();
         }
 
@@ -154,6 +192,11 @@ namespace ParseWiki.Sources
             }
         }
 
+        public ISink<WikiEvent> GetWikiEventSink()
+        {
+            return new WikiEventSink(this);
+        }
+
         public ISink<string> GetTitleSink()
         {
             return new TitleSink(this);
@@ -228,6 +271,19 @@ namespace ParseWiki.Sources
             public async Task<int?> Translate(string title)
             {
                 return await _src.GetIdByTitle(title);
+            }
+        }
+
+        private class WikiEventSink : ISink<WikiEvent>
+        {
+            private readonly MySqlDataSource _source;
+            internal WikiEventSink(MySqlDataSource source)
+            {
+                _source = source;
+            }
+            public async Task Save(int id, WikiEvent item)
+            {
+                await _source.SaveWikiEvent(item);
             }
         }
     }

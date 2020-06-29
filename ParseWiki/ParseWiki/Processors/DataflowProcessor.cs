@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,23 +10,80 @@ using ParseWiki.Sources;
 
 namespace ParseWiki.Processors
 {
+    internal class WrappedOutput<T>
+    {
+        internal int Id { get; }
+        internal T Value { get; }
+
+        internal WrappedOutput(int id, T value)
+        {
+            Id = id;
+            Value = value;
+        }
+            
+    }
     public class DataflowProcessor<T1,T2> : Processor<T1,T2> where T1 : IWithId
     {
         public DataflowProcessor(ISource<T1> source, IExtractor<T1, T2> extractor, ISink<T2> sink) : base(source, extractor, sink)
         {
         }
 
-        private class WrappedOutput
-        {
-            internal int Id { get; }
-            internal T2 Value { get; }
+        
 
-            internal WrappedOutput(int id, T2 value)
+        private class AsyncEnumerable<T> : IEnumerable<WrappedOutput<T>>
+        {
+            private IAsyncEnumerable<T> _enumer;
+            private int _id;
+            internal AsyncEnumerable(int id, IAsyncEnumerable<T> enumer)
             {
-                Id = id;
-                Value = value;
+                _enumer = enumer;
+                _id = id;
             }
-            
+            public IEnumerator<WrappedOutput<T>> GetEnumerator()
+            {
+                return new AsyncEnumerator<T>(_id, _enumer.GetAsyncEnumerator());
+            }
+
+            IEnumerator IEnumerable.GetEnumerator()
+            {
+                return new AsyncEnumerator<T>(_id, _enumer.GetAsyncEnumerator());
+            }
+        }
+
+        private class AsyncEnumerator<T> : IEnumerator<WrappedOutput<T>>
+        {
+            private IAsyncEnumerator<T> _enumer;
+            private int _id;
+            internal AsyncEnumerator(int id, IAsyncEnumerator<T> enumer)
+            {
+                _enumer = enumer;
+                _id = id;
+            }
+            public bool MoveNext()
+            {
+                var result = _enumer.MoveNextAsync();
+                result.AsTask().Wait();
+                return result.Result;
+            }
+
+            public void Reset()
+            {
+            }
+
+            public WrappedOutput<T> Current
+            {
+                get
+                {
+                    return new WrappedOutput<T>(_id, _enumer.Current);
+                }
+            }
+
+            object? IEnumerator.Current => Current;
+
+            public void Dispose()
+            {
+                _enumer.DisposeAsync().AsTask().Wait();
+            }
         }
 
         internal override async Task Process()
@@ -33,23 +91,42 @@ namespace ParseWiki.Processors
             // TransformManyBlock does not inherently support async enumerables
             // so we have to translate to a list by hand.
             // https://github.com/dotnet/runtime/issues/30863
-            var extractBlock = new TransformManyBlock<T1, WrappedOutput>(
-                async input =>
+            var extractBlock = new TransformManyBlock<T1, WrappedOutput<T2>>(
+                input =>
                 {
-                    var resultList = new List<WrappedOutput>();
-                    await foreach (var result in Extractor.Extract(input))
+                    try
                     {
-                        resultList.Add(new WrappedOutput(input.Id, result));
+                        return new AsyncEnumerable<T2>(input.Id, Extractor.Extract(input));
                     }
-                    return resultList;
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                        throw;
+                    }
+                    // await foreach (var result in Extractor.Extract(input))
+                    // {
+                    //     resultList.Add(new WrappedOutput(input.Id, result));
+                    // }
+                    // return resultList;
                 },
                 new ExecutionDataflowBlockOptions()
                 {
                     MaxDegreeOfParallelism = 32
                 }
             );
-            var sinkBlock = new ActionBlock<WrappedOutput>(
-                async output => await Sink.Save(output.Id, output.Value),
+            var sinkBlock = new ActionBlock<WrappedOutput<T2>>(
+                async output =>
+                {
+                    try
+                    {
+                        await Sink.Save(output.Id, output.Value);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                        throw;
+                    }
+                },
                 new ExecutionDataflowBlockOptions
                 {
                     MaxDegreeOfParallelism = 32
@@ -70,7 +147,12 @@ namespace ParseWiki.Processors
                 await extractBlock.SendAsync(input);
             }
             extractBlock.Complete();
-            await extractBlock.Completion;
+            while (!extractBlock.Completion.IsCompleted)
+            {
+                await Task.Delay(1000);
+            }
+            Task.WaitAll(extractBlock.Completion, sinkBlock.Completion);
+            // await extractBlock.Completion;
         }
     }
 }
