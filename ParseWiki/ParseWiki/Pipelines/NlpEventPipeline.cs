@@ -37,6 +37,7 @@ namespace ParseWiki.Pipelines
             {
                 var paragraphs = block.Text.Split('\n');
                 // var paragraphs = new[] {block.Text};
+                var count = 0;
                 foreach (var par in paragraphs)
                 {
                     var result = await _proc.ProcessText(par);
@@ -75,10 +76,13 @@ namespace ParseWiki.Pipelines
                                 yield return new WikiEvent(
                                     locations[0], dates[0], sentence, block.Id
                                 );
+                                ++count;
                             }
                         }
                     }
                 }
+
+                Console.WriteLine($"Found {count} events in {block.Title}");
             }
             
 

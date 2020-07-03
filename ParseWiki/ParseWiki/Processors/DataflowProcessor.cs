@@ -91,52 +91,73 @@ namespace ParseWiki.Processors
             // TransformManyBlock does not inherently support async enumerables
             // so we have to translate to a list by hand.
             // https://github.com/dotnet/runtime/issues/30863
-            var extractBlock = new TransformManyBlock<T1, WrappedOutput<T2>>(
-                input =>
+            // var extractBlock = new TransformManyBlock<T1, WrappedOutput<T2>>(
+            //     input =>
+            //     {
+            //         try
+            //         {
+            //             return new AsyncEnumerable<T2>(input.Id, Extractor.Extract(input));
+            //         }
+            //         catch (Exception e)
+            //         {
+            //             Console.WriteLine(e);
+            //             throw;
+            //         }
+            //         // await foreach (var result in Extractor.Extract(input))
+            //         // {
+            //         //     resultList.Add(new WrappedOutput(input.Id, result));
+            //         // }
+            //         // return resultList;
+            //     },
+            //     new ExecutionDataflowBlockOptions()
+            //     {
+            //         MaxDegreeOfParallelism = 32
+            //     }
+            // );
+            // var sinkBlock = new ActionBlock<WrappedOutput<T2>>(
+            //     async output =>
+            //     {
+            //         try
+            //         {
+            //             await Sink.Save(output.Id, output.Value);
+            //         }
+            //         catch (Exception e)
+            //         {
+            //             Console.WriteLine(e);
+            //             throw;
+            //         }
+            //     },
+            //     new ExecutionDataflowBlockOptions
+            //     {
+            //         MaxDegreeOfParallelism = 32
+            //     }
+            // );
+            // var linkOptions = new DataflowLinkOptions
+            // {
+            //     PropagateCompletion = true
+            // };
+            // extractBlock.LinkTo(sinkBlock, linkOptions);
+            var actionBlock = new ActionBlock<T1>(
+                async input =>
                 {
                     try
                     {
-                        return new AsyncEnumerable<T2>(input.Id, Extractor.Extract(input));
+                        await foreach (var output in Extractor.Extract(input))
+                        {
+                            await Sink.Save(input.Id, output);
+                        }
                     }
                     catch (Exception e)
                     {
                         Console.WriteLine(e);
-                        throw;
-                    }
-                    // await foreach (var result in Extractor.Extract(input))
-                    // {
-                    //     resultList.Add(new WrappedOutput(input.Id, result));
-                    // }
-                    // return resultList;
-                },
-                new ExecutionDataflowBlockOptions()
-                {
-                    MaxDegreeOfParallelism = 32
-                }
-            );
-            var sinkBlock = new ActionBlock<WrappedOutput<T2>>(
-                async output =>
-                {
-                    try
-                    {
-                        await Sink.Save(output.Id, output.Value);
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine(e);
-                        throw;
                     }
                 },
                 new ExecutionDataflowBlockOptions
                 {
-                    MaxDegreeOfParallelism = 32
+                    MaxDegreeOfParallelism = 32,
+                    BoundedCapacity = 32
                 }
             );
-            var linkOptions = new DataflowLinkOptions
-            {
-                PropagateCompletion = true
-            };
-            extractBlock.LinkTo(sinkBlock, linkOptions);
             await foreach (var input in Source.FetchAll())
             {
                 // this should not be necessary with the dataflow block model
@@ -144,15 +165,15 @@ namespace ParseWiki.Processors
                 // {
                 //     await Task.Delay(1000);
                 // }
-                await extractBlock.SendAsync(input);
+                await actionBlock.SendAsync(input);
             }
-            extractBlock.Complete();
-            while (!extractBlock.Completion.IsCompleted)
-            {
-                await Task.Delay(1000);
-            }
-            Task.WaitAll(extractBlock.Completion, sinkBlock.Completion);
-            // await extractBlock.Completion;
+            actionBlock.Complete();
+            // while (!extractBlock.Completion.IsCompleted)
+            // {
+            //     await Task.Delay(1000);
+            // }
+            // Task.WaitAll(actionBlock.Completion, sinkBlock.Completion);
+            await actionBlock.Completion;
         }
     }
 }

@@ -6,6 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.3.106.28" />
       <PackageReference Include="CXuesong.MW.MwParserFromScratch" Version="0.3.0-int.4" />
       <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.20" />
       <PackageReference Include="System.Interactive" Version="4.1.1" />

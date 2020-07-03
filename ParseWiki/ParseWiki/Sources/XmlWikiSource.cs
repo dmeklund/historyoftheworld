@@ -30,7 +30,8 @@ namespace ParseWiki.Sources
             StringBuilder pageText = null;
             string linkTarget = null, linkAnchor = null;
             var links = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
-            var skipArticles = new Random().Next(0, 1000);
+            var skipArticles = 0; // new Random().Next(0, 1000);
+            var minId = 0;
             var count = 0;
             while (await reader.ReadAsync())
             {
@@ -91,7 +92,10 @@ namespace ParseWiki.Sources
                             if (++count > skipArticles)
                             {
                                 await result.InitId();
-                                yield return result;
+                                if (result.Id >= minId)
+                                {
+                                    yield return result;
+                                }
                             }
 
                             links = new Dictionary<string, string>();
