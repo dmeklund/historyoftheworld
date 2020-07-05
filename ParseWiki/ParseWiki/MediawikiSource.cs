@@ -67,10 +67,6 @@ namespace ParseWiki
                         if (isTitle)
                         {
                             title = reader.Value;
-                            if (title == "Cincinnati Zoo and Botanical Garden")
-                            {
-                                Console.WriteLine("Found it!");
-                            }
                             isTitle = false;
                         }
                         else if (isId)
@@ -82,17 +78,7 @@ namespace ParseWiki
                         {
                             isText = false;
                             var text = reader.Value;
-                            // if (title != "Kid Chocolate")
-                            // {
-                            // await extractor.SendAsync(new WikiBlock(id, title, text));
-                            // if (text.Contains("coord", StringComparison.InvariantCultureIgnoreCase))
-                            // {
-                                yield return new WikiBlock(id, title, text);
-                                // ThreadPool.QueueUserWorkItem(ExtractLocations, new WikiBlock(id, title, text), true);
-                            // }
-                            // var result = ExtractLocations(new WikiBlock(id, title, text));
-                            // await SaveLocation(result);
-                            // }
+                            yield return new WikiBlock(id, title, text);
                         }
                         break;
                     case XmlNodeType.None:

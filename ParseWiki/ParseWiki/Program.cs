@@ -58,7 +58,7 @@ namespace ParseWiki
             var sink = datasource.GetWikiEventSink();
             datasource.TruncateWikiEvents();
             var pipeline = new NlpEventPipeline(
-                wikisource, 
+                wikisource,
                 sink,
                 datasource.GetIdToLocationTranslator(),
                 datasource.GetTitleToLocationTranslator(),

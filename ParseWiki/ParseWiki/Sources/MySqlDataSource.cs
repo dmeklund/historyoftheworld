@@ -43,7 +43,24 @@ namespace ParseWiki.Sources
             cmd.Parameters.AddWithValue("@lng", coord.Longitude);
             await cmd.ExecuteNonQueryAsync();
         }
-        
+
+        public async Task<Dictionary<string, int>> GetAllTitleToIds()
+        {
+            await using var conn = new MySqlConnection(_connstr);
+            await conn.OpenAsync();
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT id, title FROM titles2";
+            var reader = await cmd.ExecuteReaderAsync();
+            var result = new Dictionary<string, int>();
+            while (await reader.ReadAsync())
+            {
+                var id = reader.GetInt32(0);
+                var title = reader.GetString(1);
+                result[title] = id;
+            }
+
+            return result;
+        }
         
         internal async Task SaveWikiEvent(WikiEvent wEvent)
         {

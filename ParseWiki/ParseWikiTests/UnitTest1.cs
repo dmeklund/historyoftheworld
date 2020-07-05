@@ -7,6 +7,7 @@ using MwParserFromScratch;
 using MwParserFromScratch.Nodes;
 using NUnit.Framework;
 using ParseWiki;
+using ParseWiki.Sources;
 
 namespace ParseWikiTests
 {
@@ -70,6 +71,12 @@ namespace ParseWikiTests
             var text = File.ReadAllText("problem_wiki1.txt");
             var parser = new WikitextParser();
             var wtext = parser.Parse(text);
+        }
+
+        [Test]
+        public void TestAwsConnection()
+        {
+            var source = new DynamoDbSource();
         }
     }
 }
