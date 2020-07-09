@@ -51,7 +51,7 @@ namespace ParseWiki
         {
             const string connstr = "server=localhost; database=hotw; uid=hotw; pwd=hotw;";
             var datasource = new MySqlDataSource(connstr);
-            const string filepath = "/mnt/data/wiki/articles_in_xml_indented.xml";
+            const string filepath = "/mnt/data/wiki/articles_in_xml_with_id.xml";
             var titleToId = datasource.GetTitleToIdTranslator();
             var wikisource = new XmlWikiSource(filepath, titleToId);
             // var sink = new NullSink<WikiEvent>();
@@ -65,6 +65,12 @@ namespace ParseWiki
                 titleToId
             );
             var proc = pipeline.Build();
+            
+            Console.CancelKeyPress += delegate(object sender, ConsoleCancelEventArgs eventArgs)
+            {
+                eventArgs.Cancel = true;
+                proc.Cancel();
+            };
             await proc.Process();
         }
     }

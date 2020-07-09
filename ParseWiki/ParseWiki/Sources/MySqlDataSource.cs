@@ -68,7 +68,7 @@ namespace ParseWiki.Sources
             await conn.OpenAsync();
             var cmd = conn.CreateCommand();
             var sentenceJson = JsonSerializer.Serialize(wEvent.Sentence);
-            Console.WriteLine($"Saving wiki event for sentence: {wEvent.Sentence}");
+            // Console.WriteLine($"Saving wiki event for sentence: {wEvent.Sentence}");
             cmd.CommandText =
                 "INSERT INTO nlpevents (sentence, startyear, startmonth, startday, starthour, startminute, endyear, endmonth, endday, endhour, endminute, lat, lng, pageid)" +
                 "VALUES (@sentence, @startyear, @startmonth, @startday, @starthour, @startminute, @endyear, @endmonth, @endday, @endhour, @endminute, @lat, @lng, @pageid)";

@@ -23,24 +23,25 @@ namespace ParseWiki.DataTypes
             _titleToId = titleToId;
         }
 
+        public WikiPageLazyLoadId(string title, string text, int id)
+        {
+            Title = title;
+            Text = text;
+            _id = id;
+            _titleToId = null;
+        }
+
         public async Task InitId()
         {
             _id ??= await _titleToId.Translate(Title);
         }
-        
-        private int? _id;
-        public int Id
-        {
-            get
-            {
-                // if (_id == null)
-                // {
-                //     Console.WriteLine("Warning: ID being initialized synchronously");
-                //     InitId().Wait();
-                // }
 
-                return _id.Value;
-            }
+        public override string ToString()
+        {
+            return $"{Title} ({Id})";
         }
+
+        private int? _id;
+        public int Id => _id.Value;
     }
 }

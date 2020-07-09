@@ -27,5 +27,10 @@ namespace ParseWiki.Processors
                 }
             }
         }
+
+        internal override void Cancel()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -42,7 +42,7 @@ namespace AddIdToXml
                 }
                 else if (line.StartsWith("</pages>") || line.StartsWith("<pages>"))
                 {
-                    
+                    await outputWriter.WriteLineAsync(line);
                 }
                 else
                 {

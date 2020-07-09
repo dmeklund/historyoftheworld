@@ -24,6 +24,7 @@ namespace ParseWiki.Processors
     }
     public class DataflowProcessor<T1,T2> : Processor<T1,T2> where T1 : IWithId
     {
+        private bool _cancelled = false;
         public DataflowProcessor(ISource<T1> source, IExtractor<T1, T2> extractor, ISink<T2> sink) : base(source, extractor, sink)
         {
         }
@@ -86,57 +87,14 @@ namespace ParseWiki.Processors
             }
         }
 
+        internal override void Cancel()
+        {
+            Console.WriteLine("Waiting for running tasks to complete...");
+            _cancelled = true;
+        }
+
         internal override async Task Process()
         {
-            // TransformManyBlock does not inherently support async enumerables
-            // so we have to translate to a list by hand.
-            // https://github.com/dotnet/runtime/issues/30863
-            // var extractBlock = new TransformManyBlock<T1, WrappedOutput<T2>>(
-            //     input =>
-            //     {
-            //         try
-            //         {
-            //             return new AsyncEnumerable<T2>(input.Id, Extractor.Extract(input));
-            //         }
-            //         catch (Exception e)
-            //         {
-            //             Console.WriteLine(e);
-            //             throw;
-            //         }
-            //         // await foreach (var result in Extractor.Extract(input))
-            //         // {
-            //         //     resultList.Add(new WrappedOutput(input.Id, result));
-            //         // }
-            //         // return resultList;
-            //     },
-            //     new ExecutionDataflowBlockOptions()
-            //     {
-            //         MaxDegreeOfParallelism = 32
-            //     }
-            // );
-            // var sinkBlock = new ActionBlock<WrappedOutput<T2>>(
-            //     async output =>
-            //     {
-            //         try
-            //         {
-            //             await Sink.Save(output.Id, output.Value);
-            //         }
-            //         catch (Exception e)
-            //         {
-            //             Console.WriteLine(e);
-            //             throw;
-            //         }
-            //     },
-            //     new ExecutionDataflowBlockOptions
-            //     {
-            //         MaxDegreeOfParallelism = 32
-            //     }
-            // );
-            // var linkOptions = new DataflowLinkOptions
-            // {
-            //     PropagateCompletion = true
-            // };
-            // extractBlock.LinkTo(sinkBlock, linkOptions);
             var actionBlock = new ActionBlock<T1>(
                 async input =>
                 {
@@ -154,10 +112,11 @@ namespace ParseWiki.Processors
                 },
                 new ExecutionDataflowBlockOptions
                 {
-                    MaxDegreeOfParallelism = 32,
-                    BoundedCapacity = 32
+                    MaxDegreeOfParallelism = 16,
+                    BoundedCapacity = 16
                 }
             );
+            int lastId = -1;
             await foreach (var input in Source.FetchAll())
             {
                 // this should not be necessary with the dataflow block model
@@ -165,15 +124,18 @@ namespace ParseWiki.Processors
                 // {
                 //     await Task.Delay(1000);
                 // }
+                Console.WriteLine($"Processing {input}");
                 await actionBlock.SendAsync(input);
+                lastId = input.Id;
+                if (_cancelled)
+                {
+                    break;
+                }
             }
             actionBlock.Complete();
-            // while (!extractBlock.Completion.IsCompleted)
-            // {
-            //     await Task.Delay(1000);
-            // }
-            // Task.WaitAll(actionBlock.Completion, sinkBlock.Completion);
+            Console.WriteLine($"Dataflow submission finished: awaiting {actionBlock.InputCount} items in the queue");
             await actionBlock.Completion;
+            Console.WriteLine($"Process completed (canceled? {_cancelled}). Last id: {lastId}");
         }
     }
 }

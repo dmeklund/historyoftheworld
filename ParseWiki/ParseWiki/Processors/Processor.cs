@@ -19,5 +19,7 @@ namespace ParseWiki.Processors
         }
 
         internal abstract Task Process();
+
+        internal abstract void Cancel();
     }
 }

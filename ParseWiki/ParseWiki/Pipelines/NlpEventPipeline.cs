@@ -21,10 +21,11 @@ namespace ParseWiki.Pipelines
             private readonly ITranslator<int, WikiLocation> _idToLocation;
             private readonly ITranslator<string, WikiLocation> _titleToLocation;
             private readonly ITranslator<string, int?> _titleToId;
+
             public NlpEventExtractor(
-                ITranslator<int,WikiLocation> idToLocation, 
-                ITranslator<string,WikiLocation> titleToLocation,
-                ITranslator<string,int?> titleToId
+                ITranslator<int, WikiLocation> idToLocation,
+                ITranslator<string, WikiLocation> titleToLocation,
+                ITranslator<string, int?> titleToId
             )
             {
                 _proc = new NlpProcessor();
@@ -32,7 +33,7 @@ namespace ParseWiki.Pipelines
                 _titleToLocation = titleToLocation;
                 _titleToId = titleToId;
             }
-            
+
             public async IAsyncEnumerable<WikiEvent> Extract(WikiPageLazyLoadId block)
             {
                 var paragraphs = block.Text.Split('\n');
@@ -72,7 +73,7 @@ namespace ParseWiki.Pipelines
                             {
                                 sentence.LinkCoreferences(result.corefs.Values);
                                 await block.InitId();
-                                Console.WriteLine($"Passing along event for sentence: {sentence}");
+                                // Console.WriteLine($"Passing along event for sentence: {sentence}");
                                 yield return new WikiEvent(
                                     locations[0], dates[0], sentence, block.Id
                                 );
@@ -84,7 +85,7 @@ namespace ParseWiki.Pipelines
 
                 Console.WriteLine($"Found {count} events in {block.Title}");
             }
-            
+
 
             private async Task<WikiLocation> FindLocation(string name, IDictionary<string, string> links)
             {
@@ -101,16 +102,19 @@ namespace ParseWiki.Pipelines
                         }
                     }
                 }
+
                 location = await _titleToLocation.Translate(name);
                 return location;
             }
         }
-        
+
         private readonly ISource<WikiPageLazyLoadId> _source;
         private readonly ISink<WikiEvent> _sink;
         private readonly ITranslator<int, WikiLocation> _idToLocation;
         private readonly ITranslator<string, WikiLocation> _titleToLocation;
         private readonly ITranslator<string, int?> _titleToId;
+        private DataflowProcessor<WikiPageLazyLoadId, WikiEvent> _proc;
+
         public NlpEventPipeline(
             ISource<WikiPageLazyLoadId> source,
             ISink<WikiEvent> sink,
@@ -128,12 +132,12 @@ namespace ParseWiki.Pipelines
 
         public Processor<WikiPageLazyLoadId, WikiEvent> Build()
         {
-            var proc = new DataflowProcessor<WikiPageLazyLoadId, WikiEvent>(
+            _proc = new DataflowProcessor<WikiPageLazyLoadId, WikiEvent>(
                 _source,
-                new NlpEventExtractor(_idToLocation, _titleToLocation, _titleToId), 
+                new NlpEventExtractor(_idToLocation, _titleToLocation, _titleToId),
                 _sink
             );
-            return proc;
+            return _proc;
         }
     }
 }

@@ -26,6 +26,7 @@ namespace ParseWiki.Sources
             using var reader = XmlReader.Create(stream, settings);
             var parentElements = new Stack<string>();
             string title = "";
+            int id = -1;
             var isText = false;
             StringBuilder pageText = null;
             string linkTarget = null, linkAnchor = null;
@@ -75,6 +76,10 @@ namespace ParseWiki.Sources
                             pageText.Append(reader.Value);
                             pageText.Append(" ");
                         }
+                        else if (parentElementName == "id")
+                        {
+                            id = int.Parse(reader.Value);
+                        }
                         else if (isText)
                         {
                             pageText.Append(reader.Value);
@@ -85,13 +90,19 @@ namespace ParseWiki.Sources
                         if (reader.Name == "text")
                         {
                             var text = pageText.ToString();
-                            var result = new WikiPageLazyLoadId(title, text, _titleToId)
-                            {
-                                Links = links
-                            };
                             if (++count > skipArticles)
                             {
-                                await result.InitId();
+                                WikiPageLazyLoadId result;
+                                if (id == -1)
+                                {
+                                    result = new WikiPageLazyLoadId(title, text, _titleToId);
+                                    await result.InitId();
+                                }
+                                else
+                                {
+                                    result = new WikiPageLazyLoadId(title, text, id);
+                                }
+                                result.Links = links;
                                 if (result.Id >= minId)
                                 {
                                     yield return result;
@@ -99,6 +110,7 @@ namespace ParseWiki.Sources
                             }
 
                             links = new Dictionary<string, string>();
+                            id = -1;
                         }
                         else if (reader.Name == "link")
                         {
