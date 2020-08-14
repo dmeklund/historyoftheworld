@@ -56,7 +56,7 @@ namespace ParseWiki
             var wikisource = new XmlWikiSource(filepath, titleToId);
             // var sink = new NullSink<WikiEvent>();
             var sink = datasource.GetWikiEventSink();
-            datasource.TruncateWikiEvents();
+            // datasource.TruncateWikiEvents();
             var pipeline = new NlpEventPipeline(
                 wikisource,
                 sink,
