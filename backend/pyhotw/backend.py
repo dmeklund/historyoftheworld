@@ -12,6 +12,7 @@ parser = reqparse.RequestParser()
 parser.add_argument("_southWest")
 parser.add_argument("_northEast")
 
+
 def project(val, minval, maxval):
     span = maxval - minval
     assert span > 0
@@ -21,17 +22,21 @@ def project(val, minval, maxval):
         val -= span
     return val
 
+
 @app.route("/")
 def index():
     return flask.send_from_directory("static", "mapapp.html")
+
 
 @app.route("/static/<path:path>")
 def send_static(path):
     return flask.send_from_directory("static", path)
 
+
 @app.route("/js/<path:path>")
 def send_js(path):
     return flask.send_from_directory("js", path)
+
 
 class Events(Resource):
     def post(self):
@@ -43,16 +48,16 @@ class Events(Resource):
         minlng = southwest['lng']
         maxlng = northeast['lng']
         if maxlng - minlng > 360:
-            minlng = 0
-            maxlng = 360
+            minlng = -180
+            maxlng = 180
         else:
             pass
         minlat = project(southwest['lat'], -180, 180)
-        minlng = project(southwest['lng'], -180, 180)
+        minlng = project(minlng, -180, 180)
         maxlat = project(northeast['lat'], -180, 180)
-        maxlng = project(northeast['lng'], -180, 180)
+        maxlng = project(maxlng, -180, 180)
         db = mysql.connector.connect(
-            host="localhost",
+            host="192.168.0.187",
             user="hotw",
             passwd="hotw",
             database="hotw",
@@ -84,6 +89,7 @@ class Events(Resource):
             )
         print("Returning: {}".format(json.dumps(allevents)))
         return allevents
+
 
 api.add_resource(Events, '/events')
 

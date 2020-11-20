@@ -11,8 +11,8 @@ flask==1.1.2              # via -r requirements.in, flask-restful
 itsdangerous==1.1.0       # via flask
 jinja2==2.11.2            # via flask
 markupsafe==1.1.1         # via jinja2
-mysql==0.0.2              # via -r requirements.in
-mysqlclient==2.0.1        # via mysql
+mysql-connector-python==8.0.22  # via -r requirements.in
+protobuf==3.14.0          # via mysql-connector-python
 pytz==2020.4              # via flask-restful
-six==1.15.0               # via flask-restful
+six==1.15.0               # via flask-restful, protobuf
 werkzeug==1.0.1           # via flask
