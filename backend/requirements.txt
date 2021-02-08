@@ -16,3 +16,6 @@ protobuf==3.14.0          # via mysql-connector-python
 pytz==2020.4              # via flask-restful
 six==1.15.0               # via flask-restful, protobuf
 werkzeug==1.0.1           # via flask
+
+# The following packages are considered to be unsafe in a requirements file:
+# setuptools
