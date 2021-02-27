@@ -4,9 +4,9 @@ namespace ParseWiki.DataTypes
 {
     public class WikiId : IWithId
     {
-        public int Id { get; }
+        public long Id { get; }
 
-        internal WikiId(int id)
+        internal WikiId(long id)
         {
             Id = id;
         }

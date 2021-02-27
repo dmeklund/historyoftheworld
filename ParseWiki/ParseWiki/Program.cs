@@ -1,5 +1,8 @@
 ﻿using System;
+using System.IO;
+using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using ParseWiki.DataTypes;
 using ParseWiki.Extractors;
 using ParseWiki.Pipelines;
@@ -47,7 +50,7 @@ namespace ParseWiki
             await proc.Process();
         }
 
-        static async Task Main(string[] args)
+        static async Task Main5(string[] args)
         {
             const string connstr = "server=localhost; database=hotw; uid=hotw; pwd=hotw;";
             var datasource = new MySqlDataSource(connstr);
@@ -71,6 +74,17 @@ namespace ParseWiki
                 eventArgs.Cancel = true;
                 proc.Cancel();
             };
+            await proc.Process();
+        }
+
+        static async Task Main(string[] args)
+        {
+            const string inputFile = "/home/david/enwiki-20210120-pages-articles-multistream.xml";
+            const string outputPath = "/home/david/wikisorted";
+            var source = new PageXmlSource(inputFile);
+            var sink = new PageWriterSink(outputPath, 3);
+            var extractor = new IdentityExtractor<PageXml>();
+            var proc = new DataflowProcessor<PageXml, PageXml>(source, extractor, sink);
             await proc.Process();
         }
     }

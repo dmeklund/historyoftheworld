@@ -65,14 +65,14 @@ namespace ParseWiki
                 arg => MwParserUtility.NormalizeTemplateArgumentName(arg.Name) == argName);
         }
 
-        public Infobox(int id, string title, Coord location)
+        public Infobox(long id, string title, Coord location)
         {
             Id = id;
             Title = title;
             Location = location;
         }
 
-        public int Id { get; }
+        public long Id { get; }
         public string Title { get; }
         public Coord Location { get; }
 

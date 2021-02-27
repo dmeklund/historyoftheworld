@@ -4,6 +4,6 @@ namespace ParseWiki.Sinks
 {
     public interface ISink<in T>
     {
-        Task Save(int id, T item);
+        Task Save(long id, T item);
     }
 }

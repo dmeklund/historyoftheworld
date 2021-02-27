@@ -18,14 +18,14 @@ namespace ParseWiki.Pipelines
         private class NlpEventExtractor : IExtractor<WikiPageLazyLoadId, WikiEvent>
         {
             private readonly NlpProcessor _proc;
-            private readonly ITranslator<int, WikiLocation> _idToLocation;
+            private readonly ITranslator<long, WikiLocation> _idToLocation;
             private readonly ITranslator<string, WikiLocation> _titleToLocation;
-            private readonly ITranslator<string, int?> _titleToId;
+            private readonly ITranslator<string, long?> _titleToId;
 
             public NlpEventExtractor(
-                ITranslator<int, WikiLocation> idToLocation,
+                ITranslator<long, WikiLocation> idToLocation,
                 ITranslator<string, WikiLocation> titleToLocation,
-                ITranslator<string, int?> titleToId
+                ITranslator<string, long?> titleToId
             )
             {
                 _proc = new NlpProcessor();
@@ -110,17 +110,17 @@ namespace ParseWiki.Pipelines
 
         private readonly ISource<WikiPageLazyLoadId> _source;
         private readonly ISink<WikiEvent> _sink;
-        private readonly ITranslator<int, WikiLocation> _idToLocation;
+        private readonly ITranslator<long, WikiLocation> _idToLocation;
         private readonly ITranslator<string, WikiLocation> _titleToLocation;
-        private readonly ITranslator<string, int?> _titleToId;
+        private readonly ITranslator<string, long?> _titleToId;
         private DataflowProcessor<WikiPageLazyLoadId, WikiEvent> _proc;
 
         public NlpEventPipeline(
             ISource<WikiPageLazyLoadId> source,
             ISink<WikiEvent> sink,
-            ITranslator<int, WikiLocation> idToLocation,
+            ITranslator<long, WikiLocation> idToLocation,
             ITranslator<string, WikiLocation> titleToLocation,
-            ITranslator<string, int?> titleToId
+            ITranslator<string, long?> titleToId
         )
         {
             _source = source;

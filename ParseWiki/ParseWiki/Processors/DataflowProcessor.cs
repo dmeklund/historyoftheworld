@@ -116,7 +116,7 @@ namespace ParseWiki.Processors
                     BoundedCapacity = 16
                 }
             );
-            int lastId = -1;
+            var lastId = -1L;
             await foreach (var input in Source.FetchAll())
             {
                 // this should not be necessary with the dataflow block model
@@ -124,7 +124,7 @@ namespace ParseWiki.Processors
                 // {
                 //     await Task.Delay(1000);
                 // }
-                Console.WriteLine($"Processing {input}");
+                // Console.WriteLine($"Processing {input}");
                 await actionBlock.SendAsync(input);
                 lastId = input.Id;
                 if (_cancelled)

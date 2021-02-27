@@ -12,8 +12,8 @@ namespace ParseWiki.Sources
     public class XmlWikiSource : ISource<WikiPageLazyLoadId>
     {
         private string _filepath;
-        private readonly ITranslator<string, int?> _titleToId;
-        public XmlWikiSource(string wikiXmlPath, ITranslator<string, int?> titleToId)
+        private readonly ITranslator<string, long?> _titleToId;
+        public XmlWikiSource(string wikiXmlPath, ITranslator<string, long?> titleToId)
         {
             _filepath = wikiXmlPath;
             _titleToId = titleToId;
@@ -26,7 +26,7 @@ namespace ParseWiki.Sources
             using var reader = XmlReader.Create(stream, settings);
             var parentElements = new Stack<string>();
             string title = "";
-            int id = -1;
+            var id = -1L;
             var isText = false;
             StringBuilder pageText = null;
             string linkTarget = null, linkAnchor = null;
@@ -78,7 +78,7 @@ namespace ParseWiki.Sources
                         }
                         else if (parentElementName == "id")
                         {
-                            id = int.Parse(reader.Value);
+                            id = long.Parse(reader.Value);
                         }
                         else if (isText)
                         {

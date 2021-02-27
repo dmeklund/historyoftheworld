@@ -13,7 +13,7 @@ namespace AddIdToXml
 {
     class Program
     {
-        private static IDictionary<string, int> _titleToId;
+        private static IDictionary<string, long> _titleToId;
         static async Task Main(string[] args)
         {
             const string connstr = "server=localhost; database=hotw; uid=hotw; pwd=hotw;";

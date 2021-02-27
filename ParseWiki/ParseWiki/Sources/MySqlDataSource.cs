@@ -18,7 +18,7 @@ namespace ParseWiki.Sources
             _connstr = connstr;
         }
         
-        public async Task SaveEvent(int id, string title, string eventtype, DateRange range, Coord coord)
+        public async Task SaveEvent(long id, string title, string eventtype, DateRange range, Coord coord)
         {
             await using var conn = new MySqlConnection(_connstr);
             await conn.OpenAsync();
@@ -44,17 +44,17 @@ namespace ParseWiki.Sources
             await cmd.ExecuteNonQueryAsync();
         }
 
-        public async Task<Dictionary<string, int>> GetAllTitleToIds()
+        public async Task<Dictionary<string, long>> GetAllTitleToIds()
         {
             await using var conn = new MySqlConnection(_connstr);
             await conn.OpenAsync();
             var cmd = conn.CreateCommand();
             cmd.CommandText = "SELECT id, title FROM titles2";
             var reader = await cmd.ExecuteReaderAsync();
-            var result = new Dictionary<string, int>();
+            var result = new Dictionary<string, long>();
             while (await reader.ReadAsync())
             {
-                var id = reader.GetInt32(0);
+                var id = reader.GetInt64(0);
                 var title = reader.GetString(1);
                 result[title] = id;
             }
@@ -89,7 +89,7 @@ namespace ParseWiki.Sources
             await cmd.ExecuteNonQueryAsync();
         }
 
-        public async Task SaveLocation(int id, string title, Coord coord)
+        public async Task SaveLocation(long id, string title, Coord coord)
         { 
             await using var conn = new MySqlConnection(_connstr);
             await conn.OpenAsync();
@@ -131,7 +131,7 @@ namespace ParseWiki.Sources
             await cmd.ExecuteNonQueryAsync();
         }
 
-        public async Task SaveTitle(int id, string title)
+        public async Task SaveTitle(long id, string title)
         {
             await using var conn = new MySqlConnection(_connstr);
             await conn.OpenAsync();
@@ -149,7 +149,7 @@ namespace ParseWiki.Sources
             }
         }
 
-        internal async Task<WikiLocation> GetLocationById(int id)
+        internal async Task<WikiLocation> GetLocationById(long id)
         {
             await using var conn = new MySqlConnection(_connstr);
             await conn.OpenAsync();
@@ -179,7 +179,7 @@ namespace ParseWiki.Sources
             if (await reader.ReadAsync())
             {
                 return new WikiLocation(
-                    reader.GetInt32(0),
+                    reader.GetInt64(0),
                     title,
                     new Coord(reader.GetFloat(1), reader.GetFloat(2))
                 );
@@ -187,7 +187,7 @@ namespace ParseWiki.Sources
             return null;
         }
 
-        internal async Task<int?> GetIdByTitle(string title)
+        internal async Task<long?> GetIdByTitle(string title)
         {
             try
             {
@@ -197,7 +197,7 @@ namespace ParseWiki.Sources
                 cmd.CommandText = "SELECT id FROM titles2 WHERE title=@title";
                 cmd.Parameters.AddWithValue("@title", title);
                 var result = await cmd.ExecuteScalarAsync();
-                return (int?) result;
+                return (long?) result;
             }
             catch (TimeoutException)
             {
@@ -219,12 +219,12 @@ namespace ParseWiki.Sources
             return new TitleSink(this);
         }
 
-        public ITranslator<string, int?> GetTitleToIdTranslator()
+        public ITranslator<string, long?> GetTitleToIdTranslator()
         {
             return new TitleToIdTranslator(this);
         }
 
-        public ITranslator<int, WikiLocation> GetIdToLocationTranslator()
+        public ITranslator<long, WikiLocation> GetIdToLocationTranslator()
         {
             return new IdToLocationTranslator(this);
         }
@@ -234,7 +234,7 @@ namespace ParseWiki.Sources
             return new TitleToLocationTranslator(this);
         }
 
-        private class IdToLocationTranslator : ITranslator<int, WikiLocation>
+        private class IdToLocationTranslator : ITranslator<long, WikiLocation>
         {
             private readonly MySqlDataSource _source;
             internal IdToLocationTranslator(MySqlDataSource source)
@@ -242,7 +242,7 @@ namespace ParseWiki.Sources
                 _source = source;
             }
             
-            public Task<WikiLocation> Translate(int id)
+            public Task<WikiLocation> Translate(long id)
             {
                 return _source.GetLocationById(id);
             }
@@ -270,13 +270,13 @@ namespace ParseWiki.Sources
             {
                 _source = source;
             }
-            public async Task Save(int id, string item)
+            public async Task Save(long id, string item)
             {
                 await _source.SaveTitle(id, item);
             }
         }
 
-        private class TitleToIdTranslator : ITranslator<string, int?>
+        private class TitleToIdTranslator : ITranslator<string, long?>
         {
             private readonly MySqlDataSource _src;
             
@@ -285,7 +285,7 @@ namespace ParseWiki.Sources
                 _src = src;
             }
 
-            public async Task<int?> Translate(string title)
+            public async Task<long?> Translate(string title)
             {
                 return await _src.GetIdByTitle(title);
             }
@@ -298,7 +298,7 @@ namespace ParseWiki.Sources
             {
                 _source = source;
             }
-            public async Task Save(int id, WikiEvent item)
+            public async Task Save(long id, WikiEvent item)
             {
                 await _source.SaveWikiEvent(item);
             }

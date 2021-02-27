@@ -8,13 +8,13 @@ namespace ParseWiki.DataTypes
         internal WikiLocation Location { get; }
         internal DateRange Date { get; }
         internal Sentence Sentence { get; }
-        internal int PageId { get; }
+        internal long PageId { get; }
 
         public WikiEvent(
             WikiLocation location,
             DateRange date,
             Sentence sentence,
-            int pageId
+            long pageId
         )
         {
             Location = location;

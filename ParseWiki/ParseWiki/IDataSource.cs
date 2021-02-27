@@ -4,8 +4,8 @@ namespace ParseWiki
 {
     public interface IDataSource
     {
-        Task SaveEvent(int id, string title, string eventtype, DateRange range, Coord coord);
+        Task SaveEvent(long id, string title, string eventtype, DateRange range, Coord coord);
 
-        Task SaveLocation(int id, string title, Coord coord);
+        Task SaveLocation(long id, string title, Coord coord);
     }
 }

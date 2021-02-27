@@ -17,7 +17,7 @@ namespace ParseWiki
 {
     public struct WikiBlock : IWithId
     {
-        public int Id { get; }
+        public long Id { get; }
         public string Title { get; }
         private Wikitext _wtext;
         private string _text;

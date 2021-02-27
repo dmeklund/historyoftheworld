@@ -11,19 +11,19 @@ namespace ParseWiki.DataTypes
 {
     public class WikiPageLazyLoadId : IWithId
     {
-        private readonly ITranslator<string, int?> _titleToId;
+        private readonly ITranslator<string, long?> _titleToId;
         public string Title { get; }
         public string Text { get; }
         public IDictionary<string, string> Links { get; set; }
 
-        public WikiPageLazyLoadId(string title, string text, ITranslator<string, int?> titleToId)
+        public WikiPageLazyLoadId(string title, string text, ITranslator<string, long?> titleToId)
         {
             Title = title;
             Text = text;
             _titleToId = titleToId;
         }
 
-        public WikiPageLazyLoadId(string title, string text, int id)
+        public WikiPageLazyLoadId(string title, string text, long id)
         {
             Title = title;
             Text = text;
@@ -41,7 +41,7 @@ namespace ParseWiki.DataTypes
             return $"{Title} ({Id})";
         }
 
-        private int? _id;
-        public int Id => _id.Value;
+        private long? _id;
+        public long Id => _id.Value;
     }
 }

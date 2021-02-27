@@ -3,10 +3,10 @@ namespace ParseWiki
     public class WikiLocation
     {
         public Coord Coordinate { get; set; }
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string Title { get; set; }
 
-        public WikiLocation(int id, string title, Coord coord)
+        public WikiLocation(long id, string title, Coord coord)
         {
             Id = id;
             Title = title;
